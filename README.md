@@ -5,26 +5,26 @@
 </h1>
 
 <p align="center">
-<b><a href="#Overview">Overview</a></b>
+<b><a href="#overview">Overview</a></b>
 |
-<b><a href="#System diagram">System diagram</a></b>
+<b><a href="#system-diagram">System diagram</a></b>
 |
-<b><a href="#License">License</a></b>
+<b><a href="#license">License</a></b>
 </p>
 
 ## Overview
 
 ## Table of contents
-* [**System diagram**](#System diagram)
-* [**Module test**] (#Module test) (either or not ROS-based)
-  * [**Base driving test**](#Base driving test)
-  * [**IMU sensing test**](#IMU sensing test)
-  * [**Laser scan test**](#Laser scan test)
-  * [**Charger test**](#Charger test)
-  * [**Camera Joint spining test**](#Camera Joint spining test)     
-* [**Function test**](#Function test) (ROS-based)
-  * [**Tele-operation**](#Tele-operation) 
-* [**Appendix**](#Appendix)
+* [**System diagram**](#system-diagram)
+* [**Module test**] (#module-test) (either or not ROS-based)
+  * [**Base driving test**](#base-driving-test)
+  * [**IMU sensing test**](#imu-sensing-test)
+  * [**Laser scan test**](#laser-scan-test)
+  * [**Charger test**](#charger-test)
+  * [**Camera Joint spining test**](#camera-joint-spining-test)     
+* [**Function test**](#function-test) (ROS-based)
+  * [**Tele-operation**](#tele-operation) 
+* [**Appendix**](#appendix)
 
 ## System diagram
 * Diagrams
@@ -69,7 +69,7 @@
 
 ### Camera Joint spining test
  
-## Function test (ROS-based)
+## Function test 
 
 ### Tele-operation
 
