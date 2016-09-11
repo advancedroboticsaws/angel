@@ -1,0 +1,142 @@
+.TH "ros::NodeHandle_< Hardware, MAX_SUBSCRIBERS, MAX_PUBLISHERS, INPUT_SIZE, OUTPUT_SIZE >" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ros::NodeHandle_< Hardware, MAX_SUBSCRIBERS, MAX_PUBLISHERS, INPUT_SIZE, OUTPUT_SIZE > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::NodeHandleBase_\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "Hardware * \fBgetHardware\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitNode\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitNode\fP (char *portName)"
+.br
+.ti -1c
+.RI "virtual int \fBspinOnce\fP ()"
+.br
+.ti -1c
+.RI "virtual bool \fBconnected\fP ()"
+.br
+.ti -1c
+.RI "void \fBrequestSyncTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBsyncTime\fP (uint8_t *data)"
+.br
+.ti -1c
+.RI "\fBTime\fP \fBnow\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNow\fP (\fBTime\fP &new_now)"
+.br
+.ti -1c
+.RI "bool \fBadvertise\fP (\fBPublisher\fP &p)"
+.br
+.ti -1c
+.RI "template<typename MsgT > bool \fBsubscribe\fP (\fBSubscriber\fP< MsgT > &s)"
+.br
+.ti -1c
+.RI "template<typename MReq , typename MRes > bool \fBadvertiseService\fP (\fBServiceServer\fP< MReq, MRes > &srv)"
+.br
+.ti -1c
+.RI "template<typename MReq , typename MRes > bool \fBserviceClient\fP (\fBServiceClient\fP< MReq, MRes > &srv)"
+.br
+.ti -1c
+.RI "void \fBnegotiateTopics\fP ()"
+.br
+.ti -1c
+.RI "virtual int \fBpublish\fP (int id, const \fBMsg\fP *msg)"
+.br
+.ti -1c
+.RI "void \fBlogdebug\fP (const char *msg)"
+.br
+.ti -1c
+.RI "void \fBloginfo\fP (const char *msg)"
+.br
+.ti -1c
+.RI "void \fBlogwarn\fP (const char *msg)"
+.br
+.ti -1c
+.RI "void \fBlogerror\fP (const char *msg)"
+.br
+.ti -1c
+.RI "void \fBlogfatal\fP (const char *msg)"
+.br
+.ti -1c
+.RI "bool \fBgetParam\fP (const char *name, int *param, int length=1)"
+.br
+.ti -1c
+.RI "bool \fBgetParam\fP (const char *name, float *param, int length=1)"
+.br
+.ti -1c
+.RI "bool \fBgetParam\fP (const char *name, char **param, int length=1)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Hardware \fBhardware_\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrt_time\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsec_offset\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBnsec_offset\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmessage_in\fP [INPUT_SIZE]"
+.br
+.ti -1c
+.RI "uint8_t \fBmessage_out\fP [OUTPUT_SIZE]"
+.br
+.ti -1c
+.RI "\fBPublisher\fP * \fBpublishers\fP [MAX_PUBLISHERS]"
+.br
+.ti -1c
+.RI "\fBSubscriber_\fP * \fBsubscribers\fP [MAX_SUBSCRIBERS]"
+.br
+.ti -1c
+.RI "int \fBmode_\fP"
+.br
+.ti -1c
+.RI "int \fBbytes_\fP"
+.br
+.ti -1c
+.RI "int \fBtopic_\fP"
+.br
+.ti -1c
+.RI "int \fBindex_\fP"
+.br
+.ti -1c
+.RI "int \fBchecksum_\fP"
+.br
+.ti -1c
+.RI "bool \fBconfigured_\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlast_sync_time\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlast_sync_receive_time\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlast_msg_timeout_time\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

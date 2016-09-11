@@ -1,0 +1,73 @@
+.TH "jsk_recognition_msgs::SnapItRequest" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+jsk_recognition_msgs::SnapItRequest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBMODEL_PLANE\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBMODEL_CYLINDER\fP = 1 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmodel_type\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::PolygonStamped\fP \fBtarget_plane\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::PointStamped\fP \fBcenter\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Vector3Stamped\fP \fBdirection\fP"
+.br
+.ti -1c
+.RI "float \fBradius\fP"
+.br
+.ti -1c
+.RI "float \fBheight\fP"
+.br
+.ti -1c
+.RI "float \fBmax_distance\fP"
+.br
+.ti -1c
+.RI "float \fBeps_angle\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

@@ -1,0 +1,118 @@
+.TH "moveit_msgs::CollisionObject" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::CollisionObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBADD\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOVE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBAPPEND\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBMOVE\fP = 3 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "const char * \fBid\fP"
+.br
+.ti -1c
+.RI "\fBobject_recognition_msgs::ObjectType\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBprimitives_length\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::SolidPrimitive\fP \fBst_primitives\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::SolidPrimitive\fP * \fBprimitives\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBprimitive_poses_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP \fBst_primitive_poses\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP * \fBprimitive_poses\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmeshes_length\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::Mesh\fP \fBst_meshes\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::Mesh\fP * \fBmeshes\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmesh_poses_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP \fBst_mesh_poses\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP * \fBmesh_poses\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBplanes_length\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::Plane\fP \fBst_planes\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::Plane\fP * \fBplanes\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBplane_poses_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP \fBst_plane_poses\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP * \fBplane_poses\fP"
+.br
+.ti -1c
+.RI "int8_t \fBoperation\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

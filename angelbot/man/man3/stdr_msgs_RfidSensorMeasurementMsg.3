@@ -1,0 +1,66 @@
+.TH "stdr_msgs::RfidSensorMeasurementMsg" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+stdr_msgs::RfidSensorMeasurementMsg \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBrfid_tags_ids_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_rfid_tags_ids\fP"
+.br
+.ti -1c
+.RI "char ** \fBrfid_tags_ids\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBrfid_tags_msgs_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_rfid_tags_msgs\fP"
+.br
+.ti -1c
+.RI "char ** \fBrfid_tags_msgs\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBrfid_tags_dbs_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_rfid_tags_dbs\fP"
+.br
+.ti -1c
+.RI "float * \fBrfid_tags_dbs\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

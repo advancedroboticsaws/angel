@@ -1,0 +1,73 @@
+.TH "scheduler_msgs::CurrentStatus" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+scheduler_msgs::CurrentStatus \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBAVAILABLE\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBALLOCATED\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBMISSING\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBGONE\fP = 3 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBuri\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBstatus\fP"
+.br
+.ti -1c
+.RI "\fBuuid_msgs::UniqueID\fP \fBowner\fP"
+.br
+.ti -1c
+.RI "int16_t \fBpriority\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBrapps_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_rapps\fP"
+.br
+.ti -1c
+.RI "char ** \fBrapps\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

@@ -1,0 +1,172 @@
+.TH "image_view2::ImageMarker2" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+image_view2::ImageMarker2 \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBCIRCLE\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBLINE_STRIP\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBLINE_LIST\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBPOLYGON\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBPOINTS\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBFRAMES\fP = 5 }"
+.br
+.ti -1c
+.RI "enum { \fBTEXT\fP = 6 }"
+.br
+.ti -1c
+.RI "enum { \fBLINE_STRIP3D\fP = 7 }"
+.br
+.ti -1c
+.RI "enum { \fBLINE_LIST3D\fP = 8 }"
+.br
+.ti -1c
+.RI "enum { \fBPOLYGON3D\fP = 9 }"
+.br
+.ti -1c
+.RI "enum { \fBPOINTS3D\fP = 10 }"
+.br
+.ti -1c
+.RI "enum { \fBTEXT3D\fP = 11 }"
+.br
+.ti -1c
+.RI "enum { \fBCIRCLE3D\fP = 12 }"
+.br
+.ti -1c
+.RI "enum { \fBADD\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOVE\fP = 1 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "const char * \fBns\fP"
+.br
+.ti -1c
+.RI "int32_t \fBid\fP"
+.br
+.ti -1c
+.RI "int32_t \fBtype\fP"
+.br
+.ti -1c
+.RI "int32_t \fBaction\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Point\fP \fBposition\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::PointStamped\fP \fBposition3D\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::PoseStamped\fP \fBpose\fP"
+.br
+.ti -1c
+.RI "float \fBscale\fP"
+.br
+.ti -1c
+.RI "float \fBwidth\fP"
+.br
+.ti -1c
+.RI "\fBstd_msgs::ColorRGBA\fP \fBoutline_color\fP"
+.br
+.ti -1c
+.RI "int8_t \fBfilled\fP"
+.br
+.ti -1c
+.RI "\fBstd_msgs::ColorRGBA\fP \fBfill_color\fP"
+.br
+.ti -1c
+.RI "\fBros::Duration\fP \fBlifetime\fP"
+.br
+.ti -1c
+.RI "int8_t \fBarc\fP"
+.br
+.ti -1c
+.RI "float \fBangle\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpoints_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Point\fP \fBst_points\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Point\fP * \fBpoints\fP"
+.br
+.ti -1c
+.RI "\fBimage_view2::PointArrayStamped\fP \fBpoints3D\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBoutline_colors_length\fP"
+.br
+.ti -1c
+.RI "\fBstd_msgs::ColorRGBA\fP \fBst_outline_colors\fP"
+.br
+.ti -1c
+.RI "\fBstd_msgs::ColorRGBA\fP * \fBoutline_colors\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBframes_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_frames\fP"
+.br
+.ti -1c
+.RI "char ** \fBframes\fP"
+.br
+.ti -1c
+.RI "const char * \fBtext\fP"
+.br
+.ti -1c
+.RI "bool \fBleft_up_origin\fP"
+.br
+.ti -1c
+.RI "bool \fBratio_scale\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

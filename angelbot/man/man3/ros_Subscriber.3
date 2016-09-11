@@ -1,0 +1,47 @@
+.TH "ros::Subscriber< MsgT >" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ros::Subscriber< MsgT > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Subscriber_\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBCallbackT\fP )(const MsgT &)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSubscriber\fP (const char *topic_name, CallbackT cb, int endpoint=rosserial_msgs::TopicInfo::ID_SUBSCRIBER)"
+.br
+.ti -1c
+.RI "virtual void \fBcallback\fP (unsigned char *data)"
+.br
+.ti -1c
+.RI "virtual const char * \fBgetMsgType\fP ()"
+.br
+.ti -1c
+.RI "virtual const char * \fBgetMsgMD5\fP ()"
+.br
+.ti -1c
+.RI "virtual int \fBgetEndpointType\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "MsgT \fBmsg\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

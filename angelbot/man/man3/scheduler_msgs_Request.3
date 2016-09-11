@@ -1,0 +1,124 @@
+.TH "scheduler_msgs::Request" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+scheduler_msgs::Request \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBNEW\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBRESERVED\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBWAITING\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBGRANTED\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBPREEMPTING\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBCANCELING\fP = 5 }"
+.br
+.ti -1c
+.RI "enum { \fBCLOSED\fP = 6 }"
+.br
+.ti -1c
+.RI "enum { \fBNONE\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBPREEMPTED\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBBUSY\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBUNAVAILABLE\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBTIMEOUT\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBINVALID\fP = 5 }"
+.br
+.ti -1c
+.RI "enum { \fBBACKGROUND_PRIORITY\fP = -20000 }"
+.br
+.ti -1c
+.RI "enum { \fBLOW_PRIORITY\fP = -10000 }"
+.br
+.ti -1c
+.RI "enum { \fBDEFAULT_PRIORITY\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBHIGH_PRIORITY\fP = 10000 }"
+.br
+.ti -1c
+.RI "enum { \fBCRITICAL_PRIORITY\fP = 20000 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBuuid_msgs::UniqueID\fP \fBid\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBresources_length\fP"
+.br
+.ti -1c
+.RI "\fBscheduler_msgs::Resource\fP \fBst_resources\fP"
+.br
+.ti -1c
+.RI "\fBscheduler_msgs::Resource\fP * \fBresources\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBstatus\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBreason\fP"
+.br
+.ti -1c
+.RI "const char * \fBproblem\fP"
+.br
+.ti -1c
+.RI "\fBros::Time\fP \fBavailability\fP"
+.br
+.ti -1c
+.RI "\fBros::Duration\fP \fBhold_time\fP"
+.br
+.ti -1c
+.RI "int16_t \fBpriority\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

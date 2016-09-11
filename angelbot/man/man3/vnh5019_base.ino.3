@@ -1,0 +1,308 @@
+.TH "/home/shangwei/catkin_ws/src/metal1/mcu_control/base_control/vnh5019_base/vnh5019_base.ino" 3 "Sun Jul 10 2016" "Version v1.0" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/shangwei/catkin_ws/src/metal1/mcu_control/base_control/vnh5019_base/vnh5019_base.ino \- 
+Motor driver vnh5019\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRUGBY\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRIGHT_WHEEL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLEFT_WHEEL\fP   2"
+.br
+.ti -1c
+.RI "#define \fBWHEEL_TYPE\fP   \fBRIGHT_WHEEL\fP"
+.br
+.ti -1c
+.RI "#define \fBencoder0PinA\fP   2"
+.br
+.ti -1c
+.RI "#define \fBencoder0PinB\fP   3"
+.br
+.ti -1c
+.RI "#define \fBmotorIn1\fP   6"
+.br
+.ti -1c
+.RI "#define \fBInA\fP   4"
+.br
+.ti -1c
+.RI "#define \fBInB\fP   5"
+.br
+.ti -1c
+.RI "#define \fBEN\fP   7"
+.br
+.ti -1c
+.RI "#define \fBLOOPTIME\fP   40"
+.br
+.ti -1c
+.RI "#define \fBFeedbackTime\fP   100"
+.br
+.ti -1c
+.RI "#define \fBCurrentLimit\fP   9000"
+.br
+.ti -1c
+.RI "#define \fBMaxPWM\fP   255"
+.br
+.ti -1c
+.RI "#define \fBCPR\fP   64"
+.br
+.ti -1c
+.RI "#define \fBMaxSumError\fP   6000"
+.br
+.ti -1c
+.RI "#define \fBgear_ratio\fP   18\&.8"
+.br
+.ti -1c
+.RI "#define \fBMaxSpeed\fP   31"
+.br
+.ti -1c
+.RI "#define \fBKp\fP   0\&.9"
+.br
+.ti -1c
+.RI "#define \fBKi\fP   0\&.005"
+.br
+.ti -1c
+.RI "#define \fBKd\fP   0"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetup\fP ()"
+.br
+.ti -1c
+.RI "void \fBloop\fP ()"
+.br
+.ti -1c
+.RI "void \fBreadCmd_wheel_angularVel\fP ()"
+.br
+.ti -1c
+.RI "void \fBsendFeedback_wheel_angularVel\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetMotorData\fP ()"
+.br
+.ti -1c
+.RI "void \fBCurrentMonitor\fP ()"
+.br
+.ti -1c
+.RI "double \fBupdatePid\fP (double targetValue, double currentValue)"
+.br
+.ti -1c
+.RI "void \fBdoEncoder\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintMotorInfo\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "volatile long \fBEncoderpos\fP = 0"
+.br
+.ti -1c
+.RI "volatile long \fBunknownvalue\fP = 0"
+.br
+.ti -1c
+.RI "int \fBpinAState\fP = 0"
+.br
+.ti -1c
+.RI "int \fBpinAStateOld\fP = 0"
+.br
+.ti -1c
+.RI "int \fBpinBState\fP = 0"
+.br
+.ti -1c
+.RI "int \fBpinBStateOld\fP = 0"
+.br
+.ti -1c
+.RI "volatile int \fBlastEncoded\fP = 0"
+.br
+.ti -1c
+.RI "unsigned long \fBlastMilli\fP = 0"
+.br
+.ti -1c
+.RI "unsigned long \fBlastSend\fP = 0"
+.br
+.ti -1c
+.RI "long \fBdT\fP = 0"
+.br
+.ti -1c
+.RI "double \fBomega_target\fP = 0\&.0"
+.br
+.ti -1c
+.RI "double \fBomega_actual\fP = 0"
+.br
+.ti -1c
+.RI "int \fBPWM_val\fP = 0"
+.br
+.ti -1c
+.RI "double \fBsum_error\fP"
+.br
+.ti -1c
+.RI "double \fBd_error\fP =0"
+.br
+.ti -1c
+.RI "int \fBanalogPin\fP = A0"
+.br
+.ti -1c
+.RI "unsigned int \fBcurrent\fP = 0"
+.br
+.ti -1c
+.RI "bool \fBdriver_mode\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Motor driver vnh5019\&. 
+
+driver for vnh5019 board to control motor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+will 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+1\&.00 
+.RE
+.PP
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CPR   64"
+
+.SS "#define CurrentLimit   9000"
+
+.SS "#define EN   7"
+
+.SS "#define encoder0PinA   2"
+
+.SS "#define encoder0PinB   3"
+
+.SS "#define FeedbackTime   100"
+
+.SS "#define gear_ratio   18\&.8"
+
+.SS "#define InA   4"
+
+.SS "#define InB   5"
+
+.SS "#define Kd   0"
+
+.SS "#define Ki   0\&.005"
+
+.SS "#define Kp   0\&.9"
+
+.SS "#define LEFT_WHEEL   2"
+
+.SS "#define LOOPTIME   40"
+
+.SS "#define MaxPWM   255"
+
+.SS "#define MaxSpeed   31"
+
+.SS "#define MaxSumError   6000"
+
+.SS "#define motorIn1   6"
+
+.SS "#define RIGHT_WHEEL   1"
+
+.SS "#define RUGBY   4"
+Marco 
+.SS "#define WHEEL_TYPE   \fBRIGHT_WHEEL\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "void CurrentMonitor ()"
+Limit current flow\&. (new development) 
+.SS "void doEncoder ()"
+Read encoder\&.
+.br
+Read pin 2 & pin 3 State\&.
+.PP
+ 
+.SS "void getMotorData ()"
+Get Encoder data of each wheel\&. 
+.SS "void loop ()"
+Main function
+.PP
+ 
+.SS "void printMotorInfo ()"
+Serial transmission for motor status\&. 
+.SS "void readCmd_wheel_angularVel ()"
+Read cmd [velocity] from mega2560\&. 
+.SS "void sendFeedback_wheel_angularVel ()"
+Send feedback to calculate cmd for next sampling time\&. 
+.SS "void setup ()"
+Initializations of vnh5019 board\&. Start serial port\&. 
+.SS "double updatePid (doubletargetValue, doublecurrentValue)"
+Implement PID control\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItargetValue\fP 
+.br
+\fIcurrentValue\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+constrained_pidterm 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "int analogPin = A0"
+
+.SS "unsigned int current = 0"
+
+.SS "double d_error =0"
+
+.SS "bool driver_mode = false"
+
+.SS "long dT = 0"
+
+.SS "volatile long Encoderpos = 0"
+
+.SS "volatile int lastEncoded = 0"
+
+.SS "unsigned long lastMilli = 0"
+
+.SS "unsigned long lastSend = 0"
+
+.SS "double omega_actual = 0"
+
+.SS "double omega_target = 0\&.0"
+
+.SS "int pinAState = 0"
+
+.SS "int pinAStateOld = 0"
+
+.SS "int pinBState = 0"
+
+.SS "int pinBStateOld = 0"
+
+.SS "int PWM_val = 0"
+
+.SS "double sum_error"
+
+.SS "volatile long unknownvalue = 0"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

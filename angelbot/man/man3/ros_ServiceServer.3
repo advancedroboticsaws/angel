@@ -1,0 +1,53 @@
+.TH "ros::ServiceServer< MReq, MRes >" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ros::ServiceServer< MReq, MRes > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Subscriber_\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBCallbackT\fP )(const MReq &, MRes &)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBServiceServer\fP (const char *topic_name, CallbackT cb)"
+.br
+.ti -1c
+.RI "virtual void \fBcallback\fP (unsigned char *data)"
+.br
+.ti -1c
+.RI "virtual const char * \fBgetMsgType\fP ()"
+.br
+.ti -1c
+.RI "virtual const char * \fBgetMsgMD5\fP ()"
+.br
+.ti -1c
+.RI "virtual int \fBgetEndpointType\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "MReq \fBreq\fP"
+.br
+.ti -1c
+.RI "MRes \fBresp\fP"
+.br
+.ti -1c
+.RI "\fBPublisher\fP \fBpub\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

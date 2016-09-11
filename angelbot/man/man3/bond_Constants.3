@@ -1,0 +1,54 @@
+.TH "bond::Constants" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+bond::Constants \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBDEAD_PUBLISH_PERIOD\fP = 0\&.05 }"
+.br
+.ti -1c
+.RI "enum { \fBDEFAULT_CONNECT_TIMEOUT\fP = 10\&.0 }"
+.br
+.ti -1c
+.RI "enum { \fBDEFAULT_HEARTBEAT_TIMEOUT\fP = 4\&.0 }"
+.br
+.ti -1c
+.RI "enum { \fBDEFAULT_DISCONNECT_TIMEOUT\fP = 2\&.0 }"
+.br
+.ti -1c
+.RI "enum { \fBDEFAULT_HEARTBEAT_PERIOD\fP = 1\&.0 }"
+.br
+.ti -1c
+.RI "enum { \fBDISABLE_HEARTBEAT_TIMEOUT_PARAM\fP = /bond_disable_heartbeat_timeout }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

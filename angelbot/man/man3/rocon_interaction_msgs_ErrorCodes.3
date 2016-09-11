@@ -1,0 +1,63 @@
+.TH "rocon_interaction_msgs::ErrorCodes" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rocon_interaction_msgs::ErrorCodes \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBSUCCESS\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBINTERACTION_UNAVAILABLE\fP = 20 }"
+.br
+.ti -1c
+.RI "enum { \fBINTERACTION_QUOTA_REACHED\fP = 21 }"
+.br
+.ti -1c
+.RI "enum { \fBSTART_PAIRED_RAPP_FAILED\fP = 31 }"
+.br
+.ti -1c
+.RI "enum { \fBALREADY_PAIRING\fP = 32 }"
+.br
+.ti -1c
+.RI "enum { \fBMSG_INTERACTION_UNAVAILABLE\fP = 'This role-app pair is not available for use\&.' }"
+.br
+.ti -1c
+.RI "enum { \fBMSG_INTERACTION_QUOTA_REACHED\fP = 'More connections of this type not permitted\&.' }"
+.br
+.ti -1c
+.RI "enum { \fBMSG_START_PAIRED_RAPP_FAILED\fP = 'Failed to start the paired rapp\&.' }"
+.br
+.ti -1c
+.RI "enum { \fBMSG_ALREADY_PAIRING\fP = 'Already pairing, cannot start another pairing\&.' }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

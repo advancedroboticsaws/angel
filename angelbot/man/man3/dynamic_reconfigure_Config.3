@@ -1,0 +1,81 @@
+.TH "dynamic_reconfigure::Config" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dynamic_reconfigure::Config \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBbools_length\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::BoolParameter\fP \fBst_bools\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::BoolParameter\fP * \fBbools\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBints_length\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::IntParameter\fP \fBst_ints\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::IntParameter\fP * \fBints\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBstrs_length\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::StrParameter\fP \fBst_strs\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::StrParameter\fP * \fBstrs\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBdoubles_length\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::DoubleParameter\fP \fBst_doubles\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::DoubleParameter\fP * \fBdoubles\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBgroups_length\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::GroupState\fP \fBst_groups\fP"
+.br
+.ti -1c
+.RI "\fBdynamic_reconfigure::GroupState\fP * \fBgroups\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

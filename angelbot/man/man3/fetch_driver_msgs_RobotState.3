@@ -1,0 +1,87 @@
+.TH "fetch_driver_msgs::RobotState" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+fetch_driver_msgs::RobotState \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "bool \fBready\fP"
+.br
+.ti -1c
+.RI "bool \fBfaulted\fP"
+.br
+.ti -1c
+.RI "bool \fBrunstopped\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBboards_length\fP"
+.br
+.ti -1c
+.RI "\fBfetch_driver_msgs::BoardState\fP \fBst_boards\fP"
+.br
+.ti -1c
+.RI "\fBfetch_driver_msgs::BoardState\fP * \fBboards\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmotors_length\fP"
+.br
+.ti -1c
+.RI "\fBfetch_driver_msgs::MotorState\fP \fBst_motors\fP"
+.br
+.ti -1c
+.RI "\fBfetch_driver_msgs::MotorState\fP * \fBmotors\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoints_length\fP"
+.br
+.ti -1c
+.RI "\fBfetch_driver_msgs::JointState\fP \fBst_joints\fP"
+.br
+.ti -1c
+.RI "\fBfetch_driver_msgs::JointState\fP * \fBjoints\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbreakers_length\fP"
+.br
+.ti -1c
+.RI "\fBpower_msgs::BreakerState\fP \fBst_breakers\fP"
+.br
+.ti -1c
+.RI "\fBpower_msgs::BreakerState\fP * \fBbreakers\fP"
+.br
+.ti -1c
+.RI "\fBfetch_driver_msgs::ChargerState\fP \fBcharger\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

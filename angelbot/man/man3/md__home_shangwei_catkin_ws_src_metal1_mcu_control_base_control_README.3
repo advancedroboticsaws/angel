@@ -1,0 +1,113 @@
+.TH "md__home_shangwei_catkin_ws_src_metal1_mcu_control_base_control_README" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__home_shangwei_catkin_ws_src_metal1_mcu_control_base_control_README \- Overview 
+
+.IP "\(bu" 2
+Base Test Procedure without ROS
+.IP "\(bu" 2
+Base Test Procedure with ROS
+.PP
+.PP
+.SH "Base Test Proceduce without ROS"
+.PP
+.PP
+.SS "Modify Arduino PWM Frequency in Arduino IDE"
+.PP
+.IP "\(bu" 2
+Overwrite wiring\&.c in: ~/arduino-1\&.6\&.5/hardware/arduino/avr/cores/arduino
+.IP "\(bu" 2
+Edit line 31 in 'wiring\&.c' #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
+.PP
+.PP
+.SS "Uploading mega code"
+.PP
+.IP "\(bu" 2
+Copy 'ros_lib' folder into 'Arduino/libraries' folder\&.
+.IP "\(bu" 2
+'mega_base_ultrasonic_v1' is for base mega board\&.
+.IP "\(bu" 2
+'#define ANDBOT 1' when uploading Andbot\&.
+.IP "\(bu" 2
+'#define RUGBY 2' when uploading Rugby or Angel\&.
+.IP "\(bu" 2
+Select Mega2560 when uploading\&.
+.PP
+.PP
+.SS "Uploading motor driver code"
+.PP
+.IP "\(bu" 2
+'vnh5019_base_test\&.ino' is to test if motor can achieve desire speed\&. (Speed control test)
+.IP "\(bu" 2
+'#define WHEEL_TYPE RIGHT_WHEEL' when uploading for right wheel\&.
+.IP "\(bu" 2
+'#define WHEEL_TYPE LEFT_WHEEL' when uploading for left wheel\&.
+.IP "\(bu" 2
+'#define ANDBOT 3' when uploading Andbot\&.
+.IP "\(bu" 2
+'#define RUGBY 4' when uploading Rugby or Angel\&.
+.PP
+.PP
+.SS "Test speed control"
+.PP
+.IP "\(bu" 2
+Enter 4 charactors target speed in Arduino Serial Console/Window\&. Any value from -10\&.9 to +10\&.9 for Andbot, Any value from -31 to +31 for Rugby or Angel
+.IP "\(bu" 2
+If 'actual speed' is close to 'target speed,' wiring and control board are working; if not, check wiring or swap encoder pins\&.
+.IP "\(bu" 2
+'vnh5019\&.ino' is for the motor controller board for base\&. (Upload this if vnh5019 control board pass speed test\&.)
+.IP "\(bu" 2
+Select Arduino Pro Mini when uploading\&.
+.PP
+.PP
+.SH "Base Test Proceduce with ROS"
+.PP
+.PP
+.SS "Hardware"
+.PP
+.IP "\(bu" 2
+Connect Vnh5019 board to mega board
+.IP "\(bu" 2
+Connect mega board to Odroid board via USB
+.IP "\(bu" 2
+Connect HDMI monitor, mouse and keyboard to Odroid board
+.IP "\(bu" 2
+Power on Odroid board, mega board and Vnh5019 board
+.IP "\(bu" 2
+Prepare an Android phone, and install teleop app
+.PP
+.PP
+.SS "Check Odroid IP adress (In Odroid board)"
+.PP
+$ ifconfig
+.PP
+.SS "Compiling packages (in ssh terminal)"
+.PP
+$ ssh odroid@[Odroid IP address] $ cd ~/catkin_ws/src $ git clone https://github.com/piliwilliam0306/metal1.git $ cd ~/catkin_ws $ catkin_make $ rospack profile
+.PP
+.SS "Test Rosserial (in ssh terminal)"
+.PP
+$ roscore $ rosrun rosserial_python serial_node\&.py _port:=/dev/ttyACM0 _baud:=57600 $ rostopic pub /cmd_wheel_angularVel andbot/WheelCmd "speed1: 2\&.0 mode1: true speed2: 2\&.0 mode2: true" $ rostopic echo feedback_wheel_angularVel
+.IP "\(bu" 2
+if 'feedback_wheel_angularVel' topic output is close to 'cmd_wheel_angularVel,' rosserial and motor control board is working\&. $ Ctrl + C
+.PP
+.PP
+.SS "Make robot move via Teleop app"
+.PP
+.IP "\(bu" 2
+Now, put the robot on the ground
+.IP "\(bu" 2
+In ssh terminal in Odroid board, launch startup script $ roslaunch andbot andbot_v1\&.launch
+.IP "\(bu" 2
+Open Teleop app in Android phone
+.IP "  \(bu" 4
+Enter "http://[Odroid IP address]:11311 as ROS_MASTER_URI\&.
+.PP
+
+.IP "\(bu" 2
+Now you should see a map in the Teleop app
+.IP "\(bu" 2
+Use the teleop app to control the robot movement/rotation for a few meters, and check if the map updating is correct\&. 
+.PP
+

@@ -1,0 +1,81 @@
+.TH "moveit_msgs::PlaceGoal" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::PlaceGoal \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBgroup_name\fP"
+.br
+.ti -1c
+.RI "const char * \fBattached_object_name\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBplace_locations_length\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::PlaceLocation\fP \fBst_place_locations\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::PlaceLocation\fP * \fBplace_locations\fP"
+.br
+.ti -1c
+.RI "bool \fBplace_eef\fP"
+.br
+.ti -1c
+.RI "const char * \fBsupport_surface_name\fP"
+.br
+.ti -1c
+.RI "bool \fBallow_gripper_support_collision\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::Constraints\fP \fBpath_constraints\fP"
+.br
+.ti -1c
+.RI "const char * \fBplanner_id\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBallowed_touch_objects_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_allowed_touch_objects\fP"
+.br
+.ti -1c
+.RI "char ** \fBallowed_touch_objects\fP"
+.br
+.ti -1c
+.RI "float \fBallowed_planning_time\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::PlanningOptions\fP \fBplanning_options\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

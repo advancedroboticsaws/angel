@@ -1,0 +1,72 @@
+.TH "moveit_msgs::Grasp" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::Grasp \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBid\fP"
+.br
+.ti -1c
+.RI "\fBtrajectory_msgs::JointTrajectory\fP \fBpre_grasp_posture\fP"
+.br
+.ti -1c
+.RI "\fBtrajectory_msgs::JointTrajectory\fP \fBgrasp_posture\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::PoseStamped\fP \fBgrasp_pose\fP"
+.br
+.ti -1c
+.RI "float \fBgrasp_quality\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::GripperTranslation\fP \fBpre_grasp_approach\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::GripperTranslation\fP \fBpost_grasp_retreat\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::GripperTranslation\fP \fBpost_place_retreat\fP"
+.br
+.ti -1c
+.RI "float \fBmax_contact_force\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBallowed_touch_objects_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_allowed_touch_objects\fP"
+.br
+.ti -1c
+.RI "char ** \fBallowed_touch_objects\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

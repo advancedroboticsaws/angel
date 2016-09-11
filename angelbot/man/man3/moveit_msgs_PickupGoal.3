@@ -1,0 +1,93 @@
+.TH "moveit_msgs::PickupGoal" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::PickupGoal \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBtarget_name\fP"
+.br
+.ti -1c
+.RI "const char * \fBgroup_name\fP"
+.br
+.ti -1c
+.RI "const char * \fBend_effector\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpossible_grasps_length\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::Grasp\fP \fBst_possible_grasps\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::Grasp\fP * \fBpossible_grasps\fP"
+.br
+.ti -1c
+.RI "const char * \fBsupport_surface_name\fP"
+.br
+.ti -1c
+.RI "bool \fBallow_gripper_support_collision\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBattached_object_touch_links_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_attached_object_touch_links\fP"
+.br
+.ti -1c
+.RI "char ** \fBattached_object_touch_links\fP"
+.br
+.ti -1c
+.RI "bool \fBminimize_object_distance\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::Constraints\fP \fBpath_constraints\fP"
+.br
+.ti -1c
+.RI "const char * \fBplanner_id\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBallowed_touch_objects_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_allowed_touch_objects\fP"
+.br
+.ti -1c
+.RI "char ** \fBallowed_touch_objects\fP"
+.br
+.ti -1c
+.RI "float \fBallowed_planning_time\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::PlanningOptions\fP \fBplanning_options\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

@@ -1,0 +1,60 @@
+.TH "pr2_mechanism_msgs::ControllerStatistics" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pr2_mechanism_msgs::ControllerStatistics \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBname\fP"
+.br
+.ti -1c
+.RI "\fBros::Time\fP \fBtimestamp\fP"
+.br
+.ti -1c
+.RI "bool \fBrunning\fP"
+.br
+.ti -1c
+.RI "\fBros::Duration\fP \fBmax_time\fP"
+.br
+.ti -1c
+.RI "\fBros::Duration\fP \fBmean_time\fP"
+.br
+.ti -1c
+.RI "\fBros::Duration\fP \fBvariance_time\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnum_control_loop_overruns\fP"
+.br
+.ti -1c
+.RI "\fBros::Time\fP \fBtime_last_control_loop_overrun\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

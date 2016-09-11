@@ -1,0 +1,115 @@
+.TH "moveit_msgs::MoveItErrorCodes" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::MoveItErrorCodes \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBSUCCESS\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBFAILURE\fP = 99999 }"
+.br
+.ti -1c
+.RI "enum { \fBPLANNING_FAILED\fP = -1 }"
+.br
+.ti -1c
+.RI "enum { \fBINVALID_MOTION_PLAN\fP = -2 }"
+.br
+.ti -1c
+.RI "enum { \fBMOTION_PLAN_INVALIDATED_BY_ENVIRONMENT_CHANGE\fP = -3 }"
+.br
+.ti -1c
+.RI "enum { \fBCONTROL_FAILED\fP = -4 }"
+.br
+.ti -1c
+.RI "enum { \fBUNABLE_TO_AQUIRE_SENSOR_DATA\fP = -5 }"
+.br
+.ti -1c
+.RI "enum { \fBTIMED_OUT\fP = -6 }"
+.br
+.ti -1c
+.RI "enum { \fBPREEMPTED\fP = -7 }"
+.br
+.ti -1c
+.RI "enum { \fBSTART_STATE_IN_COLLISION\fP = -10 }"
+.br
+.ti -1c
+.RI "enum { \fBSTART_STATE_VIOLATES_PATH_CONSTRAINTS\fP = -11 }"
+.br
+.ti -1c
+.RI "enum { \fBGOAL_IN_COLLISION\fP = -12 }"
+.br
+.ti -1c
+.RI "enum { \fBGOAL_VIOLATES_PATH_CONSTRAINTS\fP = -13 }"
+.br
+.ti -1c
+.RI "enum { \fBGOAL_CONSTRAINTS_VIOLATED\fP = -14 }"
+.br
+.ti -1c
+.RI "enum { \fBINVALID_GROUP_NAME\fP = -15 }"
+.br
+.ti -1c
+.RI "enum { \fBINVALID_GOAL_CONSTRAINTS\fP = -16 }"
+.br
+.ti -1c
+.RI "enum { \fBINVALID_ROBOT_STATE\fP = -17 }"
+.br
+.ti -1c
+.RI "enum { \fBINVALID_LINK_NAME\fP = -18 }"
+.br
+.ti -1c
+.RI "enum { \fBINVALID_OBJECT_NAME\fP = -19 }"
+.br
+.ti -1c
+.RI "enum { \fBFRAME_TRANSFORM_FAILURE\fP = -21 }"
+.br
+.ti -1c
+.RI "enum { \fBCOLLISION_CHECKING_UNAVAILABLE\fP = -22 }"
+.br
+.ti -1c
+.RI "enum { \fBROBOT_STATE_STALE\fP = -23 }"
+.br
+.ti -1c
+.RI "enum { \fBSENSOR_INFO_STALE\fP = -24 }"
+.br
+.ti -1c
+.RI "enum { \fBNO_IK_SOLUTION\fP = -31 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBval\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

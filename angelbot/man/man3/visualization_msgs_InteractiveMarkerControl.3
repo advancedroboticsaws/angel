@@ -1,0 +1,109 @@
+.TH "visualization_msgs::InteractiveMarkerControl" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+visualization_msgs::InteractiveMarkerControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBINHERIT\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBFIXED\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBVIEW_FACING\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBNONE\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBMENU\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBBUTTON\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBMOVE_AXIS\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBMOVE_PLANE\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBROTATE_AXIS\fP = 5 }"
+.br
+.ti -1c
+.RI "enum { \fBMOVE_ROTATE\fP = 6 }"
+.br
+.ti -1c
+.RI "enum { \fBMOVE_3D\fP = 7 }"
+.br
+.ti -1c
+.RI "enum { \fBROTATE_3D\fP = 8 }"
+.br
+.ti -1c
+.RI "enum { \fBMOVE_ROTATE_3D\fP = 9 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBname\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Quaternion\fP \fBorientation\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBorientation_mode\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBinteraction_mode\fP"
+.br
+.ti -1c
+.RI "bool \fBalways_visible\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmarkers_length\fP"
+.br
+.ti -1c
+.RI "\fBvisualization_msgs::Marker\fP \fBst_markers\fP"
+.br
+.ti -1c
+.RI "\fBvisualization_msgs::Marker\fP * \fBmarkers\fP"
+.br
+.ti -1c
+.RI "bool \fBindependent_marker_orientation\fP"
+.br
+.ti -1c
+.RI "const char * \fBdescription\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

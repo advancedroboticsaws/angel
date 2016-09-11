@@ -1,0 +1,85 @@
+.TH "gateway_msgs::RemoteGateway" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gateway_msgs::RemoteGateway \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBWIRED\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBWIRELESS\fP = 2 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBname\fP"
+.br
+.ti -1c
+.RI "const char * \fBip\fP"
+.br
+.ti -1c
+.RI "bool \fBfirewall\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::ConnectionStatistics\fP \fBconn_stats\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpublic_interface_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::Rule\fP \fBst_public_interface\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::Rule\fP * \fBpublic_interface\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBflipped_interface_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP \fBst_flipped_interface\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP * \fBflipped_interface\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpulled_interface_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP \fBst_pulled_interface\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP * \fBpulled_interface\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

@@ -1,0 +1,48 @@
+.TH "concert_msgs::ErrorCodes" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+concert_msgs::ErrorCodes \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBSUCCESS\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBSERVICE_UNEXPECTED_ERROR\fP = 31 }"
+.br
+.ti -1c
+.RI "enum { \fBSERVICE_INSUFFICIENT_CLIENTS\fP = 32 }"
+.br
+.ti -1c
+.RI "enum { \fBSERVICE_NOT_READY\fP = 33 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

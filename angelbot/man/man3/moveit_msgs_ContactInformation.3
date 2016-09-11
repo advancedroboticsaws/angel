@@ -1,0 +1,73 @@
+.TH "moveit_msgs::ContactInformation" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::ContactInformation \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBROBOT_LINK\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBWORLD_OBJECT\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBROBOT_ATTACHED\fP = 2 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Point\fP \fBposition\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Vector3\fP \fBnormal\fP"
+.br
+.ti -1c
+.RI "float \fBdepth\fP"
+.br
+.ti -1c
+.RI "const char * \fBcontact_body_1\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBbody_type_1\fP"
+.br
+.ti -1c
+.RI "const char * \fBcontact_body_2\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBbody_type_2\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

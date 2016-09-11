@@ -1,0 +1,75 @@
+.TH "moveit_msgs::MotionPlanRequest" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::MotionPlanRequest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBmoveit_msgs::WorkspaceParameters\fP \fBworkspace_parameters\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::RobotState\fP \fBstart_state\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBgoal_constraints_length\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::Constraints\fP \fBst_goal_constraints\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::Constraints\fP * \fBgoal_constraints\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::Constraints\fP \fBpath_constraints\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::TrajectoryConstraints\fP \fBtrajectory_constraints\fP"
+.br
+.ti -1c
+.RI "const char * \fBplanner_id\fP"
+.br
+.ti -1c
+.RI "const char * \fBgroup_name\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnum_planning_attempts\fP"
+.br
+.ti -1c
+.RI "float \fBallowed_planning_time\fP"
+.br
+.ti -1c
+.RI "float \fBmax_velocity_scaling_factor\fP"
+.br
+.ti -1c
+.RI "float \fBmax_acceleration_scaling_factor\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

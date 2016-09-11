@@ -1,0 +1,94 @@
+.TH "gazebo_msgs::GetJointPropertiesResponse" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gazebo_msgs::GetJointPropertiesResponse \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBREVOLUTE\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBCONTINUOUS\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBPRISMATIC\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBFIXED\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBBALL\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBUNIVERSAL\fP = 5 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBtype\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBdamping_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_damping\fP"
+.br
+.ti -1c
+.RI "float * \fBdamping\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBposition_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_position\fP"
+.br
+.ti -1c
+.RI "float * \fBposition\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBrate_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_rate\fP"
+.br
+.ti -1c
+.RI "float * \fBrate\fP"
+.br
+.ti -1c
+.RI "bool \fBsuccess\fP"
+.br
+.ti -1c
+.RI "const char * \fBstatus_message\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

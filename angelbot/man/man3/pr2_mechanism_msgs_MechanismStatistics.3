@@ -1,0 +1,66 @@
+.TH "pr2_mechanism_msgs::MechanismStatistics" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pr2_mechanism_msgs::MechanismStatistics \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBactuator_statistics_length\fP"
+.br
+.ti -1c
+.RI "\fBpr2_mechanism_msgs::ActuatorStatistics\fP \fBst_actuator_statistics\fP"
+.br
+.ti -1c
+.RI "\fBpr2_mechanism_msgs::ActuatorStatistics\fP * \fBactuator_statistics\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_statistics_length\fP"
+.br
+.ti -1c
+.RI "\fBpr2_mechanism_msgs::JointStatistics\fP \fBst_joint_statistics\fP"
+.br
+.ti -1c
+.RI "\fBpr2_mechanism_msgs::JointStatistics\fP * \fBjoint_statistics\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcontroller_statistics_length\fP"
+.br
+.ti -1c
+.RI "\fBpr2_mechanism_msgs::ControllerStatistics\fP \fBst_controller_statistics\fP"
+.br
+.ti -1c
+.RI "\fBpr2_mechanism_msgs::ControllerStatistics\fP * \fBcontroller_statistics\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

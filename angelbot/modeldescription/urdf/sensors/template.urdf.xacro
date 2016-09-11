@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  	<xacro:macro name="" params="name parent">
+	  	<joint name="base2xxx" type="fixed">
+			<parent link="${parent}"></parent>
+			<child link="${name}_xxx_link"></child>
+			<origin xyz="" rpy="0"></origin> 
+		</joint>
+	  	<link name="${name}_xxx_link">
+			<collision>
+				<geometry>
+	          		<box size=""/>
+		 		</geometry>
+		 	</collision>
+			<visual>
+				<geometry>
+	       			<box size=""/>
+	  			</geometry>
+				<material name=""></material></visual>
+			<inertial>
+				<mass value=""></mass>
+				<inertia ixx="" ixy="" ixz="" iyy="" iyz="" izz=""/>
+				</inertial>
+		</link>
+    </xacro:macro>
+</robot>

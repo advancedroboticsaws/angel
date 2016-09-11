@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+	<!-- Launches sensor nodes -->
+	<include file="$(find angelbot)/launch/rplidar.launch" />
+	
+	<!-- Start gmapping nodes and its configurations -->
+	<include file="$(find angelbot)/launch/includes/gmapping_config.launch.xml"/>
+
+	<!-- Start move_base node and its configuration -->
+	<include file="$(find angelbot)/launch/includes/move_base_dwa.launch.xml"/>
+
+</launch>

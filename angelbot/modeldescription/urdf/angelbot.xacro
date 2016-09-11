@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="angelbot">
+	<xacro:property name="robotname" value="angelbot"/>
+	<!-- Import all Gazebo-customization elements, including Gazebo colors--> 
+ 	<xacro:include filename="$(find angelbot)/modeldescription/urdf/angelbot.gazebo" />
+ 	<!-- Import Rviz colors -->
+	<xacro:include filename="$(find angelbot)/modeldescription/urdf/angelbotmaterial4rviz.xacro"/>
+	
+	<xacro:include filename="$(find angelbot)/modeldescription/urdf/sensors/rplidar_laser.urdf.xacro" />
+	<xacro:include filename="$(find angelbot)/modeldescription/urdf/sensors/mpu6050_imu.urdf.xacro" />
+	
+	<transmission name="trans_mobile_left">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="shaft2leftwheel">
+			<hardwareInterface>EffortJointInterface</hardwareInterface></joint>
+		<actuator name="leftwheelmotor">
+			<mechanicalReduction>1</mechanicalReduction></actuator></transmission>
+	<transmission name="trans_mobile_right">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="shaft2rightwheel">
+			<hardwareInterface>EffortJointInterface</hardwareInterface></joint>
+		<actuator name="rightwheelmotor">
+			<mechanicalReduction>1</mechanicalReduction></actuator></transmission>
+
+	<link name="${robotname}_housing">
+		<collision>
+			<geometry>
+				<mesh filename="package://angelbot/modeldescription/mesh/angel_housing.STL"></mesh></geometry></collision>
+		<visual>
+			<geometry>
+				<mesh filename="package://angelbot/modeldescription/mesh/angel_housing.STL"/>
+			</geometry>
+			<material name="blue"></material>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+		</visual>
+		<inertial>
+			<mass value="0.42642"/>
+			<inertia ixx="0.0119" ixy="0.0" ixz="0.0" iyy="0.0118" iyz="0.0" izz="0.0063"/>
+		</inertial>
+	</link>
+	<link name="${robotname}_base">
+		<collision>
+			<geometry>
+				<mesh filename="package://angelbot/modeldescription/mesh/angel_shaftholder.STL"></mesh></geometry></collision>
+		<visual>
+			<geometry>
+				<mesh filename="package://angelbot/modeldescription/mesh/angel_shaftholder.STL"/>
+			</geometry>
+			<material name="white">
+			</material>
+		</visual>
+		<inertial>
+			<mass value="0.2645"/>
+			<inertia ixx="0.0014" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0014"/>
+		</inertial>
+	</link>
+	<link name="${robotname}_leftwheel">
+		<collision>
+			<geometry>
+				<mesh filename="package://angelbot/modeldescription/mesh/angel_leftwheel.STL"></mesh></geometry></collision>
+		<visual>
+			<geometry>
+				<mesh filename="package://angelbot/modeldescription/mesh/angel_leftwheel.STL"/>
+			</geometry>
+			<material name="grey">
+			</material>
+		</visual>
+		<inertial>
+			<mass value="0.3871"/>
+			<inertia ixx="0.0238" ixy="0.0" ixz="0.0" iyy="0.0003" iyz="0.0" izz="0.0238"/>
+		</inertial>
+	</link>
+	<link name="${robotname}_rightwheel">
+		<collision>
+			<geometry>
+				<mesh filename="package://angelbot/modeldescription/mesh/angel_rightwheel.STL"></mesh></geometry></collision>
+		<visual>
+			<geometry>
+				<mesh filename="package://angelbot/modeldescription/mesh/angel_rightwheel.STL"/>
+			</geometry>
+			<material name="grey">
+			</material>
+		</visual>
+		<inertial>
+			<mass value="0.3871"/>
+			<inertia ixx="0.0238" ixy="0.0" ixz="0.0" iyy="0.0003" iyz="0.0" izz="0.0238"/>
+		</inertial>
+	</link>
+	
+	<joint name="base2housing" type="fixed">
+		<parent link="${robotname}_base"/>
+		<child link="${robotname}_housing"/>
+		<origin xyz="-0.07 0 -0.0255"/>
+	</joint>
+	<joint name="base2leftwheel" type="continuous">
+		<parent link="${robotname}_base"/>
+		<child link="${robotname}_leftwheel"/>
+		<origin xyz="0 0.1235 0"/>
+		<axis xyz="0 -1 0"/>
+	</joint>
+	<joint name="base2rightwheel" type="continuous">
+		<parent link="${robotname}_base"/>
+		<child link="${robotname}_rightwheel"/>
+		<origin xyz="0 -0.1235 0"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+	<xacro:rplidar_laser name="${robotname}" parent="${robotname}_base" ros_topic="scan" update_rate="40" min_angle="-1.3962634" max_angle="1.3962634" >
+    </xacro:rplidar_laser>
+    <xacro:mpu6050_imu name="${robotname}" parent="${robotname}_base">
+    </xacro:mpu6050_imu>
+	
+</robot>

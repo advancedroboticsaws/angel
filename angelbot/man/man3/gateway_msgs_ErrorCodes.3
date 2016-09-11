@@ -1,0 +1,96 @@
+.TH "gateway_msgs::ErrorCodes" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gateway_msgs::ErrorCodes \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBSUCCESS\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBNO_HUB_CONNECTION\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBHUB_CONNECTION_ALREADY_EXISTS\fP = 11 }"
+.br
+.ti -1c
+.RI "enum { \fBHUB_CONNECTION_UNRESOLVABLE\fP = 12 }"
+.br
+.ti -1c
+.RI "enum { \fBHUB_CONNECTION_BLACKLISTED\fP = 13 }"
+.br
+.ti -1c
+.RI "enum { \fBHUB_CONNECTION_FAILED\fP = 14 }"
+.br
+.ti -1c
+.RI "enum { \fBHUB_CONNECTION_NOT_IN_NONEMPTY_WHITELIST\fP = 15 }"
+.br
+.ti -1c
+.RI "enum { \fBHUB_NAME_NOT_FOUND\fP = 16 }"
+.br
+.ti -1c
+.RI "enum { \fBHUB_CONNECTION_LOST\fP = 17 }"
+.br
+.ti -1c
+.RI "enum { \fBHUB_UNKNOWN_ERROR\fP = 19 }"
+.br
+.ti -1c
+.RI "enum { \fBFLIP_RULE_ALREADY_EXISTS\fP = 22 }"
+.br
+.ti -1c
+.RI "enum { \fBFLIP_PATTERN_ALREDY_EXISTS\fP = 23 }"
+.br
+.ti -1c
+.RI "enum { \fBFLIP_REMOTE_GATEWAY_FIREWALLING\fP = 24 }"
+.br
+.ti -1c
+.RI "enum { \fBADVERTISEMENT_EXISTS\fP = 31 }"
+.br
+.ti -1c
+.RI "enum { \fBADVERTISEMENT_NOT_FOUND\fP = 32 }"
+.br
+.ti -1c
+.RI "enum { \fBUNKNOWN_ADVERTISEMENT_ERROR\fP = 39 }"
+.br
+.ti -1c
+.RI "enum { \fBPULL_RULE_ALREADY_EXISTS\fP = 41 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_GATEWAY_NOT_VISIBLE\fP = 51 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_GATEWAY_SELF_IS_NOT\fP = 52 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_GATEWAY_TARGET_HAS_MULTIPLE_MATCHES\fP = 53 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

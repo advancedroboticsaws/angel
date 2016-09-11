@@ -1,0 +1,67 @@
+.TH "pr2_mechanism_msgs::SwitchControllerRequest" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pr2_mechanism_msgs::SwitchControllerRequest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBBEST_EFFORT\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBSTRICT\fP = 2 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBstart_controllers_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_start_controllers\fP"
+.br
+.ti -1c
+.RI "char ** \fBstart_controllers\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBstop_controllers_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_stop_controllers\fP"
+.br
+.ti -1c
+.RI "char ** \fBstop_controllers\fP"
+.br
+.ti -1c
+.RI "int32_t \fBstrictness\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

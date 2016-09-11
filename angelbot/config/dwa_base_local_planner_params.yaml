@@ -1,0 +1,40 @@
+planner_frequency: 0 #0.5 20160725, SW
+controller_frequency: 10.0
+
+DWAPlannerROS:
+   max_vel_x: 0.25 #0.2 20160725, SW 
+   min_vel_x: -0.05 # -0.1 20160725, SW
+   #min_vel_x: 0.05
+   max_vel_y: 0.0  # zero for a differential drive robot
+   min_vel_y: 0.0
+   max_rot_vel: 1.0
+   min_rot_vel: 0.05 # 0.3 20160725, SW 
+   acc_lim_x: 2.5
+   acc_lim_y: 0.0  # zero for a differential drive robot
+   acc_lim_theta: 15.0 #3.2 20160725, SW
+   #acc_lim_theta: 1.0
+
+#   holonomic_robot: false
+#   yaw_goal_tolerance: 0.5 # about 6 degrees
+#   xy_goal_tolerance: 0.2  # 1 cm
+   yaw_goal_tolerance: 0.1 
+   xy_goal_tolerance: 0.05  
+
+#   latch_xy_goal_tolerance: false
+   occdist_scale: 0.01
+
+   oscillation_reset_dist: 0.05
+   oscillation_reset_angle: 0.2
+
+#   publish_cost_grid_pc: false
+#   prune_plan: true
+
+   sim_time: 2.0
+   sim_granularity: 0.1
+   angular_sim_granularity: 0.1
+   vx_samples: 3
+   vy_samples: 1  # zero for a differential drive robot
+   vtheta_samples: 20
+   dwa: true
+#   simple_attractor: false
+

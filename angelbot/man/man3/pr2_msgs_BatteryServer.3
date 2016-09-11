@@ -1,0 +1,97 @@
+.TH "pr2_msgs::BatteryServer" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pr2_msgs::BatteryServer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBMAX_BAT_COUNT\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBMAX_BAT_REG\fP = 48 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "int32_t \fBid\fP"
+.br
+.ti -1c
+.RI "int32_t \fBlastTimeSystem\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBtimeLeft\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBaverageCharge\fP"
+.br
+.ti -1c
+.RI "const char * \fBmessage\fP"
+.br
+.ti -1c
+.RI "int32_t \fBlastTimeController\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBpresent\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBcharging\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBdischarging\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBreserved\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBpowerPresent\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBpowerNG\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBinhibited\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbattery_length\fP"
+.br
+.ti -1c
+.RI "\fBpr2_msgs::BatteryState\fP \fBst_battery\fP"
+.br
+.ti -1c
+.RI "\fBpr2_msgs::BatteryState\fP * \fBbattery\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

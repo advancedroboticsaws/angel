@@ -1,0 +1,181 @@
+.TH "kobuki_msgs::SensorState" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+kobuki_msgs::SensorState \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBBUMPER_RIGHT\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBBUMPER_CENTRE\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBBUMPER_LEFT\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBWHEEL_DROP_RIGHT\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBWHEEL_DROP_LEFT\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBCLIFF_RIGHT\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBCLIFF_CENTRE\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBCLIFF_LEFT\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBBUTTON0\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBBUTTON1\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBBUTTON2\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBDISCHARGING\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBDOCKING_CHARGED\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBDOCKING_CHARGING\fP = 6 }"
+.br
+.ti -1c
+.RI "enum { \fBADAPTER_CHARGED\fP = 18 }"
+.br
+.ti -1c
+.RI "enum { \fBADAPTER_CHARGING\fP = 22 }"
+.br
+.ti -1c
+.RI "enum { \fBOVER_CURRENT_LEFT_WHEEL\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBOVER_CURRENT_RIGHT_WHEEL\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBOVER_CURRENT_BOTH_WHEELS\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBDIGITAL_INPUT0\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBDIGITAL_INPUT1\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBDIGITAL_INPUT2\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBDIGITAL_INPUT3\fP = 8 }"
+.br
+.ti -1c
+.RI "enum { \fBDB25_TEST_BOARD_CONNECTED\fP = 64 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBtime_stamp\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbumper\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBwheel_drop\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcliff\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBleft_encoder\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBright_encoder\fP"
+.br
+.ti -1c
+.RI "int8_t \fBleft_pwm\fP"
+.br
+.ti -1c
+.RI "int8_t \fBright_pwm\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbuttons\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcharger\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbattery\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbottom_length\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBst_bottom\fP"
+.br
+.ti -1c
+.RI "uint16_t * \fBbottom\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcurrent_length\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBst_current\fP"
+.br
+.ti -1c
+.RI "uint8_t * \fBcurrent\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBover_current\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBdigital_input\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBanalog_input_length\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBst_analog_input\fP"
+.br
+.ti -1c
+.RI "uint16_t * \fBanalog_input\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

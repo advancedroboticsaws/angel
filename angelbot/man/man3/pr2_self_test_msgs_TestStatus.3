@@ -1,0 +1,70 @@
+.TH "pr2_self_test_msgs::TestStatus" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pr2_self_test_msgs::TestStatus \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBTEST_RUNNING\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBTEST_WARNING\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBTEST_ERROR\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBTEST_STALE\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBRUNNING\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBWARNING\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBERROR\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBSTALE\fP = 3 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int8_t \fBtest_ok\fP"
+.br
+.ti -1c
+.RI "const char * \fBmessage\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

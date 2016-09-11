@@ -1,0 +1,87 @@
+.TH "joint_qualification_controllers::WristDiffData" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+joint_qualification_controllers::WristDiffData \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBflex_joint\fP"
+.br
+.ti -1c
+.RI "const char * \fBroll_joint\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBflex_pid_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_flex_pid\fP"
+.br
+.ti -1c
+.RI "float * \fBflex_pid\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBroll_pid_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_roll_pid\fP"
+.br
+.ti -1c
+.RI "float * \fBroll_pid\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBarg_name_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_arg_name\fP"
+.br
+.ti -1c
+.RI "char ** \fBarg_name\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBarg_value_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_arg_value\fP"
+.br
+.ti -1c
+.RI "float * \fBarg_value\fP"
+.br
+.ti -1c
+.RI "\fBjoint_qualification_controllers::WristRollTurn\fP \fBleft_turn\fP"
+.br
+.ti -1c
+.RI "\fBjoint_qualification_controllers::WristRollTurn\fP \fBright_turn\fP"
+.br
+.ti -1c
+.RI "bool \fBtimeout\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

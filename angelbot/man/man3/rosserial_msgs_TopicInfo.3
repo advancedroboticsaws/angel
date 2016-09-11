@@ -1,0 +1,79 @@
+.TH "rosserial_msgs::TopicInfo" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rosserial_msgs::TopicInfo \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBID_PUBLISHER\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBID_SUBSCRIBER\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBID_SERVICE_SERVER\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBID_SERVICE_CLIENT\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBID_PARAMETER_REQUEST\fP = 6 }"
+.br
+.ti -1c
+.RI "enum { \fBID_LOG\fP = 7 }"
+.br
+.ti -1c
+.RI "enum { \fBID_TIME\fP = 10 }"
+.br
+.ti -1c
+.RI "enum { \fBID_TX_STOP\fP = 11 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBtopic_id\fP"
+.br
+.ti -1c
+.RI "const char * \fBtopic_name\fP"
+.br
+.ti -1c
+.RI "const char * \fBmessage_type\fP"
+.br
+.ti -1c
+.RI "const char * \fBmd5sum\fP"
+.br
+.ti -1c
+.RI "int32_t \fBbuffer_size\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

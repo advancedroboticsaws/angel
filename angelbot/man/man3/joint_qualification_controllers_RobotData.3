@@ -1,0 +1,66 @@
+.TH "joint_qualification_controllers::RobotData" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+joint_qualification_controllers::RobotData \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBtest_time\fP"
+.br
+.ti -1c
+.RI "bool \fBtimeout\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnum_joints\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnum_actuators\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_data_length\fP"
+.br
+.ti -1c
+.RI "\fBjoint_qualification_controllers::JointData\fP \fBst_joint_data\fP"
+.br
+.ti -1c
+.RI "\fBjoint_qualification_controllers::JointData\fP * \fBjoint_data\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBactuator_data_length\fP"
+.br
+.ti -1c
+.RI "\fBjoint_qualification_controllers::ActuatorData\fP \fBst_actuator_data\fP"
+.br
+.ti -1c
+.RI "\fBjoint_qualification_controllers::ActuatorData\fP * \fBactuator_data\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

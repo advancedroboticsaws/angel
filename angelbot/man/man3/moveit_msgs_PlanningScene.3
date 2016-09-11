@@ -1,0 +1,90 @@
+.TH "moveit_msgs::PlanningScene" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::PlanningScene \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBname\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::RobotState\fP \fBrobot_state\fP"
+.br
+.ti -1c
+.RI "const char * \fBrobot_model_name\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBfixed_frame_transforms_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::TransformStamped\fP \fBst_fixed_frame_transforms\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::TransformStamped\fP * \fBfixed_frame_transforms\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::AllowedCollisionMatrix\fP \fBallowed_collision_matrix\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBlink_padding_length\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::LinkPadding\fP \fBst_link_padding\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::LinkPadding\fP * \fBlink_padding\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBlink_scale_length\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::LinkScale\fP \fBst_link_scale\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::LinkScale\fP * \fBlink_scale\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBobject_colors_length\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::ObjectColor\fP \fBst_object_colors\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::ObjectColor\fP * \fBobject_colors\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::PlanningSceneWorld\fP \fBworld\fP"
+.br
+.ti -1c
+.RI "bool \fBis_diff\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

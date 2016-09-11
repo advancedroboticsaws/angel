@@ -1,0 +1,84 @@
+.TH "gazebo_msgs::ContactState" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gazebo_msgs::ContactState \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBinfo\fP"
+.br
+.ti -1c
+.RI "const char * \fBcollision1_name\fP"
+.br
+.ti -1c
+.RI "const char * \fBcollision2_name\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBwrenches_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Wrench\fP \fBst_wrenches\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Wrench\fP * \fBwrenches\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Wrench\fP \fBtotal_wrench\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcontact_positions_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Vector3\fP \fBst_contact_positions\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Vector3\fP * \fBcontact_positions\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcontact_normals_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Vector3\fP \fBst_contact_normals\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Vector3\fP * \fBcontact_normals\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBdepths_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_depths\fP"
+.br
+.ti -1c
+.RI "float * \fBdepths\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

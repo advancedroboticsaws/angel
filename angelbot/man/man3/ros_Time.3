@@ -1,0 +1,57 @@
+.TH "ros::Time" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ros::Time \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTime\fP (uint32_t _sec, uint32_t _nsec)"
+.br
+.ti -1c
+.RI "double \fBtoSec\fP () const "
+.br
+.ti -1c
+.RI "void \fBfromSec\fP (double t)"
+.br
+.ti -1c
+.RI "uint32_t \fBtoNsec\fP ()"
+.br
+.ti -1c
+.RI "\fBTime\fP & \fBfromNSec\fP (int32_t t)"
+.br
+.ti -1c
+.RI "\fBTime\fP & \fBoperator+=\fP (const \fBDuration\fP &rhs)"
+.br
+.ti -1c
+.RI "\fBTime\fP & \fBoperator-=\fP (const \fBDuration\fP &rhs)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBTime\fP \fBnow\fP ()"
+.br
+.ti -1c
+.RI "static void \fBsetNow\fP (\fBTime\fP &new_now)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBsec\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBnsec\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

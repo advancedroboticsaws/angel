@@ -1,0 +1,256 @@
+.TH "create_node::RawTurtlebotSensorState" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+create_node::RawTurtlebotSensorState \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBOI_MODE_OFF\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBOI_MODE_PASSIVE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBOI_MODE_SAFE\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBOI_MODE_FULL\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_LEFT\fP = 129 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_FORWARD\fP = 130 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_RIGHT\fP = 131 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_SPOT\fP = 132 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_MAX\fP = 133 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_SMALL\fP = 134 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_MEDIUM\fP = 135 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_LARGE\fP = 136 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_CLEAN\fP = 136 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_PAUSE\fP = 137 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_POWER\fP = 138 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_ARC_LEFT\fP = 139 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_ARC_RIGHT\fP = 140 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_DRIVE_STOP\fP = 141 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_SEND_ALL\fP = 142 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_SEEK_DOCK\fP = 143 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_RESERVED\fP = 240 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_FORCE_FIELD\fP = 242 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_GREEN_BUOY\fP = 244 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_GREEN_BUOY_AND_FORCE_FIELD\fP = 246 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_RED_BUOY\fP = 248 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_RED_BUOY_AND_FORCE_FIELD\fP = 250 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_RED_BUOY_AND_GREEN_BUOY\fP = 252 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_RED_BUOY_AND_GREEN_BUOY_AND_FORCE_FIELD\fP = 254 }"
+.br
+.ti -1c
+.RI "enum { \fBREMOTE_NONE\fP = 255 }"
+.br
+.ti -1c
+.RI "enum { \fBCHARGING_NOT_CHARGING\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBCHARGING_CHARGING_RECOVERY\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBCHARGING_CHARGING\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBCHARGING_TRICKLE_CHARGING\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBCHARGING_WAITING\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBCHARGING_CHARGING_ERROR\fP = 5 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbumps_wheeldrops\fP"
+.br
+.ti -1c
+.RI "bool \fBwall\fP"
+.br
+.ti -1c
+.RI "bool \fBcliff_left\fP"
+.br
+.ti -1c
+.RI "bool \fBcliff_front_left\fP"
+.br
+.ti -1c
+.RI "bool \fBcliff_front_right\fP"
+.br
+.ti -1c
+.RI "bool \fBcliff_right\fP"
+.br
+.ti -1c
+.RI "bool \fBvirtual_wall\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmotor_overcurrents\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBdirt_detector_left\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBdirt_detector_right\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBremote_opcode\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbuttons\fP"
+.br
+.ti -1c
+.RI "int16_t \fBdistance\fP"
+.br
+.ti -1c
+.RI "int16_t \fBangle\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcharging_state\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBvoltage\fP"
+.br
+.ti -1c
+.RI "int16_t \fBcurrent\fP"
+.br
+.ti -1c
+.RI "int8_t \fBtemperature\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBcharge\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBcapacity\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBwall_signal\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBcliff_left_signal\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBcliff_front_left_signal\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBcliff_front_right_signal\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBcliff_right_signal\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBuser_digital_inputs\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBuser_analog_input\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcharging_sources_available\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBoi_mode\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBsong_number\fP"
+.br
+.ti -1c
+.RI "bool \fBsong_playing\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBnumber_of_stream_packets\fP"
+.br
+.ti -1c
+.RI "int16_t \fBrequested_velocity\fP"
+.br
+.ti -1c
+.RI "int16_t \fBrequested_radius\fP"
+.br
+.ti -1c
+.RI "int16_t \fBrequested_right_velocity\fP"
+.br
+.ti -1c
+.RI "int16_t \fBrequested_left_velocity\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

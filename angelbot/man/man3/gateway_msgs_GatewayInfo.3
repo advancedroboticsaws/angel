@@ -1,0 +1,129 @@
+.TH "gateway_msgs::GatewayInfo" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gateway_msgs::GatewayInfo \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBname\fP"
+.br
+.ti -1c
+.RI "bool \fBconnected\fP"
+.br
+.ti -1c
+.RI "const char * \fBip\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBhub_names_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_hub_names\fP"
+.br
+.ti -1c
+.RI "char ** \fBhub_names\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBhub_uris_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_hub_uris\fP"
+.br
+.ti -1c
+.RI "char ** \fBhub_uris\fP"
+.br
+.ti -1c
+.RI "bool \fBfirewall\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpublic_watchlist_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::Rule\fP \fBst_public_watchlist\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::Rule\fP * \fBpublic_watchlist\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpublic_interface_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::Rule\fP \fBst_public_interface\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::Rule\fP * \fBpublic_interface\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBflipped_connections_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRuleWithStatus\fP \fBst_flipped_connections\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRuleWithStatus\fP * \fBflipped_connections\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBflip_watchlist_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP \fBst_flip_watchlist\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP * \fBflip_watchlist\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBflipped_in_connections_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP \fBst_flipped_in_connections\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP * \fBflipped_in_connections\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpull_watchlist_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP \fBst_pull_watchlist\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP * \fBpull_watchlist\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpulled_connections_length\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP \fBst_pulled_connections\fP"
+.br
+.ti -1c
+.RI "\fBgateway_msgs::RemoteRule\fP * \fBpulled_connections\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

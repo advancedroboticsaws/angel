@@ -1,0 +1,73 @@
+.TH "moveit_msgs::VisibilityConstraint" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::VisibilityConstraint \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBSENSOR_Z\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBSENSOR_Y\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBSENSOR_X\fP = 2 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBtarget_radius\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::PoseStamped\fP \fBtarget_pose\fP"
+.br
+.ti -1c
+.RI "int32_t \fBcone_sides\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::PoseStamped\fP \fBsensor_pose\fP"
+.br
+.ti -1c
+.RI "float \fBmax_view_angle\fP"
+.br
+.ti -1c
+.RI "float \fBmax_range_angle\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBsensor_view_direction\fP"
+.br
+.ti -1c
+.RI "float \fBweight\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

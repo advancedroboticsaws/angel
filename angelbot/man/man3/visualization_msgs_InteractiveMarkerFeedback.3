@@ -1,0 +1,85 @@
+.TH "visualization_msgs::InteractiveMarkerFeedback" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+visualization_msgs::InteractiveMarkerFeedback \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBKEEP_ALIVE\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBPOSE_UPDATE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBMENU_SELECT\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBBUTTON_CLICK\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBMOUSE_DOWN\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBMOUSE_UP\fP = 5 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "const char * \fBclient_id\fP"
+.br
+.ti -1c
+.RI "const char * \fBmarker_name\fP"
+.br
+.ti -1c
+.RI "const char * \fBcontrol_name\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBevent_type\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP \fBpose\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBmenu_entry_id\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Point\fP \fBmouse_point\fP"
+.br
+.ti -1c
+.RI "bool \fBmouse_point_valid\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

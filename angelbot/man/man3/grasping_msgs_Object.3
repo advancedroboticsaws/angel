@@ -1,0 +1,96 @@
+.TH "grasping_msgs::Object" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+grasping_msgs::Object \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "const char * \fBname\fP"
+.br
+.ti -1c
+.RI "const char * \fBsupport_surface\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBproperties_length\fP"
+.br
+.ti -1c
+.RI "\fBgrasping_msgs::ObjectProperty\fP \fBst_properties\fP"
+.br
+.ti -1c
+.RI "\fBgrasping_msgs::ObjectProperty\fP * \fBproperties\fP"
+.br
+.ti -1c
+.RI "\fBsensor_msgs::PointCloud2\fP \fBpoint_cluster\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBprimitives_length\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::SolidPrimitive\fP \fBst_primitives\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::SolidPrimitive\fP * \fBprimitives\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBprimitive_poses_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP \fBst_primitive_poses\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP * \fBprimitive_poses\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmeshes_length\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::Mesh\fP \fBst_meshes\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::Mesh\fP * \fBmeshes\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmesh_poses_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP \fBst_mesh_poses\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP * \fBmesh_poses\fP"
+.br
+.ti -1c
+.RI "\fBshape_msgs::Plane\fP \fBsurface\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

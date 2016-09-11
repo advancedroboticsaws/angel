@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  	<xacro:macro name="nightvision_camera" params="name parent">
+	  	<joint name="base2nightcam" type="fixed">
+			<parent link="${parent}"></parent>
+			<child link="${name}_nightcam_link"></child>
+			<origin xyz="" rpy="0"></origin> 
+		</joint>
+	  	<link name="${name}_nightcam_link">
+			<collision>
+				<geometry>
+	          		<box size=""/>
+		 		</geometry>
+		 	</collision>
+			<visual>
+				<geometry>
+	       			<box size=""/>
+	  			</geometry>
+				<material name=""></material></visual>
+			<inertial>
+				<mass value=""></mass>
+				<inertia ixx="" ixy="" ixz="" iyy="" iyz="" izz=""/>
+				</inertial>
+		</link>
+    </xacro:macro>
+</robot>

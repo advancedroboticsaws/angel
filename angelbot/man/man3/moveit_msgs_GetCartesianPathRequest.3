@@ -1,0 +1,69 @@
+.TH "moveit_msgs::GetCartesianPathRequest" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::GetCartesianPathRequest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::RobotState\fP \fBstart_state\fP"
+.br
+.ti -1c
+.RI "const char * \fBgroup_name\fP"
+.br
+.ti -1c
+.RI "const char * \fBlink_name\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBwaypoints_length\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP \fBst_waypoints\fP"
+.br
+.ti -1c
+.RI "\fBgeometry_msgs::Pose\fP * \fBwaypoints\fP"
+.br
+.ti -1c
+.RI "float \fBmax_step\fP"
+.br
+.ti -1c
+.RI "float \fBjump_threshold\fP"
+.br
+.ti -1c
+.RI "bool \fBavoid_collisions\fP"
+.br
+.ti -1c
+.RI "\fBmoveit_msgs::Constraints\fP \fBpath_constraints\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

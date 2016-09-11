@@ -1,0 +1,66 @@
+.TH "pr2_gripper_sensor_msgs::PR2GripperSlipServoData" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pr2_gripper_sensor_msgs::PR2GripperSlipServoData \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBros::Time\fP \fBstamp\fP"
+.br
+.ti -1c
+.RI "float \fBdeformation\fP"
+.br
+.ti -1c
+.RI "float \fBleft_fingertip_pad_force\fP"
+.br
+.ti -1c
+.RI "float \fBright_fingertip_pad_force\fP"
+.br
+.ti -1c
+.RI "float \fBjoint_effort\fP"
+.br
+.ti -1c
+.RI "bool \fBslip_detected\fP"
+.br
+.ti -1c
+.RI "bool \fBdeformation_limit_reached\fP"
+.br
+.ti -1c
+.RI "bool \fBfingertip_force_limit_reached\fP"
+.br
+.ti -1c
+.RI "bool \fBgripper_empty\fP"
+.br
+.ti -1c
+.RI "\fBpr2_gripper_sensor_msgs::PR2GripperSensorRTState\fP \fBrtstate\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

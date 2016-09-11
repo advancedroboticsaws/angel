@@ -1,0 +1,97 @@
+.TH "concert_msgs::ServiceProfile" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+concert_msgs::ServiceProfile \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBTYPE_ROSLAUNCH\fP = roslaunch }"
+.br
+.ti -1c
+.RI "enum { \fBTYPE_CUSTOM\fP = custom }"
+.br
+.ti -1c
+.RI "enum { \fBTYPE_SHADOW\fP = shadow }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBresource_name\fP"
+.br
+.ti -1c
+.RI "const char * \fBname\fP"
+.br
+.ti -1c
+.RI "const char * \fBdescription\fP"
+.br
+.ti -1c
+.RI "const char * \fBauthor\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBpriority\fP"
+.br
+.ti -1c
+.RI "\fBrocon_std_msgs::Icon\fP \fBicon\fP"
+.br
+.ti -1c
+.RI "const char * \fBlauncher_type\fP"
+.br
+.ti -1c
+.RI "const char * \fBlauncher\fP"
+.br
+.ti -1c
+.RI "const char * \fBinteractions\fP"
+.br
+.ti -1c
+.RI "const char * \fBparameters\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBparameters_detail_length\fP"
+.br
+.ti -1c
+.RI "\fBrocon_std_msgs::KeyValue\fP \fBst_parameters_detail\fP"
+.br
+.ti -1c
+.RI "\fBrocon_std_msgs::KeyValue\fP * \fBparameters_detail\fP"
+.br
+.ti -1c
+.RI "\fBuuid_msgs::UniqueID\fP \fBuuid\fP"
+.br
+.ti -1c
+.RI "int16_t \fBstatus\fP"
+.br
+.ti -1c
+.RI "bool \fBenabled\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

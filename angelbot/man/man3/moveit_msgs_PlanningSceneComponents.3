@@ -1,0 +1,73 @@
+.TH "moveit_msgs::PlanningSceneComponents" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+moveit_msgs::PlanningSceneComponents \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBSCENE_SETTINGS\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBROBOT_STATE\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBROBOT_STATE_ATTACHED_OBJECTS\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBWORLD_OBJECT_NAMES\fP = 8 }"
+.br
+.ti -1c
+.RI "enum { \fBWORLD_OBJECT_GEOMETRY\fP = 16 }"
+.br
+.ti -1c
+.RI "enum { \fBOCTOMAP\fP = 32 }"
+.br
+.ti -1c
+.RI "enum { \fBTRANSFORMS\fP = 64 }"
+.br
+.ti -1c
+.RI "enum { \fBALLOWED_COLLISION_MATRIX\fP = 128 }"
+.br
+.ti -1c
+.RI "enum { \fBLINK_PADDING_AND_SCALING\fP = 256 }"
+.br
+.ti -1c
+.RI "enum { \fBOBJECT_COLORS\fP = 512 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBcomponents\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

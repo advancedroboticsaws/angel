@@ -1,0 +1,151 @@
+.TH "sensor_msgs::BatteryState" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sensor_msgs::BatteryState \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_STATUS_UNKNOWN\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_STATUS_CHARGING\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_STATUS_DISCHARGING\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_STATUS_NOT_CHARGING\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_STATUS_FULL\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_UNKNOWN\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_GOOD\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_OVERHEAT\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_DEAD\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_OVERVOLTAGE\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_UNSPEC_FAILURE\fP = 5 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_COLD\fP = 6 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_WATCHDOG_TIMER_EXPIRE\fP = 7 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE\fP = 8 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_TECHNOLOGY_UNKNOWN\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_TECHNOLOGY_NIMH\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_TECHNOLOGY_LION\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_TECHNOLOGY_LIPO\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_TECHNOLOGY_LIFE\fP = 4 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_TECHNOLOGY_NICD\fP = 5 }"
+.br
+.ti -1c
+.RI "enum { \fBPOWER_SUPPLY_TECHNOLOGY_LIMN\fP = 6 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "float \fBvoltage\fP"
+.br
+.ti -1c
+.RI "float \fBcurrent\fP"
+.br
+.ti -1c
+.RI "float \fBcharge\fP"
+.br
+.ti -1c
+.RI "float \fBcapacity\fP"
+.br
+.ti -1c
+.RI "float \fBdesign_capacity\fP"
+.br
+.ti -1c
+.RI "float \fBpercentage\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpower_supply_status\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpower_supply_health\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpower_supply_technology\fP"
+.br
+.ti -1c
+.RI "bool \fBpresent\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcell_voltage_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_cell_voltage\fP"
+.br
+.ti -1c
+.RI "float * \fBcell_voltage\fP"
+.br
+.ti -1c
+.RI "const char * \fBlocation\fP"
+.br
+.ti -1c
+.RI "const char * \fBserial_number\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

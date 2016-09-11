@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<launch>
+	<arg name="scan_topic" default="scan" />
+	<!-- Starting gmapping node -->
+	<node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+	
+	<!-- Frame of mobile base -->
+	<param name="base_frame" value="angelbot_base"></param>
+	<param name="odom_frame" value="odom_combined"></param>
+	
+	<!-- The interval of map updation, reducing this value will speed of map generation but increase computation load -->
+	<param name="map_update_interval" value="30.0"></param>
+	
+	<!-- Maximum usable range of laser/kinect -->
+	<param name="maxUrange" value="4.5"></param>
+	
+	<!-- Maximum range of sensor, max range should be > maxUrange -->
+	<!-- param name="maxRange" value="8.0"></param-->
+	
+	<param name="sigma" value="0.05"></param>
+	<param name="kernelSize" value="1"></param>
+	
+	<param name="lstep" value="0.05"></param>
+	<param name="astep" value="0.05"></param>
+	<param name="iterations" value="5"></param>
+	<param name="lsigma" value="0.075"></param>
+	<param name="ogain" value="3.0"></param>
+	<param name="lskip" value="0"></param>
+	<param name="srr" value="0.01"></param>
+	<param name="srt" value="0.02"></param>
+	<param name="str" value="0.01"></param>
+	<param name="stt" value="0.02"></param>
+	<param name="linearUpdate" value="1.0"></param>
+	<param name="angularUpdate" value="0.5"></param>
+	<param name="temporalUpdate" value="-1.0"></param>
+	<param name="resampleThreshold" value="0.5"></param>
+	<param name="particles" value="30"></param>
+	<param name="minimumScore" value="100"></param>
+	
+	<param name="xmin" value="-1.0"></param>
+	<param name="ymin" value="-1.0"></param>
+	<param name="xmax" value="1.0"></param>
+	<param name="ymax" value="1.0"></param>
+	
+	<!-- Increase resolution -->
+	<param name="delta" value="0.05"></param>
+	<param name="llsamplerange" value="0.01"></param>
+	<param name="llsamplestep" value="0.01"></param>
+	<param name="lasamplerange" value="0.005"></param>
+	<param name="lasamplestep" value="0.005"></param>
+	<remap from="scan" to="$(arg scan_topic)"></remap>
+	</node>
+</launch>

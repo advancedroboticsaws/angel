@@ -1,0 +1,67 @@
+.TH "capabilities::CapabilityEvent" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+capabilities::CapabilityEvent \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBLAUNCHED\fP = 'launched' }"
+.br
+.ti -1c
+.RI "enum { \fBSTOPPED\fP = 'stopped' }"
+.br
+.ti -1c
+.RI "enum { \fBTERMINATED\fP = 'terminated' }"
+.br
+.ti -1c
+.RI "enum { \fBSERVER_READY\fP = 'server_ready' }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd_msgs::Header\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "const char * \fBcapability\fP"
+.br
+.ti -1c
+.RI "const char * \fBprovider\fP"
+.br
+.ti -1c
+.RI "const char * \fBtype\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpid\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

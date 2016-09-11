@@ -1,0 +1,72 @@
+.TH "rocon_app_manager_msgs::ErrorCodes" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rocon_app_manager_msgs::ErrorCodes \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBSUCCESS\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBUNKNOWN\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBMULTI_RAPP_NOT_SUPPORTED\fP = 10 }"
+.br
+.ti -1c
+.RI "enum { \fBRAPP_IS_NOT_RUNNING\fP = 20 }"
+.br
+.ti -1c
+.RI "enum { \fBRAPP_IS_NOT_AVAILABLE\fP = 21 }"
+.br
+.ti -1c
+.RI "enum { \fBLOCAL_INVITATIONS_ONLY\fP = 30 }"
+.br
+.ti -1c
+.RI "enum { \fBNO_LOCAL_GATEWAY\fP = 31 }"
+.br
+.ti -1c
+.RI "enum { \fBALREADY_REMOTE_CONTROLLED\fP = 32 }"
+.br
+.ti -1c
+.RI "enum { \fBNOT_CURRENT_REMOTE_CONTROLLER\fP = 33 }"
+.br
+.ti -1c
+.RI "enum { \fBINVITING_CONTROLLER_NOT_WHITELISTED\fP = 34 }"
+.br
+.ti -1c
+.RI "enum { \fBINVITING_CONTROLLER_BLACKLISTED\fP = 35 }"
+.br
+.ti -1c
+.RI "enum { \fBCLIENT_CONNECTION_DISRUPTED\fP = 36 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

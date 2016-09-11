@@ -1,0 +1,91 @@
+.TH "jsk_pcl_ros::TowerRobotMoveCommandRequest" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+jsk_pcl_ros::TowerRobotMoveCommandRequest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBROBOT1\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBROBOT2\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBROBOT3\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBPLATE_SMALL\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBPLATE_MIDDLE\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBPLATE_LARGE\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBTOWER_LOWEST\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBTOWER_MIDDLE\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBTOWER_HIGHEST\fP = 3 }"
+.br
+.ti -1c
+.RI "enum { \fBTOWER_LOWEST2\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBOPTION_NONE\fP = 0 }"
+.br
+.ti -1c
+.RI "enum { \fBOPTION_MOVE_INITIAL\fP = 1 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBrobot_index\fP"
+.br
+.ti -1c
+.RI "int32_t \fBplate_index\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfrom_tower\fP"
+.br
+.ti -1c
+.RI "int32_t \fBto_tower\fP"
+.br
+.ti -1c
+.RI "int32_t \fBoption_command\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

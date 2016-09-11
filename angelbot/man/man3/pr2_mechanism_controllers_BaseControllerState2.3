@@ -1,0 +1,111 @@
+.TH "pr2_mechanism_controllers::BaseControllerState2" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pr2_mechanism_controllers::BaseControllerState2 \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBgeometry_msgs::Twist\fP \fBcommand\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_command_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_joint_command\fP"
+.br
+.ti -1c
+.RI "float * \fBjoint_command\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_error_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_joint_error\fP"
+.br
+.ti -1c
+.RI "float * \fBjoint_error\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_velocity_commanded_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_joint_velocity_commanded\fP"
+.br
+.ti -1c
+.RI "float * \fBjoint_velocity_commanded\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_velocity_measured_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_joint_velocity_measured\fP"
+.br
+.ti -1c
+.RI "float * \fBjoint_velocity_measured\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_effort_measured_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_joint_effort_measured\fP"
+.br
+.ti -1c
+.RI "float * \fBjoint_effort_measured\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_effort_commanded_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_joint_effort_commanded\fP"
+.br
+.ti -1c
+.RI "float * \fBjoint_effort_commanded\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_effort_error_length\fP"
+.br
+.ti -1c
+.RI "float \fBst_joint_effort_error\fP"
+.br
+.ti -1c
+.RI "float * \fBjoint_effort_error\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBjoint_names_length\fP"
+.br
+.ti -1c
+.RI "char * \fBst_joint_names\fP"
+.br
+.ti -1c
+.RI "char ** \fBjoint_names\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.

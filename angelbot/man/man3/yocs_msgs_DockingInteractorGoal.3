@@ -1,0 +1,61 @@
+.TH "yocs_msgs::DockingInteractorGoal" 3 "Sat Jul 9 2016" "angelbot" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+yocs_msgs::DockingInteractorGoal \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBros::Msg\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBWAKE_UP\fP = 10 }"
+.br
+.ti -1c
+.RI "enum { \fBREGISTER_DOCK_IN_GLOBAL_FRAME\fP = 20 }"
+.br
+.ti -1c
+.RI "enum { \fBRETURN_TO_DOCK\fP = 30 }"
+.br
+.ti -1c
+.RI "enum { \fBGOTO_DOCK_FRONT\fP = 40 }"
+.br
+.ti -1c
+.RI "enum { \fBCALL_AUTODOCK\fP = 50 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBserialize\fP (unsigned char *outbuffer) const "
+.br
+.ti -1c
+.RI "virtual int \fBdeserialize\fP (unsigned char *inbuffer)"
+.br
+.ti -1c
+.RI "const char * \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBgetMD5\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int8_t \fBcommand\fP"
+.br
+.ti -1c
+.RI "float \fBdistance\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for angelbot from the source code\&.
