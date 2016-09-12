@@ -87,7 +87,7 @@ Firmwares are included in this repository, placed under **mcu_control** folder.
 In this section, we review angel's hardware architecture.
 
 * Overall abstract diagram
-  ![System](../master/doc/Angel%20system%20diagram.jpg)
+  ![System](doc/Angel%20system%20diagram.png)
   
 * Schematic of vnh5019
   ![vnh5019-1](../master/doc/vnh5019-1st.jpg)
