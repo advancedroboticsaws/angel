@@ -88,7 +88,7 @@ In this section, we review angel's hardware architecture.
 
 * Overall abstract diagram
   ![System](doc/Angel%20system%20diagram.png)
-  
+  <img src="doc/Angel%20system%20diagram.png" alt="system">
 * Schematic of vnh5019
   ![vnh5019-1](doc/vnh5019-1st.jpg)
   ![vnh5019-2](doc/vnh5019-2nd.jpg)
