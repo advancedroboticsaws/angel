@@ -6,12 +6,12 @@
   Instructions for fundamental testing on angel 
 </h1>
 
-<p align="center">
+<p align="left">
 <b><a href="#overview">Overview</a></b>
 |
 <b><a href="#preparing-for-testing">Preparing for testing</a></b>
 |
-<b><a href="#system-diagram">System diagram</a></b>
+<b><a href="#system-architeture">System architeture</a></b>
 |
 <b><a href="#module-test">Module test</a></b>
 |
@@ -29,16 +29,31 @@ Firmwares are included in this repository, placed under **mcu_control** folder.
 
 ## Table of contents
 * [**Preparing for testing**](#preparing-for-testing)
-* [**System diagram**](#system-diagram)
+* [**System architeture**](#system-architeture)
 * [**Module test**] (#module-test) 
   * [**Base driving test**](#base-driving-test)
+  	* [**Step 1 Check hardware setups for base driving control**](#step1-check-hardware-setups-for-base-driving-control)
+  	* [**Step 2 Upload firmware to vnh5019 and go for wheels spining test**](#step-2-upload-firmware-to-vnh5019-and-go-for-wheels-spining-test)
+  	* [**Step 3 Upload final firmware to vnh5019**](#step-3-upload-final-firmware-to-vnh5019)
+  	* [**Step 4 Upload firmware to mega_base**](#step-4-upload-firmware-to-mega_base)
+  	* [**Step 5 Both wheel driving test through mega2560 using PC**](#step-5-both-wheel-driving-test-through-mega2560-using-pc)
+  	* [**Step 6 Both wheel driving test through mega2560 using XU4 (odroid)**](#step-6-both-wheel-driving-test-through-mega2560-using-xu4-odroid)
   * [**IMU sensing test**](#imu-sensing-test)
+  	* [**Step 1 Check hardware setup to receive data from IMU**](#step-1-check-hardware-setup-to-receive-data-from-imu)
+  	* [**Step 2 Upload firmwares and calibrate MPU6050 using PC**](#step-2-upload-firmwares-and-calibrate-mpu6050-using-pc)
+  	* [**Step 3 Upload final firmwares to MPU6050 and testing using PC**](#step-3-upload-final-firmwares-to-mpu6050-and-testing-using-pc)
   * [**Laser scan test**](#laser-scan-test)
-  * [**Camera Joint spining test**](#camera-joint-spining-test)
-  * [**Charger test**](#charger-test)     
+  	* [**Step 1 Check hardware setup to receive data from laser scanner**](#step-1-check-hardware-setup-to-receive-data-from-laser-scanner)
+  	* [**Step 2 Launch rplidar using ROS on PC**](#step-2-launch-rplidar-using-ros-on-pc)
+  	* [**Step 3 Launch rplidar using ROS on odroid**](#step-3-launch-rplidar-using-ROS-on-odroid)
+  * [**Camera Joint control test--not done**](#camera-joint-control-test)
+  	* [**Step 1 Check hardware setup to control camera position**](#step-1-check-hardware-setup-to-control-camera-position)
+  	* [**Step 2 Uploading firmware to vnh5019 and control camera joint**](#step-2-upload-firmware-to-vnh5019-and-control-camera-joint)
+  	* [**Step 3 Uploading final firmware to camera joint**](#step-3-uploading-final-firmware-to-camera-joint)
+  * [**Charger test-- not quite certain yet**](#charger-test)     
 * [**Function test**](#function-test)
   * [**Tele-operation**](#tele-operation) 
-* [**Appendix**](#appendix)
+* [**Appendix -- not done**](#appendix)
 
 ## Preparing for testing
 
@@ -97,6 +112,7 @@ The following test requires ROS on any of your testing platform.
 ### Base driving test
 
 Check the following requirements.
+
 Brief description of this test
 
 * Requirements 
@@ -109,7 +125,7 @@ Brief description of this test
 
 <a name="base-driving-test-step1"></a>
 
-#### Step 1 `Check Hardware setups`
+#### Step 1 `Check hardware setups for base driving control`
 
 Check all the hardware setup !!
 
@@ -132,7 +148,7 @@ Instructions for each are separated as follows.
 
 <a name="base-driving-test-step2"></a>
 
-#### Step 2 `Uploading firmware to vnh5019 and go for wheels spining test` 
+#### Step 2 `Upload firmware to vnh5019 and go for wheels spining test` 
 
 **This test is to make sure you have connect motor and driver correctly.**
 
@@ -174,7 +190,7 @@ Firmware for wheel spining test is placed in the folder.
 
 <a name="base-driving-test-step3"></a>
 
-#### Step 3 `Uploading final firmware to vnh5019` 
+#### Step 3 `Upload final firmware to vnh5019` 
 
 Final version of firmware for vnh5019 is placed in the folder.
 
@@ -199,7 +215,7 @@ Final version of firmware for vnh5019 is placed in the folder.
 
 <a name="base-driving-test-step4"></a>
 
-#### Step 4 `Uploading firmware to mega_base` 
+#### Step 4 `Upload firmware to mega_base` 
 
 Firmware for mega2560 is inside the following folder.
 
@@ -315,18 +331,15 @@ Please mark the following checklist yourself when you finish each.
 Inertia measurement unit, IMU, is very important for navigation on any of our system.
 Brief description of this test
 
-* Setup requirements 
+* Requirements 
   *  mpu6050
   *  promini
-* Setup wiring diagram
-* Firmware upload instruction
-  * Firmware version check
-  * Serial port & baud rate configuration 
-* Begin Testing
+* Firmware upload instruction 
+* Calibration and Testing
 
 <a name="imu-sensing-test-step1"></a>
 
-#### Step 1 `Hardware setup`
+#### Step 1 `Check hardware setup to receive data from IMU`
 
 On angel, **MPU6050** is used. We also need a controller board, **promini**, to 
 recieve its data. 
@@ -420,10 +433,10 @@ Firmware for calibration is placed in the folder.
 
 <a name="laser-scan-test-step1"></a>
 
-#### Step 1 `Hardware setup`
+#### Step 1 `Check hardware setup to receive data from laser scanner`
 
 Check all the hardware setup !!
-The laser scanner we used is rplidar. 
+The laser scanner we used is **rplidar**. 
 To be able to use it on PC or odroid, the complete hardware setup should contain rplidar + transmission board.
 
 Mark the following checklist yourself when you finish each setup.
@@ -434,7 +447,7 @@ Mark the following checklist yourself when you finish each setup.
 
 <a name="laser-scan-test-step2"></a>
 
-#### Step 2 `Launching rplidar using ROS on PC`
+#### Step 2 `Launch rplidar using ROS on PC`
 
 This test is to help you find out you if the rplidar you have is functional and your hardware setup is correct. 
 Before going through the uploading procedures below, please mark the following checklist yourself when you finish each setup.
@@ -467,7 +480,7 @@ Before going through the uploading procedures below, please mark the following c
 
 		```   
 
-#### Step 3 `Launching rplidar using ROS on odroid`
+#### Step 3 `Launch rplidar using ROS on odroid`
 
 Before going through the uploading procedures below, please mark the following checklist yourself when you finish each setup.
 
@@ -506,11 +519,11 @@ Before going through the uploading procedures below, please mark the following c
 
 <a name="camera-joint-spinning-step1"></a>
 
-#### Step 1 `Hardware setup`
+#### Step 1 `Check hardware setup to control camera position`
 
 <a name="camera-joint-spinning-step2"></a>
 
-#### Step 2 `Uploading firmware to vnh5019 and go for camera joint test`
+#### Step 2 `Uploading firmware to vnh5019 and control camera joint`
 
 * upload `vnh5019_base_test.ino` to left/right wheel
 	1. Look for line 8 and 9. Uncomment one of these two lines according to which rotating direction you are about to do the uploading. 
@@ -536,7 +549,7 @@ Before going through the uploading procedures below, please mark the following c
 
 <a name="base-driving-test-step3"></a>
 
-#### Step 3 `Uploading final firmware to vnh5019` 
+#### Step 3 `Uploading final firmware to camera joint` 
 
 Final version of firmware for vnh5019 is placed in the folder.
 
@@ -558,7 +571,7 @@ Final version of firmware for vnh5019 is placed in the folder.
 	6. Go for it! Click upload!
 	7. Open the serial monitor on your Arduino IDE.
 
-### Charger test -- not quite certain yet
+### Charger test
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of Module test</b>
@@ -602,6 +615,19 @@ Final version of firmware for vnh5019 is placed in the folder.
     
 ## Team 
 
+[Weber Hsu](https://github.com/Weber-Hsu)
+|
+[CL Chu](https://github.com/clchuadrobot)
+|
+[William Chen](https://github.com/piliwilliam0306)
+|
+[Zach Wang](https://github.com/ChingHengWang)
+|
+[Eric Ko](https://github.com/EricWilliamKo)
+|
+[Muchun Yen](https://github.com/Muchun-Yen)
+|
+[Kevin Kuei](https://github.com/wennycooper)
 
 ## License
 Copyright © 2016 Advanced Robotics Corporation
