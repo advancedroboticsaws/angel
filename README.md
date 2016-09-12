@@ -8,6 +8,8 @@
 <p align="center">
 <b><a href="#overview">Overview</a></b>
 |
+<b><a href="#table-of-contents">Table of contents</a></b>
+|
 <b><a href="#preparing-for-testing">Preparing for testing</a></b>
 |
 <b><a href="#system-architeture">System architeture</a></b>
