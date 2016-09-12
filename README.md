@@ -1,7 +1,7 @@
 
 
 <h1 align="center">
-  <img src="doc/AR.png" alt="AR"> 
+  <img src="/doc/AR.png" alt="AR"> 
   Instructions for fundamental testing on angel 
 </h1>
 
@@ -87,11 +87,11 @@ Firmwares are included in this repository, placed under **mcu_control** folder.
 In this section, we review angel's hardware architecture.
 
 * Overall abstract diagram
-  ![System](doc/Angel%20system%20diagram.png)
+  ![System](/doc/Angel%20system%20diagram.png)
   
 * Schematic of vnh5019
-  ![vnh5019-1](../master/doc/vnh5019-1st.jpg)
-  ![vnh5019-2](../master/doc/vnh5019-2nd.jpg)
+  ![vnh5019-1](/doc/vnh5019-1st.jpg)
+  ![vnh5019-2](/doc/vnh5019-2nd.jpg)
   
 ## Module test
 
