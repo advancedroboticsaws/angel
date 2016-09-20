@@ -652,51 +652,37 @@ function setDocumentScrollTop(ypos)
    <li> <a href="#base-driving-test"><strong>Base driving test</strong></a> 
     <ul> 
      <li><a href="#step1-check-hardware-setups-for-base-driving-control"><strong>Step 1 Check hardware setups for base driving control</strong></a></li> 
-     <li><a href="#step-2-upload-firmware-to-vnh5019-and-go-for-wheels-spining-test"><strong>Step 2 Upload firmware to vnh5019 and go for wheels spining test</strong></a></li> 
-     <li><a href="#step-3-upload-final-firmware-to-vnh5019"><strong>Step 3 Upload final firmware to vnh5019</strong></a></li> 
-     <li><a href="#step-4-upload-firmware-to-mega_base"><strong>Step 4 Upload firmware to mega_base</strong></a></li> 
-     <li><a href="#step-5-both-wheel-driving-test-through-mega2560-using-pc"><strong>Step 5 Both wheel driving test through mega2560 using PC</strong></a></li> 
-     <li><a href="#step-6-both-wheel-driving-test-through-mega2560-using-xu4-odroid"><strong>Step 6 Both wheel driving test through mega2560 using XU4 (odroid)</strong></a></li> 
-    </ul> </li> 
-   <li> <a href="#imu-sensing-test"><strong>IMU sensing test</strong></a> 
-    <ul> 
-     <li><a href="#step-1-check-hardware-setup-to-receive-data-from-imu"><strong>Step 1 Check hardware setup to receive data from IMU</strong></a></li> 
-     <li><a href="#step-2-upload-firmwares-and-calibrate-mpu6050-using-pc"><strong>Step 2 Upload firmwares and calibrate MPU6050 using PC</strong></a></li> 
-     <li><a href="#step-3-upload-final-firmwares-to-mpu6050-and-testing-using-pc"><strong>Step 3 Upload final firmwares to MPU6050 and testing using PC</strong></a></li> 
+     <li><a href="#step-2-upload-firmware-to-vnh5019"><strong>Step 2 Upload firmware to vnh5019</strong></a></li> 
+     <li><a href="#step-3-upload-firmware-to-mega_base"><strong>Step 3 Upload firmware to mega_base</strong></a></li> 
+     <li><a href="#step-4-both-wheel-driving-test-through-mega2560-using-xu4-odroid"><strong>Step 4 Both wheel driving test through mega2560 using XU4 (odroid)</strong></a></li> 
     </ul> </li> 
    <li> <a href="#laser-scan-test"><strong>Laser scan test</strong></a> 
     <ul> 
      <li><a href="#step-1-check-hardware-setup-to-receive-data-from-laser-scanner"><strong>Step 1 Check hardware setup to receive data from laser scanner</strong></a></li> 
-     <li><a href="#step-2-launch-rplidar-using-ros-on-pc"><strong>Step 2 Launch rplidar using ROS on PC</strong></a></li> 
-     <li><a href="#step-3-launch-rplidar-using-ROS-on-odroid"><strong>Step 3 Launch rplidar using ROS on odroid</strong></a></li> 
+     <li><a href="#step-2-launch-rplidar-using-ROS-on-odroid"><strong>Step 2 Launch rplidar using ROS on odroid</strong></a></li> 
     </ul> </li> 
    <li> <a href="#camera-joint-control-test"><strong>Camera Joint control test--not done</strong></a> 
     <ul> 
      <li><a href="#step-1-check-hardware-setup-to-control-camera-position"><strong>Step 1 Check hardware setup to control camera position</strong></a></li> 
      <li><a href="#step-2-upload-firmware-to-vnh5019-and-control-camera-joint"><strong>Step 2 Uploading firmware to vnh5019 and control camera joint</strong></a></li> 
-     <li><a href="#step-3-uploading-final-firmware-to-camera-joint"><strong>Step 3 Uploading final firmware to camera joint</strong></a></li> 
     </ul> </li> 
-   <li> <a href="#charger-test"><strong>Charger test-- not quite certain yet</strong></a><br /> </li> 
+   <li><a href="#security-sensing-test"><strong>Security Sening test</strong></a></li> 
+   <li> <a href="#camera-image-topic-test"><strong>Camera image topic test</strong></a><br /> </li> 
   </ul> </li> 
  <li> <a href="#function-test"><strong>Function test</strong></a> 
   <ul> 
-   <li> <a href="#tele-operation"><strong>Tele-operation</strong></a> </li> 
+   <li><a href="#tele-operation"><strong>Tele-operation</strong></a></li> 
+   <li> <a href="#auto-ducking-test"><strong>Auto ducking test</strong></a> </li> 
   </ul> </li> 
  <li><a href="#appendix"><strong>Appendix -- not done</strong></a></li> 
 </ul> 
 <h2> <a id="preparing-for-testing" class="anchor" href="#preparing-for-testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preparing for testing</h2> 
 <ol> 
- <li>Install ROS(indigo) on your PC.</li> 
  <li>Prepare your odroid XU4 board with OS version ubuntu 14.04 on it.</li> 
  <li> <p>Check odroid IP address. Type the following command on odroid board.</p> <pre><code>ifconfig
-</code></pre> <p>On version 1.0 angel-1, IP address should be 192.168.25.110 </p> </li> 
+</code></pre> <p>On angel-1.1, IP address should be <code>192.168.25.110</code> </p> </li> 
  <li> <p>Download this repository and compile it on odroid by going though the following steps.</p> <pre><code>ssh odroid@[Odroid IP address]
 cd ~/catkin_ws/src
-git clone https://github.com/advancedroboticsaws/angel.git
-cd ~/catkin_ws
-catkin_make 
-</code></pre> </li> 
- <li> <p>Download this repository to your PC by going though the following steps. Open a terminal and type</p> <pre><code>cd ~/catkin_ws/src
 git clone https://github.com/advancedroboticsaws/angel.git
 cd ~/catkin_ws
 catkin_make 
@@ -705,7 +691,7 @@ catkin_make
 <h2> <a id="system-architeture" class="anchor" href="#system-architeture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System architeture</h2> 
 <p>In this section, we review angel's hardware architecture.</p> 
 <ul> 
- <li>Overall abstract diagram</li> 
+ <li>Overall block diagram</li> 
 </ul> 
 <p><a href="doc/Angel%20system%20diagram.png" target="_blank"><img src="doc/Angel%20system%20diagram.png" alt="System" style="max-width:100%;" /></a></p> 
 <ul> 
@@ -715,7 +701,7 @@ catkin_make
 <p><a href="doc/vnh5019-2nd.jpg" target="_blank"><img src="doc/vnh5019-2nd.jpg" alt="vnh5019-2" style="max-width:100%;" /></a></p> 
 <h2> <a id="module-test" class="anchor" href="#module-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module test</h2> 
 <p>The following test requires ROS on any of your testing platform.</p> 
-<p align="center"> <b><a href="#base-driving-test">Base driving test</a></b> | <b><a href="#imu-sensing-test">IMU sensing test</a></b> | <b><a href="#laser-scan-test">Laser scan test</a></b> | <b><a href="#camera-joint-test">Camera joint test</a></b> | <b><a href="#charger-test">Charger test</a></b> | </p> 
+<p align="center"> <b><a href="#base-driving-test">Base driving test</a></b> | <b><a href="#laser-scan-test">Laser scan test</a></b> | <b><a href="#camera-joint-test">Camera joint test</a></b> | </p> 
 <h3> <a id="base-driving-test" class="anchor" href="#base-driving-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Base driving test</h3> 
 <p>Check the following requirements.</p> 
 <p>Brief description of this test</p> 
@@ -724,8 +710,8 @@ catkin_make
   <ul> 
    <li>motor-control module</li> 
    <li>mega2560</li> 
-   <li>Odroid XU4 or PC</li> 
-   <li>ROS on PC and odroid </li> 
+   <li>Odroid XU4</li> 
+   <li>ROS on odroid </li> 
   </ul> </li> 
  <li>Firmware upload instruction</li> 
  <li>Left/right wheel spinning test with and without ROS.</li> 
@@ -744,53 +730,26 @@ catkin_make
 <p><strong>Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.</strong></p> 
 <p>After you finish first step, you are about to make wheels spin. There are two control boards that should have firmwares uploaded, <code>mega2560 &amp; vnh5019</code>. Firmware uploading steps for both of them are slightly different. Instructions for each are separated as follows.</p> 
 <p><a name="user-content-base-driving-test-step2"></a></p> 
-<h4> <a id="step-2-upload-firmware-to-vnh5019-and-go-for-wheels-spining-test" class="anchor" href="#step-2-upload-firmware-to-vnh5019-and-go-for-wheels-spining-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Upload firmware to vnh5019 and go for wheels spining test</code> </h4> 
-<p><strong>This test is to make sure you have connect motor and driver correctly.</strong></p> 
+<h4> <a id="step-2-upload-firmware-to-vnh5019" class="anchor" href="#step-2-upload-firmware-to-vnh5019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Upload firmware to vnh5019</code> </h4> 
 <p>Firmware for wheel spining test is placed in the folder.</p> 
-<pre><code>/mcu_control/vnh5019_base_test/src
-</code></pre> 
-<ul> 
- <li> <p>upload <code>vnh5019_base_test.ino</code> to left/right wheel</p> 
-  <ol> 
-   <li>Look for line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. </li> 
-   <li>Open vnh5019_base_test.ino with Arduino IDE on your PC.</li> 
-   <li> <p>Modify Arduino PWM Frequency in Arduino IDE. Copy</p> <pre><code>/mcu_control/wiring.c
-</code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure it has </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
-</code></pre> <p>on line 31 or 32 in wiring.c.</p> </li> 
-   <li>Set your upload target to <strong>promini</strong> </li> 
-   <li>Choose your <strong>port</strong> carefully.</li> 
-   <li>Go for it! Click upload!</li> 
-   <li>Open the serial monitor on your Arduino IDE.</li> 
-   <li>Between -31 to +31, enter a 4-character rotation speed value , 15.0 (rad/s) for example). </li> 
-   <li> <p>Check out the rotation direction and measure the speed of the wheel. There should have something <strong>wrong</strong> if </p> 
-    <ul> 
-     <li>If it rotates in the orientation against angel moving direction. </li> 
-     <li>If the speed isn't exact 15.0 rad/s. Look into the steps above! Something might goes wrong.</li> 
-    </ul> <p>If everything is carrying out flawlessly, stop the wheel by giving a 0.00 speed value and go to next step. </p> </li> 
-   <li>Go though the steps above again <strong>for the other wheel</strong>.</li> 
-  </ol> </li> 
-</ul> 
-<p><a name="user-content-base-driving-test-step3"></a></p> 
-<h4> <a id="step-3-upload-final-firmware-to-vnh5019" class="anchor" href="#step-3-upload-final-firmware-to-vnh5019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Upload final firmware to vnh5019</code> </h4> 
-<p>Final version of firmware for vnh5019 is placed in the folder.</p> 
 <pre><code>/mcu_control/vnh5019_base/src
 </code></pre> 
 <ul> 
  <li> <p>upload <code>vnh5019_base.ino</code> to left/right wheel</p> 
   <ol> 
    <li>Look for line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. </li> 
-   <li>Open vnh5019_base_test.ino with Arduino IDE on your PC.</li> 
-   <li> <p>Make sure it has </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
-</code></pre> <p>on line 31 or 32 in wiring.c. If you don't understand this step, please refer to step 2 above to figure out.</p> </li> 
+   <li>Open vnh5019_base.ino with Arduino IDE on your PC.</li> 
+   <li> <p>Modify Arduino PWM Frequency in Arduino IDE. Copy</p> <pre><code>/mcu_control/wiring.c
+</code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure it has </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
+</code></pre> <p>on line 31 or 32 in wiring.c.</p> </li> 
    <li>Set your upload target to <strong>promini</strong> </li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
-   <li>Go for it! Click upload!</li> 
-   <li>Open the serial monitor on your Arduino IDE.</li> 
+   <li>Go for it! Click upload!<br /> </li> 
    <li>Go though the steps above again <strong>for the other wheel</strong>.</li> 
   </ol> </li> 
 </ul> 
-<p><a name="user-content-base-driving-test-step4"></a></p> 
-<h4> <a id="step-4-upload-firmware-to-mega_base" class="anchor" href="#step-4-upload-firmware-to-mega_base" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4 <code>Upload firmware to mega_base</code> </h4> 
+<p><a name="user-content-base-driving-test-step3"></a></p> 
+<h4> <a id="step-3-upload-firmware-to-mega_base" class="anchor" href="#step-3-upload-firmware-to-mega_base" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Upload firmware to mega_base</code> </h4> 
 <p>Firmware for mega2560 is inside the following folder.</p> 
 <pre><code>/mcu_control/mega_base_ultrasonic_angelbot/src
 </code></pre> 
@@ -799,35 +758,17 @@ catkin_make
   <ol> 
    <li>Open mega_base_ultrasonic_angelbot.ino with Arduino IDE on your PC.</li> 
    <li> <p>Libraries for these firmware is placed in </p> <pre><code>/mcu_control/mega_base_ultrasonic_angelbot/lib
-</code></pre> <p>Copy all contents inside and paste them into <code>../arduino/libraries</code> folder on your PC. 3.Make sure it has </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
+</code></pre> <p>Copy all contents inside and paste them to <code>../arduino/libraries</code> folder on your PC.</p> </li> 
+   <li> <p>Make sure it has </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 </code></pre> <p>on line 31 or 32 in wiring.c. If you don't understand this step, please refer to step 2 above to figure out. </p> </li> 
    <li>Set your upload target to <strong>mega2560</strong> </li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
    <li>Go for it! Click upload!</li> 
   </ol> </li> 
 </ul> 
-<p><a name="user-content-base-driving-test-step5"></a></p> 
-<h4> <a id="step-5-both-wheel-driving-test-through-mega2560-using-pc" class="anchor" href="#step-5-both-wheel-driving-test-through-mega2560-using-pc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5 <code>Both wheel driving test through mega2560 using PC</code> </h4> 
-<p>The following testing needs ROS! Make sure you have installed ROS on your computer. Be aware all the errors (red color format) while you installed ROS if there's any.</p> 
-<p>Assume that you have already installed ROS on you PC</p> 
-<ul> 
- <li> <p>Command Left/Right wheel from ROS.</p> 
-  <ol> 
-   <li>Open a terminal and start the roscore up.</li> 
-   <li> <p>Type the following command.</p> <pre><code>roscore
-</code></pre> </li> 
-   <li> <p>The next step should be starting communication between PC and mega2560 through ROS. Open another terminal and type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/ttyACM* _baud:=115200
-</code></pre> </li> 
-   <li> <p>Open another terminal and type</p> <pre><code>rostopic list
-</code></pre> <p>Check the topic list to make sure communication between mega2560 and your PC is set.</p> </li> 
-   <li> <p>Type the follonwing command</p> <pre><code>rostopic pub /cmd_angular_vel angelbot/WheelCmd ...
-</code></pre> <p>to send a command to drive each wheel.</p> </li> 
-   <li>Make sure both wheel have spin in the correct direction with the correct speed.</li> 
-   <li>If there is nothing wrong, send a 0 speed command and shutdown by typing ctrl-c.</li> 
-  </ol> </li> 
-</ul> 
-<p><a name="user-content-base-driving-test-step6"></a></p> 
-<h4> <a id="step-6-both-wheel-driving-test-through-mega2560-using-xu4-odroid" class="anchor" href="#step-6-both-wheel-driving-test-through-mega2560-using-xu4-odroid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6 <code>Both wheel driving test through mega2560 using XU4 (odroid)</code> </h4> 
+<p><a name="user-content-base-driving-test-step4"></a></p> 
+<h4> <a id="step-4-both-wheel-driving-test-through-mega2560-using-xu4-odroid" class="anchor" href="#step-4-both-wheel-driving-test-through-mega2560-using-xu4-odroid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4 <code>Both wheel driving test through mega2560 using XU4 (odroid)</code> </h4> 
+<p>The following testing needs ROS! Make sure you have installed ROS on odroid XU4. Be aware all the errors (red color format) while you installed ROS if there's any.</p> 
 <p>Please mark the following checklist yourself when you finish each.</p> 
 <ul> 
  <li> <p>[ ] Make sure you have correct hardware setup.</p> 
@@ -846,108 +787,19 @@ catkin_make
    <li>If there is nothing wrong, send a 0 speed command and shutdown by typing ctrl-c.</li> 
   </ol> </li> 
 </ul> 
-<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of base driving test</b> </p> 
-<h3> <a id="imu-sensing-test" class="anchor" href="#imu-sensing-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IMU sensing test</h3> 
-<p>Inertia measurement unit, IMU, is very important for navigation on any of our system. Brief description of this test</p> 
-<ul> 
- <li>Requirements 
-  <ul> 
-   <li> mpu6050</li> 
-   <li> promini</li> 
-  </ul> </li> 
- <li>Firmware upload instruction </li> 
- <li>Calibration and Testing</li> 
-</ul> 
-<p><a name="user-content-imu-sensing-test-step1"></a></p> 
-<h4> <a id="step-1-check-hardware-setup-to-receive-data-from-imu" class="anchor" href="#step-1-check-hardware-setup-to-receive-data-from-imu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setup to receive data from IMU</code> </h4> 
-<p>On angel, <strong>MPU6050</strong> is used. We also need a controller board, <strong>promini</strong>, to recieve its data. Check the wiring twice before powering on.</p> 
-<p>Mark the following checklist yourself when you finish each setup.</p> 
-<ul> 
- <li>[ ] Check your device type. Make sure you installed the correct one.</li> 
- <li>[ ] MPU6050 are installed on the recommended position tight. </li> 
- <li>[ ] MPU6050 connects to promini correctly.<br /> </li> 
-</ul> 
-<p><strong>Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.</strong></p> 
-<p><a name="user-content-imu-sensing-test-step2"></a></p> 
-<h4> <a id="step-2-upload-firmwares-and-calibrate-mpu6050-using-pc" class="anchor" href="#step-2-upload-firmwares-and-calibrate-mpu6050-using-pc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Upload firmwares and calibrate MPU6050 using PC</code> </h4> 
-<p>Firmware for calibration is placed in the folder.</p> 
-<pre><code>/mcu_control/promini_mpu6050
-</code></pre> 
-<ul> 
- <li> <p>Upload <code>MPU6050_calibration.ino</code> to promini.</p> 
-  <ol> 
-   <li>Open MPU6050_calibration.ino with Arduino IDE on your PC.</li> 
-   <li> <p>Libraries for these firmware is placed in </p> <pre><code>/mcu_control/promini_mpu6050/lib
-</code></pre> <p>Copy all contents inside and paste them into <code>../arduino/libraries</code> folder on your PC.</p> </li> 
-   <li> <p>Change Arduino PWM Frequency back to default in Arduino IDE. </p> <pre><code> cd ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino
-</code></pre> <p>Make sure it has </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(64 * 256))
-</code></pre> <p>on line 31 or 32 in wiring.c.</p> </li> 
-   <li>Set your upload target to <strong>promini</strong> </li> 
-   <li>Choose your <strong>port</strong> carefully.</li> 
-   <li>Go for it! Click upload!</li> 
-   <li>Open the serial monitor on your Arduino IDE.</li> 
-   <li>Press any key to continue. </li> 
-   <li> <p>Calibration will now begin. After it finishes, a message will pops up as follows. Please follow it.</p> <pre><code>Data is printed as: acelX acelY acelZ giroX giroY giroZ.
-Check that your sensor readings are close to 0 0 16384 0 0 0.
-If calibration was succesful write down your offsets so you can set them in your projects using something similar to mpu.setXAccelOffset(youroffset)
-</code></pre> </li> 
-  </ol> </li> 
-</ul> 
-<p><a name="user-content-imu-sensing-test-step3"></a></p> 
-<h4> <a id="step-3-upload-final-firmwares-to-mpu6050-and-testing-using-pc" class="anchor" href="#step-3-upload-final-firmwares-to-mpu6050-and-testing-using-pc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Upload final firmwares to MPU6050 and testing using PC</code> </h4> 
-<p>Firmware for calibration is placed in the folder.</p> 
-<pre><code>/mcu_control/promini_mpu6050
-</code></pre> 
-<ul> 
- <li> <p>Upload <code>MPU6050_angelbot.ino</code> to promini.</p> 
-  <ol> 
-   <li>Please check libraries that you should have already copy to <code>../adruinolibraries</code>. If there isn't any of it, which means you haven't gone through step2. Please go back and finish step2.</li> 
-   <li>Open MPU6050_angelbot.ino with Arduino IDE on your PC.</li> 
-   <li>Fill in the value that you get from step2 on line 210 ~ 215.</li> 
-   <li>Set your upload target to <strong>promini</strong> </li> 
-   <li>Choose your <strong>port</strong> carefully.</li> 
-   <li>Go for it! Click upload!</li> 
-   <li>Open the serial monitor on your Arduino IDE.</li> 
-   <li> <p>Program will now begin. If you do it all correctly, messages will keep up poping up as follows. </p> <pre><code>&quot;Enabling DMP...&quot;
-&quot;Enabling interrupt detection (Arduino external interrupt 0)...&quot;
-&quot;DMP ready! Waiting for first interrupt...&quot;
-&quot;yaw= ...&quot;
-&quot;yaw= ...&quot;
-&quot;yaw= ...&quot;
-</code></pre> </li> 
-  </ol> </li> 
-</ul> 
-<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of IMU sensing test</b> </p> 
+<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of base driving test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h3> <a id="laser-scan-test" class="anchor" href="#laser-scan-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Laser scan test</h3> 
 <p><a name="user-content-laser-scan-test-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setup-to-receive-data-from-laser-scanner" class="anchor" href="#step-1-check-hardware-setup-to-receive-data-from-laser-scanner" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setup to receive data from laser scanner</code> </h4> 
-<p>Check all the hardware setup !! The laser scanner we used is <strong>rplidar</strong>. To be able to use it on PC or odroid, the complete hardware setup should contain rplidar + transmission board.</p> 
+<p>Check all the hardware setup !! The laser scanner we used is <strong>rplidar</strong>. To be able to use it on odroid, the complete hardware setup should contain rplidar + transmission board.</p> 
 <p>Mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
  <li>[ ] Check your data transmission board. Make sure you installed the right one.</li> 
 </ul> 
 <p><strong>Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams or datasheet and double check before going to next step.</strong></p> 
-<p><a name="user-content-laser-scan-test-step2"></a></p> 
-<h4> <a id="step-2-launch-rplidar-using-ros-on-pc" class="anchor" href="#step-2-launch-rplidar-using-ros-on-pc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch rplidar using ROS on PC</code> </h4> 
+<p><a name="user-content-laser-scan-test-step2"></a> </p> 
+<h4> <a id="step-2-launch-rplidar-using-ros-on-odroid" class="anchor" href="#step-2-launch-rplidar-using-ros-on-odroid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch rplidar using ROS on odroid</code> </h4> 
 <p>This test is to help you find out you if the rplidar you have is functional and your hardware setup is correct. Before going through the uploading procedures below, please mark the following checklist yourself when you finish each setup.</p> 
-<ul> 
- <li><p>[ ] Check out if there is a folder named <code>rplidar_ros</code> on your PC.</p></li> 
- <li> <p>Begin launching</p> 
-  <ol> 
-   <li>Make sure USB port number for rplidar is /dev/ttyUSB0 or you can set up symbolic association, like /dev/rplidar for example.<br /> </li> 
-   <li> <p>Open a terminal and type the following command.</p> <pre><code>roscore
-</code></pre> </li> 
-   <li> <p>The next step should be starting communication between PC and rplidar through ROS. Open another termimal and type:</p> <pre><code>roslaunch rplidar_ros rplidar.lanuch 
-</code></pre> </li> 
-   <li> <p>Open another terminal and type:</p> <pre><code>rostopic list
-</code></pre> <p>Check if there is a topic name <strong>/scan</strong>. </p> </li> 
-   <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic echo /scan
-
-</code></pre> </li> 
-  </ol> </li> 
-</ul> 
-<h4> <a id="step-3-launch-rplidar-using-ros-on-odroid" class="anchor" href="#step-3-launch-rplidar-using-ros-on-odroid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Launch rplidar using ROS on odroid</code> </h4> 
-<p>Before going through the uploading procedures below, please mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
  <li><p>[ ] Check out if there is a folder named <code>rplidar_ros</code> in the /catkin/src/angel on odroid.</p></li> 
  <li> <p>Begin launching</p> 
@@ -955,7 +807,7 @@ If calibration was succesful write down your offsets so you can set them in your
    <li>Make sure USB port number for rplidar is /dev/ttyUSB0 or you can set up symbolic association, like /dev/rplidar for example.<br /> </li> 
    <li> <p>Open a terminal and type the following command.</p> <pre><code>roscore
 </code></pre> </li> 
-   <li> <p>The next step should be starting communication between PC and rplidar through ROS. Open another termimal and type:</p> <pre><code>roslaunch rplidar_ros rplidar.lanuch 
+   <li> <p>The next step should be starting communication between odroid and rplidar through ROS. Open another termimal and type:</p> <pre><code>roslaunch rplidar_ros rplidar.lanuch 
 </code></pre> </li> 
    <li> <p>Open another terminal and type:</p> <pre><code>rostopic list
 </code></pre> <p>Check if there is a topic name <strong>/scan</strong>. </p> </li> 
@@ -963,14 +815,16 @@ If calibration was succesful write down your offsets so you can set them in your
 </code></pre> </li> 
   </ol> </li> 
 </ul> 
-<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of laser scan test</b> </p> 
-<h3> <a id="camera-joint-spinning-test----not-quite-certain-yet" class="anchor" href="#camera-joint-spinning-test----not-quite-certain-yet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera Joint spinning test -- not quite certain yet</h3> 
+<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of laser scan test</b> | <a href="#">BACK TO TOP</a> </p> 
+<h3> <a id="camera-joint-spinning-test" class="anchor" href="#camera-joint-spinning-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera Joint spinning test</h3> 
 <p><a name="user-content-camera-joint-spinning-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setup-to-control-camera-position" class="anchor" href="#step-1-check-hardware-setup-to-control-camera-position" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setup to control camera position</code> </h4> 
 <p><a name="user-content-camera-joint-spinning-step2"></a></p> 
 <h4> <a id="step-2-uploading-firmware-to-vnh5019-and-control-camera-joint" class="anchor" href="#step-2-uploading-firmware-to-vnh5019-and-control-camera-joint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Uploading firmware to vnh5019 and control camera joint</code> </h4> 
+<pre><code>/mcu_control/vnh5019_base/src
+</code></pre> 
 <ul> 
- <li> <p>upload <code>vnh5019_base_test.ino</code> to left/right wheel</p> 
+ <li> <p>upload <code>vnh5019_base.ino</code> to camera joint driver</p> 
   <ol> 
    <li>Look for line 8 and 9. Uncomment one of these two lines according to which rotating direction you are about to do the uploading. </li> 
    <li>Open vnh5019_base_test.ino with Arduino IDE on your PC.</li> 
@@ -980,31 +834,17 @@ If calibration was succesful write down your offsets so you can set them in your
    <li>Set your upload target to <strong>promini</strong> </li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
    <li>Go for it! Click upload!</li> 
-   <li>Open the serial monitor on your Arduino IDE.</li> 
-   <li> </li> 
   </ol> </li> 
 </ul> 
-<p><a name="user-content-base-driving-test-step3"></a></p> 
-<h4> <a id="step-3-uploading-final-firmware-to-camera-joint" class="anchor" href="#step-3-uploading-final-firmware-to-camera-joint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Uploading final firmware to camera joint</code> </h4> 
-<p>Final version of firmware for vnh5019 is placed in the folder.</p> 
-<pre><code>/mcu_control/vnh5019_base/src
-</code></pre> 
-<ul> 
- <li> <p>upload <code>vnh5019_base.ino</code> to left/right wheel</p> 
-  <ol> 
-   <li>Look for line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. </li> 
-   <li>Open vnh5019_base_test.ino with Arduino IDE on your PC.</li> 
-   <li> <p>Make sure it has </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
-</code></pre> <p>on line 31 or 32 in wiring.c. If you don't understand this step, please refer to step 2 above to figure out.</p> </li> 
-   <li>Set your upload target to <strong>promini</strong> </li> 
-   <li>Choose your <strong>port</strong> carefully.</li> 
-   <li>Go for it! Click upload!</li> 
-   <li>Open the serial monitor on your Arduino IDE.</li> 
-  </ol> </li> 
-</ul> 
-<h3> <a id="charger-test" class="anchor" href="#charger-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Charger test</h3> 
-<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Module test</b> </p> 
+<h3> <a id="security-sensing-test" class="anchor" href="#security-sensing-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security Sensing test</h3> 
+<p><a name="user-content-security-sensing-test-step1"></a></p> 
+<h4> <a id="step-1-" class="anchor" href="#step-1-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 ``</h4> 
+<h3> <a id="camera-image-topic-test" class="anchor" href="#camera-image-topic-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera image topic test</h3> 
+<p><a name="user-content-camera-image-topic-test-step1"></a></p> 
+<h4> <a id="step-1--1" class="anchor" href="#step-1--1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 ``</h4> 
+<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Module test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h2> <a id="function-test" class="anchor" href="#function-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function test</h2> 
+<p align="center"> <b><a href="#tele-operation-test">Tele-operation test</a></b> | <b><a href="#auto-ducking-test">Auto ducking test</a></b> </p> 
 <h3> <a id="tele-operation" class="anchor" href="#tele-operation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tele-operation</h3> 
 <ol> 
  <li> <p>Use ssh command to access to odroid</p> <pre><code>ssh odroid@192.168.25.110
@@ -1019,7 +859,8 @@ roslaunch angelbot dwa_gmapping_ekf.launch
  <li>Drive angel around by taping your finger on the screen.</li> 
  <li>Check if there is a map shows up.</li> 
 </ol> 
-<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Function test</b> </p> 
+<h3> <a id="auto-ducking-test" class="anchor" href="#auto-ducking-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Auto ducking test</h3> 
+<p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Function test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h2> <a id="appendix" class="anchor" href="#appendix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Appendix</h2> 
 <ul> 
  <li>ROS environment setup 
@@ -1031,6 +872,7 @@ roslaunch angelbot dwa_gmapping_ekf.launch
 <h2> <a id="team" class="anchor" href="#team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Team</h2> 
 <p><a href="https://github.com/Weber-Hsu">Weber Hsu</a> | <a href="https://github.com/clchuadrobot">CL Chu</a> | <a href="https://github.com/piliwilliam0306">William Chen</a> | <a href="https://github.com/ChingHengWang">Zach Wang</a> | <a href="https://github.com/EricWilliamKo">Eric Ko</a> | <a href="https://github.com/Muchun-Yen">Muchun Yen</a> | <a href="https://github.com/wennycooper">Kevin Kuei</a></p> 
 <h2> <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2> 
-<p>Copyright &copy; 2016 Advanced Robotics Corporation</p>
+<p>Copyright &copy; 2016 Advanced Robotics Corporation</p> 
+<p align="right"> <a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a><a href="#">BACK TO TOP</a> </p>
 </body>
 </html>
