@@ -10,7 +10,7 @@
 |
 <b><a href="#preparing-for-testing">Preparing for testing</a></b>
 |
-<b><a href="#system-architeture">System architeture</a></b>
+<b><a href="#system-architecture">System architecture</a></b>
 |
 <b><a href="#module-test">Module test</a></b>
 |
@@ -28,16 +28,16 @@ Firmwares are included in this repository, placed under **mcu_control** folder.
 
 ## Table of contents
 * [**Preparing for testing**](#preparing-for-testing)
-* [**System architeture**](#system-architeture)
+* [**System architecture**](#system-architecture)
 * [**Module test**] (#module-test) 
   * [**Base driving test**](#base-driving-test)
   	* [**Step 1 Check hardware setups for base driving control**](#step1-check-hardware-setups-for-base-driving-control)
   	* [**Step 2 Upload firmware to vnh5019**](#step-2-upload-firmware-to-vnh5019)
   	* [**Step 3 Upload firmware to mega_base**](#step-3-upload-firmware-to-mega_base)
-  	* [**Step 4 Both wheel driving test through mega2560 using XU4 (odroid)**](#step-4-both-wheel-driving-test-through-mega2560-using-xu4-odroid)
+  	* [**Step 4 Drive angel base**](#step-4-drive-angel-base)
   * [**Laser scan test**](#laser-scan-test)
   	* [**Step 1 Check hardware setup to receive data from laser scanner**](#step-1-check-hardware-setup-to-receive-data-from-laser-scanner)
-  	* [**Step 2 Launch rplidar using ROS on odroid**](#step-2-launch-rplidar-using-ROS-on-odroid)
+  	* [**Step 2 Launch rplidar**](#step-2-launch-rplidar)
   * [**Camera Joint control test--not done**](#camera-joint-control-test)
   	* [**Step 1 Check hardware setup to control camera position**](#step-1-check-hardware-setup-to-control-camera-position)
   	* [**Step 2 Uploading firmware to vnh5019 and control camera joint**](#step-2-upload-firmware-to-vnh5019-and-control-camera-joint)
@@ -46,11 +46,11 @@ Firmwares are included in this repository, placed under **mcu_control** folder.
 * [**Function test**](#function-test)
   * [**Tele-operation**](#tele-operation)
   * [**Auto ducking test**](#auto-ducking-test) 
-* [**Appendix -- not done**](#appendix)
+* [**Appendix**](#appendix)
 
 ## Preparing for testing
 
-1. Prepare your odroid XU4 board with OS version ubuntu 14.04 on it.
+1. Prepare your odroid XU4 board with ubuntu 14.04 on it.
 2. Check odroid IP address. Type the following command on odroid board.
 	
 	```
@@ -67,14 +67,17 @@ Firmwares are included in this repository, placed under **mcu_control** folder.
 	catkin_make 
 	```  
 
-## System architeture
-In this section, we review angel's hardware architecture.
+## System architecture
+
+This section gives you an overview of our angel's design.
+
+**Note: All files related to angel's hardware design are placed in the folder `/hardware design`.** 
 
 * Overall block diagram
 
 ![System](doc/Angel%20system%20diagram.png)
 
-* Schematic of vnh5019
+* Schematic of base driver `vnh5019`
 
 ![vnh5019-1](doc/vnh5019-1st.jpg)
 
@@ -83,6 +86,7 @@ In this section, we review angel's hardware architecture.
 ## Module test
 
 The following test requires ROS on any of your testing platform.
+
 <p align="center">
 <b><a href="#base-driving-test">Base driving test</a></b>
 |
@@ -94,8 +98,6 @@ The following test requires ROS on any of your testing platform.
 
 ### Base driving test
 
-Check the following requirements.
-
 Brief description of this test
 
 * Requirements 
@@ -104,7 +106,7 @@ Brief description of this test
   * Odroid XU4
   * ROS on odroid 
 * Firmware upload instruction
-* Left/right wheel spinning test with and without ROS.
+* Left/right wheel spinning test with ROS.
 
 <a name="base-driving-test-step1"></a>
 
@@ -140,7 +142,7 @@ Firmware for wheel spining test is placed in the folder.
 ```
 
 * upload `vnh5019_base.ino` to left/right wheel
-	1. Look for line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. 
+	1. Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. 
 	2. Open vnh5019_base.ino with Arduino IDE on your PC.
 	3. Modify Arduino PWM Frequency in Arduino IDE. 
 		Copy
@@ -149,16 +151,20 @@ Firmware for wheel spining test is placed in the folder.
 		/mcu_control/wiring.c
 		```
 		 to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino
-		 Make sure it has 
+		 Make sure the following code is on line 31 or 32 in wiring.c.   
 		 
 		 ```
 		 #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 		 ```
-		 on line 31 or 32 in wiring.c.
 	4. Set your upload target to **promini**
 	5. Choose your **port** carefully.
-	6. Go for it! Click upload!  
-	8. Go though the steps above again **for the other wheel**.
+	6. Go for it! Click upload!
+		If you get any error when PC uploading,
+		* Please look into the errors carefully.
+		* Please check the port you choose.
+		* Please make sure you have put all the libraries into the folder.
+			If you get the message about library conflicts, please find out those files and delete the old one.   
+	7. Go though the steps above again **for the other wheel**.
 
 <a name="base-driving-test-step3"></a>
 
@@ -172,41 +178,47 @@ Firmware for mega2560 is inside the following folder.
 
 * upload `mega_base_ultrasonic_angelbot.ino` to mega2560
 	1. Open mega_base_ultrasonic_angelbot.ino with Arduino IDE on your PC.
-	2. Libraries for these firmware is placed in	
+	2. Libraries for the firmware is placed in	
 	
 		```
 		/mcu_control/mega_base_ultrasonic_angelbot/lib
 		``` 
-	   Copy all contents inside and paste them to `../arduino/libraries` folder on your PC.
-	3. Make sure it has 
+	   Copy all contents inside and paste them to `%document%/arduino/libraries` folder on your PC.
+	3. Make sure the following code is on line 31 or 32 in wiring.c.   
 		 
 		 ```
 		 #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 		 ```
-		 on line 31 or 32 in wiring.c. If you don't understand this step, please refer to step 2 above to figure out. 
+		 If you don't understand this step, please refer to step 2 above to find out. 
 	4. Set your upload target to **mega2560**
 	5. Choose your **port** carefully.
 	6. Go for it! Click upload!
+		If you get any error when PC uploading,
+		* Please look into the errors carefully.
+		* Please check the port you choose.
+		* Please make sure you have put all the libraries into the folder.
+			If you get the message about library conflicts, please find out those files and delete the old one.   
 	
 <a name="base-driving-test-step4"></a>
 
-#### Step 4 `Both wheel driving test through mega2560 using XU4 (odroid)`
+#### Step 4 `Drive angel base`
 
-The following testing needs ROS! Make sure you have installed ROS on odroid XU4.
+The following testing needs ROS on odroid! 
+Make sure you have installed ROS on odroid XU4.
 Be aware all the errors (red color format) while you installed ROS if there's any.
 
 Please mark the following checklist yourself when you finish each.
 
-- [ ] Make sure you have correct hardware setup.
+- [ ] Make sure you have correct hardware setup and go through instructions above step by step.
 
 	1. Be sure of the ip address.
 	
-		Open a terminal up and type
+		Open a terminal up on you PC and type
 	
 		```
 		ssh odroid@192.168.25.110
 		```
-		to access to odroid.
+		to access to angel.
 	2. Start the roscore up.
 		Type the following command.
 			
@@ -219,20 +231,25 @@ Please mark the following checklist yourself when you finish each.
 		```
 		rosrun rosserial_python serial_node.py _port:=/dev/ttyACM* _baud:=115200
 		```
-	4. Open another terminal aand do step1 to access into odroid then type:
+	4. Open another terminal and access into odroid by ssh commands (step1) then type:
 		
 		```
 		rostopic list
 		```   
 		Check the topic list to make sure communication between mega2560 and your odroid is set.
-	5. Type the follonwing command
+	5. Send a command to drive each wheel. Type the following command
 		
 		```
-		rostopic pub /cmd_angular_vel angelbot/WheelCmd 
-		```    
-		to send a command to drive each wheel.
-	6. Make sure both wheel have spin in the correct direction with the correct speed.
-	7. If there is nothing wrong, send a 0 speed command and shutdown by typing ctrl-c.
+		rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 1.0 speed2: 1.0 driverstate: false" 
+		```
+		If you have no error, you may see something like this on the terimal
+		
+		```
+		odroid@odroid:~$ rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 1.0 speed2: 1.0 driverstate: false"
+		publishing and latching message. Press ctrl-C to terminate 
+		```   
+	6. Make sure both wheel have spin in the correct direction with a reasonable speed.
+	7. If you finish all the steps, send a 0 speed command and terminate command mode by typing ctrl-c.
 	
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of base driving test</b>
@@ -242,53 +259,75 @@ Please mark the following checklist yourself when you finish each.
 
 ### Laser scan test
 
+The laser scanner we used is **rplidar**. 
+To be able to use it, the complete hardware setup should contain rplidar + transmission board.
+
 <a name="laser-scan-test-step1"></a>
 
 #### Step 1 `Check hardware setup to receive data from laser scanner`
-
-Check all the hardware setup !!
-The laser scanner we used is **rplidar**. 
-To be able to use it on odroid, the complete hardware setup should contain rplidar + transmission board.
 
 Mark the following checklist yourself when you finish each setup.
 
 - [ ] Check your data transmission board. Make sure you installed the right one.
 
-**Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams or datasheet and double check before going to next step.**
+**Note: If you have any doubt, not sure what you remember when you set up all the hardwares and wirings,
+please review system diagrams or datasheet and double check before going to next step.**
 
 <a name="laser-scan-test-step2"></a> 
 
-#### Step 2 `Launch rplidar using ROS on odroid`
+#### Step 2 `Launch rplidar`
 
 This test is to help you find out you if the rplidar you have is functional and your hardware setup is correct.
-Before going through the uploading procedures below, please mark the following checklist yourself when you finish each setup.
+Before going through the steps below, please mark the following checklist yourself when you finish each setup.
 
 - [ ] Check out if there is a folder named `rplidar_ros` in the /catkin/src/angel on odroid.
 
 * Begin launching
-	1. Make sure USB port number for rplidar is /dev/ttyUSB0 or you can set up symbolic association, like /dev/rplidar for example.  
-	2. Open a terminal and type the following command.
+	1. Open a terminal and type the following command.
 		
 		``` 
 		roscore
 		```
-	3. The next step should be starting communication between odroid and rplidar through ROS.
+	2. The next step should be starting communication between odroid and rplidar through ROS.
 		Open another termimal and type:
 		
 		```
-		roslaunch rplidar_ros rplidar.lanuch 
+		roslaunch angelbot rplidar.lanuch 
 		```
-	4. Open another terminal and type:
+		
+		You will see something like this
+		
+		```
+		started roslaunch server http://192.168.25.110:60968/
+
+		SUMMARY
+		========
+		
+		......
+		......
+		
+		NODES
+		  /
+		    rplidarNode (rplidar_ros/rplidarNode)
+		
+		......
+		......
+		RPLidar health status : 0
+		```
+	3. Open another terminal and type:
 		
 		```
 		rostopic list
 		```   
 		Check if there is a topic name **/scan**. 
-	5. Type the following command to see if there is anything shows up.
+	4. Type the following command to see if there is anything shows up.
 		
 		```
 		rostopic echo /scan
 		```   
+		You will see something similar on your terminal:
+		
+		![laser scan sample](doc/laser_scan_sample.png)
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of laser scan test</b>
@@ -391,9 +430,13 @@ Before going through the uploading procedures below, please mark the following c
 </p>
 
 ## Appendix
-* ROS environment setup
-    * ROS MASTER URI
-    * ROS IP
+
+```
+KERNEL=="ttyUSB*", ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", ATTRS{devpath}=="1.1", SYMLINK+="imu"
+KERNEL=="ttyACM*", ATTRS{idProduct}=="0042", ATTRS{idVendor}=="2341", ATTRS{devpath}=="1.2.1.1", SYMLINK+="mega_base"
+KERNEL=="ttyUSB*", ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", ATTRS{devpath}=="1.2.1.2", SYMLINK+="rplidar"
+```
+
     
 ## Team 
 
