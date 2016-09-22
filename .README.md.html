@@ -661,18 +661,19 @@ function setDocumentScrollTop(ypos)
      <li><a href="#step-1-check-hardware-setup-to-receive-data-from-laser-scanner"><strong>Step 1 Check hardware setup to receive data from laser scanner</strong></a></li> 
      <li><a href="#step-2-launch-rplidar"><strong>Step 2 Launch rplidar</strong></a></li> 
     </ul> </li> 
-   <li> <a href="#camera-joint-control-test"><strong>Camera Joint control test--not done</strong></a> 
+   <li> <a href="#camera-joint-control-test"><strong>Camera Joint control test. To be continue ...</strong></a> 
     <ul> 
      <li><a href="#step-1-check-hardware-setup-to-control-camera-position"><strong>Step 1 Check hardware setup to control camera position</strong></a></li> 
-     <li><a href="#step-2-upload-firmware-to-vnh5019-and-control-camera-joint"><strong>Step 2 Uploading firmware to vnh5019 and control camera joint</strong></a></li> 
+     <li><a href="#step-2-upload-firmware-to-camera-joint-driver-vnh5019"><strong>Step 2 Uploading firmware to camera joint driver vnh5019</strong></a></li> 
+     <li><a href="#step-3-control-camera-joint"><strong>Step 3 Control camera joint</strong></a></li> 
     </ul> </li> 
-   <li><a href="#security-sensing-test"><strong>Security Sening test</strong></a></li> 
+   <li><a href="#security-sensing-test"><strong>Security Sening test. To be continue ...</strong></a></li> 
    <li> <a href="#camera-image-topic-test"><strong>Camera image topic test</strong></a><br /> </li> 
   </ul> </li> 
  <li> <a href="#function-test"><strong>Function test</strong></a> 
   <ul> 
    <li><a href="#tele-operation"><strong>Tele-operation</strong></a></li> 
-   <li> <a href="#auto-ducking-test"><strong>Auto ducking test</strong></a> </li> 
+   <li> <a href="#auto-docking"><strong>Auto docking To be continue ...</strong></a> </li> 
   </ul> </li> 
  <li><a href="#appendix"><strong>Appendix</strong></a></li> 
 </ul> 
@@ -732,13 +733,13 @@ catkin_make
 <p><a name="user-content-base-driving-test-step2"></a></p> 
 <h4> <a id="step-2-upload-firmware-to-vnh5019" class="anchor" href="#step-2-upload-firmware-to-vnh5019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Upload firmware to vnh5019</code> </h4> 
 <p>Firmware for wheel spining test is placed in the folder.</p> 
-<pre><code>/mcu_control/vnh5019_base/src
+<pre><code>/mcu_control/base_control/vnh5019_base/src
 </code></pre> 
 <ul> 
  <li> <p>upload <code>vnh5019_base.ino</code> to left/right wheel</p> 
   <ol> 
-   <li>Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. </li> 
    <li>Open vnh5019_base.ino with Arduino IDE on your PC.</li> 
+   <li>Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. </li> 
    <li> <p>Modify Arduino PWM Frequency in Arduino IDE. Copy</p> <pre><code>/mcu_control/wiring.c
 </code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 </code></pre> </li> 
@@ -756,7 +757,7 @@ catkin_make
 <p><a name="user-content-base-driving-test-step3"></a></p> 
 <h4> <a id="step-3-upload-firmware-to-mega_base" class="anchor" href="#step-3-upload-firmware-to-mega_base" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Upload firmware to mega_base</code> </h4> 
 <p>Firmware for mega2560 is inside the following folder.</p> 
-<pre><code>/mcu_control/mega_base_ultrasonic_angelbot/src
+<pre><code>/mcu_control/base_control/mega_base_ultrasonic_angelbot/src
 </code></pre> 
 <ul> 
  <li> <p>upload <code>mega_base_ultrasonic_angelbot.ino</code> to mega2560</p> 
@@ -816,8 +817,8 @@ publishing and latching message. Press ctrl-C to terminate
  <li><p>[ ] Check out if there is a folder named <code>rplidar_ros</code> in the /catkin/src/angel on odroid.</p></li> 
  <li> <p>Begin launching</p> 
   <ol> 
-   <li> <p>Open a terminal and type the following command.</p> <pre><code>roscore
-</code></pre> </li> 
+   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+</code></pre> <p>to access to angel.</p> </li> 
    <li> <p>The next step should be starting communication between odroid and rplidar through ROS. Open another termimal and type:</p> <pre><code>roslaunch angelbot rplidar.lanuch 
 </code></pre> <p>You will see something like this</p> <pre><code>started roslaunch server http://192.168.25.110:60968/
 
@@ -838,39 +839,174 @@ RPLidar health status : 0
    <li> <p>Open another terminal and type:</p> <pre><code>rostopic list
 </code></pre> <p>Check if there is a topic name <strong>/scan</strong>. </p> </li> 
    <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic echo /scan
-</code></pre> <p>You will something similar:</p> <p><a href="doc/laser_scan_sample.png" target="_blank"><img src="doc/laser_scan_sample.png" alt="laser scan sample" style="max-width:100%;" /></a></p> </li> 
+</code></pre> <p>You will see something similar on your terminal:</p> <p><a href="doc/laser_scan_sample.png" target="_blank"><img src="doc/laser_scan_sample.png" alt="laser scan sample" style="max-width:100%;" /></a></p> </li> 
   </ol> </li> 
 </ul> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of laser scan test</b> | <a href="#">BACK TO TOP</a> </p> 
-<h3> <a id="camera-joint-spinning-test" class="anchor" href="#camera-joint-spinning-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera Joint spinning test</h3> 
-<p><a name="user-content-camera-joint-spinning-step1"></a></p> 
+<h3> <a id="camera-joint-control-test" class="anchor" href="#camera-joint-control-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera Joint control test</h3> 
+<p><a name="user-content-camera-joint-control-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setup-to-control-camera-position" class="anchor" href="#step-1-check-hardware-setup-to-control-camera-position" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setup to control camera position</code> </h4> 
-<p><a name="user-content-camera-joint-spinning-step2"></a></p> 
-<h4> <a id="step-2-uploading-firmware-to-vnh5019-and-control-camera-joint" class="anchor" href="#step-2-uploading-firmware-to-vnh5019-and-control-camera-joint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Uploading firmware to vnh5019 and control camera joint</code> </h4> 
-<pre><code>/mcu_control/vnh5019_base/src
+<p>The recent version of Angel's camera joint consists of a motor-control module same as the one used to control wheels. (a motor <strong>JGB37 3530B</strong> + base driver <strong>vnh5019</strong>) Also, motor-control module must be connected to mega2560.</p> 
+<p><strong>Cautions!!</strong> We do not have <code>limit switch</code> on it, which is supposed to prevent angel's joint or housing damages from operators giving position commands that the joint cannot reach. </p> 
+<p>So please check the folling list yourself again and again.</p> 
+<p>Mark the following checklist yourself when you finish each setup.</p> 
+<ul> 
+ <li>[ ] Check your motor number. Make sure you installed the right one.</li> 
+ <li>[ ] Motor control module are well connected. Each of them have correct wiring to their base driver.</li> 
+ <li>[ ] Motor control module connects to mega2560 correctly.</li> 
+ <li>[ ] <strong>Please make sure Angel's camera is headed toward Z direction, that is, looks up toward the sky.</strong> </li> 
+</ul> 
+<p><strong>Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.</strong></p> 
+<p><a name="user-content-camera-joint-control-step2"></a></p> 
+<h4> <a id="step-2-uploading-firmware-to-camera-joint-driver-vnh5019" class="anchor" href="#step-2-uploading-firmware-to-camera-joint-driver-vnh5019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Uploading firmware to camera joint driver vnh5019</code> </h4> 
+<p>Firmware for joint position control is placed in the following folder.</p> 
+<pre><code>/mcu_control/camera_joint_control/src
 </code></pre> 
 <ul> 
- <li> <p>upload <code>vnh5019_base.ino</code> to camera joint driver</p> 
+ <li> <p>upload <code>vnh5019_camera_joint.ino</code> to camera joint driver</p> 
   <ol> 
-   <li>Look for line 8 and 9. Uncomment one of these two lines according to which rotating direction you are about to do the uploading. </li> 
-   <li>Open vnh5019_base_test.ino with Arduino IDE on your PC.</li> 
+   <li>Open vnh5019_base.ino with Arduino IDE on your PC.</li> 
+   <li>Look into line 8 and 9. Uncomment one of these two lines according to which rotating direction you are about to do the uploading. </li> 
    <li> <p>Modify Arduino PWM Frequency in Arduino IDE. Copy</p> <pre><code>/mcu_control/wiring.c
-</code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure it has </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
-</code></pre> <p>on line 31 or 32 in wiring.c.</p> </li> 
+</code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
+</code></pre> </li> 
    <li>Set your upload target to <strong>promini</strong> </li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
-   <li>Go for it! Click upload!</li> 
+   <li>Go for it! Click upload! If you get any error when PC uploading, 
+    <ul> 
+     <li>Please look into the errors carefully.</li> 
+     <li>Please check the port you choose.</li> 
+     <li>Please make sure you have put all the libraries into the folder. If you get the message about library conflicts, please find out those files and delete the old one.</li> 
+    </ul> </li> 
+  </ol> </li> 
+</ul> 
+<p><a name="user-content-camera-joint-control-step3"></a></p> 
+<h4> <a id="step-3-control-camera-joint" class="anchor" href="#step-3-control-camera-joint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Control camera joint</code> </h4> 
+<p>To be continue ...</p> 
+<ul> 
+ <li> <p>Begin launching</p> 
+  <ol> 
+   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+</code></pre> <p>to access to angel.</p> </li> 
+   <li> <p>Start the roscore up. Type the following command.</p> <pre><code>roscore
+</code></pre> </li> 
+   <li> <p>The next step should be starting communication between odroid and mega2560 through ROS. Open another termimal and do step1 to access into odroid then type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/ttyACM* _baud:=115200
+</code></pre> </li> 
+   <li> <p>Open another terminal and access into odroid by ssh commands (step1) then type:</p> <pre><code>rostopic list
+</code></pre> <p>Check the topic list to make sure communication between mega2560 and your odroid is set.</p> </li> 
+   <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic pub /camera_joint_position .......
+</code></pre> </li> 
+   <li>After you finish controlling camera_joint, <code>please drive camera joint to the zero position by giving 0 degree command.</code> </li> 
   </ol> </li> 
 </ul> 
 <h3> <a id="security-sensing-test" class="anchor" href="#security-sensing-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security Sensing test</h3> 
 <p><a name="user-content-security-sensing-test-step1"></a></p> 
-<h4> <a id="step-1-" class="anchor" href="#step-1-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 ``</h4> 
+<h4> <a id="step-1-check-you-hardware-setup" class="anchor" href="#step-1-check-you-hardware-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>check you hardware setup</code> </h4> 
+<p><a name="user-content-security-sensing-test-step2"></a></p> 
+<h4> <a id="step-2-check-each-sensors-readings" class="anchor" href="#step-2-check-each-sensors-readings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>check each sensor's readings</code> </h4> 
+<p>To be continue ...</p> 
+<ul> 
+ <li> <p>Begin launching</p> 
+  <ol> 
+   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+</code></pre> <p>to access to angel.</p> </li> 
+   <li> <p>Start the roscore up. Type the following command.</p> <pre><code>roscore
+</code></pre> </li> 
+   <li> <p>The next step should be starting communication between odroid and mega2560 through ROS. Open another termimal and do step1 to access into odroid then type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/ttyACM* _baud:=115200
+</code></pre> </li> 
+   <li> <p>Open another terminal and access into odroid by ssh commands (step1) then type:</p> <pre><code>rostopic list
+</code></pre> <p>The following list should appear. </p> <pre><code>/SensorActiveList
+/CurTemperature
+/CurHumidity
+/MotionDetection
+/FlameDetection
+/MQ2CO
+/DustDetection
+</code></pre> </li> 
+   <li> <p>Test those sensor readings by echoing ros topics <code>one by one</code>. </p> <p>For example</p> <pre><code>rostopic echo /CurTemperature
+</code></pre> </li> 
+  </ol> </li> 
+</ul> 
 <h3> <a id="camera-image-topic-test" class="anchor" href="#camera-image-topic-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera image topic test</h3> 
 <p><a name="user-content-camera-image-topic-test-step1"></a></p> 
-<h4> <a id="step-1--1" class="anchor" href="#step-1--1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 ``</h4> 
+<h4> <a id="step-1-check" class="anchor" href="#step-1-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>check</code> </h4> 
+<p><a name="user-content-camera-image-topic-test-step2"></a></p> 
+<h4> <a id="step-2-run-camera-on-odroid" class="anchor" href="#step-2-run-camera-on-odroid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>run camera on odroid</code> </h4> 
+<ul> 
+ <li> <p>Begin launching</p> 
+  <ol> 
+   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+</code></pre> <p>to access to angel.</p> </li> 
+   <li> <p>The next step should be starting communication between odroid and rplidar through ROS. Open a terminal and type the following command.</p> <pre><code>roslaunch angelbot usb_camera.launch
+</code></pre> <p>If everything goes right, you will see something like this</p> <pre><code>started roslaunch server http://192.168.25.110:37226/
+
+SUMMARY
+========
+
+PARAMETERS
+ ...
+ * /uvc_camera_node/device: /dev/video0
+ * /uvc_camera_node/exposure: 0
+ * /uvc_camera_node/frame_rate: 20
+ * /uvc_camera_node/gain: 100
+ * /uvc_camera_node/height: 240
+ * /uvc_camera_node/width: 320
+
+NODES
+  /
+    uvc_camera_node (uvc_camera/uvc_camera_node)
+...
+
+core service [/rosout] found
+process[uvc_camera_node-1]: started with pid [3439]
+...
+opening /dev/video0
+pixfmt 0 = 'MJPG' desc = 'MJPEG'
+  discrete: 640x480:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 1280x960:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 800x600:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 352x288:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 320x240:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 176x144:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 160x120:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 1280x720:   1/30 1/25 1/20 1/15 1/10 1/5 
+pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
+  discrete: 640x480:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 1280x960:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 800x600:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 352x288:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 320x240:   1/30 1/25 1/20 1/15 1/10 1/5 
+  discrete: 176x144:   1/15 1/10 1/5 
+  discrete: 160x120:   1/15 1/10 1/5 
+  discrete: 1280x720:   1/12 1/10 1/5 
+  int (Brightness, 0, id = 980900): -255 to 255 (1)
+  int (Contrast, 0, id = 980901): 0 to 30 (1)
+  int (Saturation, 0, id = 980902): 0 to 127 (1)
+  int (Hue, 0, id = 980903): -16000 to 16000 (1)
+  bool (White Balance Temperature, Auto, 0, id = 98090c): 0 to 1 (1)
+  int (Gamma, 0, id = 980910): 20 to 250 (10)
+  menu (Power Line Frequency, 0, id = 980918): 0 to 2 (1)
+    0: Disabled
+    1: 50 Hz
+    2: 60 Hz
+  int (White Balance Temperature, 16, id = 98091a): 2500 to 7000 (1)
+  int (Sharpness, 0, id = 98091b): 0 to 3 (1)
+  int (Backlight Compensation, 0, id = 98091c): 0 to 2 (1)
+  menu (Exposure, Auto, 0, id = 9a0901): 0 to 3 (1)
+  int (Exposure (Absolute), 16, id = 9a0902): 2 to 5000 (1)
+  bool (Exposure, Auto Priority, 0, id = 9a0903): 0 to 1 (1)
+</code></pre> </li> 
+   <li> <p>Open another terminal and type:</p> <pre><code>rostopic list
+</code></pre> <p>Check if there is a topic name <code>/camera/image_raw</code>. </p> </li> 
+   <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic echo /camera/image_raw
+</code></pre> <p>You will see something similar on your terminal:</p> <p><a href="doc/camera_image_topic.png" target="_blank"><img src="doc/camera_image_topic.png" alt="camera image sample" style="max-width:100%;" /></a></p> </li> 
+  </ol> </li> 
+</ul> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Module test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h2> <a id="function-test" class="anchor" href="#function-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function test</h2> 
-<p align="center"> <b><a href="#tele-operation-test">Tele-operation test</a></b> | <b><a href="#auto-ducking-test">Auto ducking test</a></b> </p> 
+<p align="center"> <b><a href="#tele-operation-test">Tele-operation test</a></b> | <b><a href="#auto-docking-test">Auto docking test</a></b> </p> 
+<p>This section is to give a basic instruction of test iconic functions.</p> 
+<p><strong>Please go through each test listed above before continue.</strong></p> 
 <h3> <a id="tele-operation" class="anchor" href="#tele-operation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tele-operation</h3> 
 <ol> 
  <li> <p>Use ssh command to access to odroid</p> <pre><code>ssh odroid@192.168.25.110
@@ -885,9 +1021,20 @@ roslaunch angelbot dwa_gmapping_ekf.launch
  <li>Drive angel around by taping your finger on the screen.</li> 
  <li>Check if there is a map shows up.</li> 
 </ol> 
-<h3> <a id="auto-ducking-test" class="anchor" href="#auto-ducking-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Auto ducking test</h3> 
+<h3> <a id="auto-docking" class="anchor" href="#auto-docking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Auto docking</h3> 
+<p>Make sure there are IR sensors on angel.</p> 
+<ol> 
+ <li>Please redo Tele-operation step 1 ~ 2.</li> 
+ <li>Use your cell phone to drive angel to about <code>2.5 meter</code> in front of the docking station.</li> 
+ <li> <p>Launching <code>charging mode</code> to enable auto docking function. Open another terminal and ssh into angel and type the following command.</p> <pre><code>rosservice call /DockingEnable true
+</code></pre> </li> 
+ <li>See if angel is approaching the ducking station and finally touches charger.</li> 
+ <li> <p>If you carry out step 4 successfully, please type the following command to end up charging mode.</p> <pre><code>rosservice call /DockingEnable false
+</code></pre> </li> 
+</ol> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Function test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h2> <a id="appendix" class="anchor" href="#appendix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Appendix</h2> 
+<p>udev rules on odroid</p> 
 <pre><code>KERNEL==&quot;ttyUSB*&quot;, ATTRS{idProduct}==&quot;6001&quot;, ATTRS{idVendor}==&quot;0403&quot;, ATTRS{devpath}==&quot;1.1&quot;, SYMLINK+=&quot;imu&quot;
 KERNEL==&quot;ttyACM*&quot;, ATTRS{idProduct}==&quot;0042&quot;, ATTRS{idVendor}==&quot;2341&quot;, ATTRS{devpath}==&quot;1.2.1.1&quot;, SYMLINK+=&quot;mega_base&quot;
 KERNEL==&quot;ttyUSB*&quot;, ATTRS{idProduct}==&quot;6001&quot;, ATTRS{idVendor}==&quot;0403&quot;, ATTRS{devpath}==&quot;1.2.1.2&quot;, SYMLINK+=&quot;rplidar&quot;
