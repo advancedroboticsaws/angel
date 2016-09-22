@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>/home/weberhsu/git/angel/.README.md.html</title>
+<title>/home/shangwei/git/angel/.README.md.html</title>
 
 
 <style type="text/css">
@@ -642,7 +642,7 @@ function setDocumentScrollTop(ypos)
 <h1 align="center"> <a id="-----instructions-for-fundamental-testing-on-angel-" class="anchor" href="#-----instructions-for-fundamental-testing-on-angel-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> <a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a> Instructions for fundamental testing on angel </h1> 
 <p align="center"> <b><a href="#overview">Overview</a></b> | <b><a href="#table-of-contents">Table of contents</a></b> | <b><a href="#preparing-for-testing">Preparing for testing</a></b> | <b><a href="#system-architecture">System architecture</a></b> | <b><a href="#module-test">Module test</a></b> | <b><a href="#function-test">Function test</a></b> | <b><a href="#team">Team</a></b> | <b><a href="#license">License</a></b> </p> 
 <h2> <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2> 
-<p>This is a guiding repository that gives you basic instructions of driving our robot system, <strong>angel</strong> for this case. Firmwares are included in this repository, placed under <strong>mcu_control</strong> folder. </p> 
+<p>This is a guiding repository that gives you basic instructions to test and drive our robot system, <strong>angel</strong> for this case. Required firmwares and programs are all included in this repository. <strong>Please go through this document very carefully.</strong> In addition, this repository also contains angel's design files, including system block diagram, schematic of electronic components and CAD files, etc. They are placed in the <strong>/hardware_design</strong> folder. </p> 
 <h2> <a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of contents</h2> 
 <ul> 
  <li><a href="#preparing-for-testing"><strong>Preparing for testing</strong></a></li> 
@@ -667,7 +667,11 @@ function setDocumentScrollTop(ypos)
      <li><a href="#step-2-upload-firmware-to-camera-joint-driver-vnh5019"><strong>Step 2 Uploading firmware to camera joint driver vnh5019</strong></a></li> 
      <li><a href="#step-3-control-camera-joint"><strong>Step 3 Control camera joint</strong></a></li> 
     </ul> </li> 
-   <li><a href="#security-sensing-test"><strong>Security Sening test. To be continue ...</strong></a></li> 
+   <li> <a href="#security-sensing-test"><strong>Security Sening test. To be continue ...</strong></a> 
+    <ul> 
+     <li><a href="#check-the-sensor-setup"><strong>Step 1 Check the sensor setup</strong></a></li> 
+     <li><a href="#read-each-sensor"><strong>Step 2 Read each sensor</strong></a></li> 
+    </ul> </li> 
    <li> <a href="#camera-image-topic-test"><strong>Camera image topic test</strong></a><br /> </li> 
   </ul> </li> 
  <li> <a href="#function-test"><strong>Function test</strong></a> 
@@ -680,7 +684,8 @@ function setDocumentScrollTop(ypos)
 <h2> <a id="preparing-for-testing" class="anchor" href="#preparing-for-testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preparing for testing</h2> 
 <ol> 
  <li>Prepare your odroid XU4 board with ubuntu 14.04 on it.</li> 
- <li> <p>Check odroid IP address. Type the following command on odroid board.</p> <pre><code>ifconfig
+ <li>Find a monitor and a hdmi cable and connect to odroid.</li> 
+ <li> <p>Check odroid IP address. Open a terminal and type the following command on odroid board.</p> <pre><code>ifconfig
 </code></pre> <p>On angel-1.1, IP address should be <code>192.168.25.110</code> </p> </li> 
  <li> <p>Download this repository and compile it on odroid by going though the following steps.</p> <pre><code>ssh odroid@[Odroid IP address]
 cd ~/catkin_ws/src
@@ -690,7 +695,7 @@ catkin_make
 </code></pre> </li> 
 </ol> 
 <h2> <a id="system-architecture" class="anchor" href="#system-architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System architecture</h2> 
-<p>This section gives you an overview of our angel's design.</p> 
+<p>This section gives you an overview on angel's design.</p> 
 <p><strong>Note: All files related to angel's hardware design are placed in the folder <code>/hardware design</code>.</strong> </p> 
 <ul> 
  <li>Overall block diagram</li> 
@@ -702,8 +707,8 @@ catkin_make
 <p><a href="doc/vnh5019-1st.jpg" target="_blank"><img src="doc/vnh5019-1st.jpg" alt="vnh5019-1" style="max-width:100%;" /></a></p> 
 <p><a href="doc/vnh5019-2nd.jpg" target="_blank"><img src="doc/vnh5019-2nd.jpg" alt="vnh5019-2" style="max-width:100%;" /></a></p> 
 <h2> <a id="module-test" class="anchor" href="#module-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module test</h2> 
-<p>The following test requires ROS on any of your testing platform.</p> 
-<p align="center"> <b><a href="#base-driving-test">Base driving test</a></b> | <b><a href="#laser-scan-test">Laser scan test</a></b> | <b><a href="#camera-joint-test">Camera joint test</a></b> | </p> 
+<p>Here, we separate Angel into several modules. </p> 
+<p align="center"> <b><a href="#base-driving-test">Base driving test</a></b> | <b><a href="#laser-scan-test">Laser scan test</a></b> | <b><a href="#camera-joint-test">Camera joint test</a></b> | <b><a href="#security-sensing-test">Securit Sensing test</a></b> | <b><a href="#camera-image-topic-test">Camera image topic test</a></b> | </p> 
 <h3> <a id="base-driving-test" class="anchor" href="#base-driving-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Base driving test</h3> 
 <p>Brief description of this test</p> 
 <ul> 
@@ -715,7 +720,7 @@ catkin_make
    <li>ROS on odroid </li> 
   </ul> </li> 
  <li>Firmware upload instruction</li> 
- <li>Left/right wheel spinning test with ROS.</li> 
+ <li>Base driving test with ROS.</li> 
 </ul> 
 <p><a name="user-content-base-driving-test-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setups-for-base-driving-control" class="anchor" href="#step-1-check-hardware-setups-for-base-driving-control" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setups for base driving control</code> </h4> 
@@ -723,8 +728,8 @@ catkin_make
 <p>Here we regard motor-control module as a motor <strong>JGB37 3530B</strong> + base driver <strong>vnh5019</strong>. Also, both motor-control module must be connected to mega2560.</p> 
 <p>Mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
- <li>[ ] Check your motor number. Make sure you installed the right one.</li> 
- <li>[ ] Motor control modules are well connected. Each of them have correct wiring to their base driver.</li> 
+ <li>[ ] Check your motor model. Make sure you have installed the right one.</li> 
+ <li>[ ] Motor control modules are well connected. Each of them has correct wiring to their base driver.</li> 
  <li>[ ] Left wheel motor control module connects to mega2560 correctly.<br /> </li> 
  <li>[ ] Right wheel motor control module connects to mega2560 correctly. </li> 
 </ul> 
@@ -736,16 +741,16 @@ catkin_make
 <pre><code>/mcu_control/base_control/vnh5019_base/src
 </code></pre> 
 <ul> 
- <li> <p>upload <code>vnh5019_base.ino</code> to left/right wheel</p> 
+ <li> <p>Upload firmware to left/right wheel</p> 
   <ol> 
-   <li>Open vnh5019_base.ino with Arduino IDE on your PC.</li> 
-   <li>Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. </li> 
+   <li>Open <code>vnh5019_base.ino</code> with Arduino IDE on your PC.</li> 
+   <li> <p>Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading.</p> <p><strong>Note: On angel, you should define <code>RIGHT_WHEEL</code> when you are going to upload firmware to the left wheel. And of course, define <code>LEFT_WHEEL</code> when you are going to deal with right wheel.</strong> </p> </li> 
    <li> <p>Modify Arduino PWM Frequency in Arduino IDE. Copy</p> <pre><code>/mcu_control/wiring.c
 </code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 </code></pre> </li> 
    <li>Set your upload target to <strong>promini</strong> </li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
-   <li>Go for it! Click upload! If you get any error when PC uploading, 
+   <li>Go for it! Click upload! If you get any error when uploading, 
     <ul> 
      <li>Please look into the errors carefully.</li> 
      <li>Please check the port you choose.</li> 
@@ -760,13 +765,13 @@ catkin_make
 <pre><code>/mcu_control/base_control/mega_base_ultrasonic_angelbot/src
 </code></pre> 
 <ul> 
- <li> <p>upload <code>mega_base_ultrasonic_angelbot.ino</code> to mega2560</p> 
+ <li> <p>Upload firmware to mega2560</p> 
   <ol> 
-   <li>Open mega_base_ultrasonic_angelbot.ino with Arduino IDE on your PC.</li> 
+   <li>Open <code>mega_base_ultrasonic_angelbot.ino</code> with Arduino IDE on your PC.</li> 
    <li> <p>Libraries for the firmware is placed in </p> <pre><code>/mcu_control/mega_base_ultrasonic_angelbot/lib
-</code></pre> <p>Copy all contents inside and paste them to <code>%document%/arduino/libraries</code> folder on your PC.</p> </li> 
+</code></pre> <p>Copy all contents inside and paste them to <code>/%document%/arduino/libraries</code> folder on your PC.</p> </li> 
    <li> <p>Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
-</code></pre> <p>If you don't understand this step, please refer to step 2 above to find out. </p> </li> 
+</code></pre> <p>If you don't understand this step, please refer to step 2 Upload firmware to vnh5019 above to find out. </p> </li> 
    <li>Set your upload target to <strong>mega2560</strong> </li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
    <li>Go for it! Click upload! If you get any error when PC uploading, 
@@ -779,27 +784,22 @@ catkin_make
 </ul> 
 <p><a name="user-content-base-driving-test-step4"></a></p> 
 <h4> <a id="step-4-drive-angel-base" class="anchor" href="#step-4-drive-angel-base" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4 <code>Drive angel base</code> </h4> 
-<p>The following testing needs ROS on odroid! Make sure you have installed ROS on odroid XU4. Be aware all the errors (red color format) while you installed ROS if there's any.</p> 
-<p>Please mark the following checklist yourself when you finish each.</p> 
-<ul> 
- <li> <p>[ ] Make sure you have correct hardware setup and go through instructions above step by step.</p> 
-  <ol> 
-   <li> <p>Be sure of the ip address.</p> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+<ol> 
+ <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
 </code></pre> <p>to access to angel.</p> </li> 
-   <li> <p>Start the roscore up. Type the following command.</p> <pre><code>roscore
+ <li> <p>Start the roscore up. Type the following command.</p> <pre><code>roscore
 </code></pre> </li> 
-   <li> <p>The next step should be starting communication between odroid and mega2560 through ROS. Open another termimal and do step1 to access into odroid then type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/ttyACM* _baud:=115200
+ <li> <p>The next step should be starting communication between odroid and mega2560 through ROS. Open another termimal and use ssh command to access into odroid then type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/mega_base _baud:=115200
 </code></pre> </li> 
-   <li> <p>Open another terminal and access into odroid by ssh commands (step1) then type:</p> <pre><code>rostopic list
+ <li> <p>Open another terminal and access into odroid by entering ssh commands (step1) then type:</p> <pre><code>rostopic list
 </code></pre> <p>Check the topic list to make sure communication between mega2560 and your odroid is set.</p> </li> 
-   <li> <p>Send a command to drive each wheel. Type the following command</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 1.0 speed2: 1.0 driverstate: false&quot; 
+ <li> <p>Send a command to drive each wheel. Type the following command</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 1.0 speed2: 1.0 driverstate: false&quot; 
 </code></pre> <p>If you have no error, you may see something like this on the terimal</p> <pre><code>odroid@odroid:~$ rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 1.0 speed2: 1.0 driverstate: false&quot;
 publishing and latching message. Press ctrl-C to terminate 
 </code></pre> </li> 
-   <li>Make sure both wheel have spin in the correct direction with a reasonable speed.</li> 
-   <li>If you finish all the steps, send a 0 speed command and terminate command mode by typing ctrl-c.</li> 
-  </ol> </li> 
-</ul> 
+ <li>Make sure both wheel are spinning in the correct direction with a reasonable speed.</li> 
+ <li>If you finish all the steps, send a 0 speed command and terminate command mode by typing ctrl-c.</li> 
+</ol> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of base driving test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h3> <a id="laser-scan-test" class="anchor" href="#laser-scan-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Laser scan test</h3> 
 <p>The laser scanner we used is <strong>rplidar</strong>. To be able to use it, the complete hardware setup should contain rplidar + transmission board.</p> 
@@ -812,10 +812,9 @@ publishing and latching message. Press ctrl-C to terminate
 <p><strong>Note: If you have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams or datasheet and double check before going to next step.</strong></p> 
 <p><a name="user-content-laser-scan-test-step2"></a> </p> 
 <h4> <a id="step-2-launch-rplidar" class="anchor" href="#step-2-launch-rplidar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch rplidar</code> </h4> 
-<p>This test is to help you find out you if the rplidar you have is functional and your hardware setup is correct. Before going through the steps below, please mark the following checklist yourself when you finish each setup.</p> 
+<p>This test is to help you find out you if the rplidar you get is functional and your hardware setup is correct. Before going through the steps below, please mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
- <li><p>[ ] Check out if there is a folder named <code>rplidar_ros</code> in the /catkin/src/angel on odroid.</p></li> 
- <li> <p>Begin launching</p> 
+ <li> <p>Launch laser scanner</p> 
   <ol> 
    <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
 </code></pre> <p>to access to angel.</p> </li> 
@@ -846,15 +845,15 @@ RPLidar health status : 0
 <h3> <a id="camera-joint-control-test" class="anchor" href="#camera-joint-control-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera Joint control test</h3> 
 <p><a name="user-content-camera-joint-control-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setup-to-control-camera-position" class="anchor" href="#step-1-check-hardware-setup-to-control-camera-position" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setup to control camera position</code> </h4> 
-<p>The recent version of Angel's camera joint consists of a motor-control module same as the one used to control wheels. (a motor <strong>JGB37 3530B</strong> + base driver <strong>vnh5019</strong>) Also, motor-control module must be connected to mega2560.</p> 
-<p><strong>Cautions!!</strong> We do not have <code>limit switch</code> on it, which is supposed to prevent angel's joint or housing damages from operators giving position commands that the joint cannot reach. </p> 
+<p>The recent version of Angel's camera joint consists of a motor-control module same as the one used to control wheels. (a motor <strong>JGB37 3530B</strong> + base driver <strong>vnh5019</strong>) This motor-control module must also be connected to mega2560.</p> 
+<p><strong>Cautions!!</strong> We do not have <code>limit switch</code> on the joint, which is supposed to prevent Angel's joint or housing damages from operators giving position commands that the joint cannot reach. </p> 
 <p>So please check the folling list yourself again and again.</p> 
 <p>Mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
- <li>[ ] Check your motor number. Make sure you installed the right one.</li> 
- <li>[ ] Motor control module are well connected. Each of them have correct wiring to their base driver.</li> 
+ <li>[ ] Check your motor model. Make sure you have installed the right one.</li> 
+ <li>[ ] Motor control module is well connected. It has correct wiring to its driver.</li> 
  <li>[ ] Motor control module connects to mega2560 correctly.</li> 
- <li>[ ] <strong>Please make sure Angel's camera is headed toward Z direction, that is, looks up toward the sky.</strong> </li> 
+ <li>[ ] <strong>Please make sure Angel's camera is headed in Z direction, that is, looks up toward the sky.</strong> </li> 
 </ul> 
 <p><strong>Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.</strong></p> 
 <p><a name="user-content-camera-joint-control-step2"></a></p> 
@@ -863,10 +862,9 @@ RPLidar health status : 0
 <pre><code>/mcu_control/camera_joint_control/src
 </code></pre> 
 <ul> 
- <li> <p>upload <code>vnh5019_camera_joint.ino</code> to camera joint driver</p> 
+ <li> <p>Upload firmware to camera joint driver</p> 
   <ol> 
-   <li>Open vnh5019_base.ino with Arduino IDE on your PC.</li> 
-   <li>Look into line 8 and 9. Uncomment one of these two lines according to which rotating direction you are about to do the uploading. </li> 
+   <li>Open <code>vnh5019_camera_joint.ino</code> with Arduino IDE on your PC. </li> 
    <li> <p>Modify Arduino PWM Frequency in Arduino IDE. Copy</p> <pre><code>/mcu_control/wiring.c
 </code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 </code></pre> </li> 
@@ -884,37 +882,42 @@ RPLidar health status : 0
 <h4> <a id="step-3-control-camera-joint" class="anchor" href="#step-3-control-camera-joint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Control camera joint</code> </h4> 
 <p>To be continue ...</p> 
 <ul> 
- <li> <p>Begin launching</p> 
+ <li> <p>Launch camera position control</p> 
   <ol> 
    <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
 </code></pre> <p>to access to angel.</p> </li> 
    <li> <p>Start the roscore up. Type the following command.</p> <pre><code>roscore
 </code></pre> </li> 
-   <li> <p>The next step should be starting communication between odroid and mega2560 through ROS. Open another termimal and do step1 to access into odroid then type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/ttyACM* _baud:=115200
+   <li> <p>The next step should be starting communication between odroid and mega2560 through ROS. Open another termimal and do step1 to access into odroid then type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/mega_base _baud:=115200
 </code></pre> </li> 
-   <li> <p>Open another terminal and access into odroid by ssh commands (step1) then type:</p> <pre><code>rostopic list
+   <li> <p>Open another terminal and access into odroid by entering ssh commands (step1) then type:</p> <pre><code>rostopic list
 </code></pre> <p>Check the topic list to make sure communication between mega2560 and your odroid is set.</p> </li> 
    <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic pub /camera_joint_position .......
 </code></pre> </li> 
-   <li>After you finish controlling camera_joint, <code>please drive camera joint to the zero position by giving 0 degree command.</code> </li> 
+   <li>After you finish controlling camera_joint, <strong>please drive camera joint to the zero position by giving 0 degree command.</strong> The camera is supposed to look up toward the sky when you turn off Angel's power.</li> 
   </ol> </li> 
 </ul> 
 <h3> <a id="security-sensing-test" class="anchor" href="#security-sensing-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security Sensing test</h3> 
 <p><a name="user-content-security-sensing-test-step1"></a></p> 
-<h4> <a id="step-1-check-you-hardware-setup" class="anchor" href="#step-1-check-you-hardware-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>check you hardware setup</code> </h4> 
+<h4> <a id="step-1-check-the-sensor-setup" class="anchor" href="#step-1-check-the-sensor-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check the sensor setup</code> </h4> 
+<p>Mark the following checklist yourself when you finish each setup.</p> 
+<ul> 
+ <li>[ ] Check your sensor model. Make sure you have installed the right one.</li> 
+ <li>[ ] Make sure you wired each sensor to the correct pin on mega2560.<br /> </li> 
+</ul> 
 <p><a name="user-content-security-sensing-test-step2"></a></p> 
-<h4> <a id="step-2-check-each-sensors-readings" class="anchor" href="#step-2-check-each-sensors-readings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>check each sensor's readings</code> </h4> 
+<h4> <a id="step-2-read-each-sensor" class="anchor" href="#step-2-read-each-sensor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Read each sensor</code> </h4> 
 <p>To be continue ...</p> 
 <ul> 
- <li> <p>Begin launching</p> 
+ <li> <p>Launch sensor reading</p> 
   <ol> 
    <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
 </code></pre> <p>to access to angel.</p> </li> 
    <li> <p>Start the roscore up. Type the following command.</p> <pre><code>roscore
 </code></pre> </li> 
-   <li> <p>The next step should be starting communication between odroid and mega2560 through ROS. Open another termimal and do step1 to access into odroid then type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/ttyACM* _baud:=115200
+   <li> <p>The next step should be starting communication between odroid and mega2560 through ROS. Open another termimal and do step1 to access into odroid then type:</p> <pre><code>rosrun rosserial_python serial_node.py _port:=/dev/mega_base _baud:=115200
 </code></pre> </li> 
-   <li> <p>Open another terminal and access into odroid by ssh commands (step1) then type:</p> <pre><code>rostopic list
+   <li> <p>Open another terminal and access into odroid by entering ssh commands (step1) then type:</p> <pre><code>rostopic list
 </code></pre> <p>The following list should appear. </p> <pre><code>/SensorActiveList
 /CurTemperature
 /CurHumidity
@@ -929,11 +932,16 @@ RPLidar health status : 0
 </ul> 
 <h3> <a id="camera-image-topic-test" class="anchor" href="#camera-image-topic-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera image topic test</h3> 
 <p><a name="user-content-camera-image-topic-test-step1"></a></p> 
-<h4> <a id="step-1-check" class="anchor" href="#step-1-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>check</code> </h4> 
-<p><a name="user-content-camera-image-topic-test-step2"></a></p> 
-<h4> <a id="step-2-run-camera-on-odroid" class="anchor" href="#step-2-run-camera-on-odroid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>run camera on odroid</code> </h4> 
+<h4> <a id="step-1-check-camera-setup" class="anchor" href="#step-1-check-camera-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check camera setup</code> </h4> 
+<p>Mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
- <li> <p>Begin launching</p> 
+ <li>[ ] Check your camera model. Make sure you have installed the right one.</li> 
+ <li>[ ] Camera shoud be connected to the hub.<br /> </li> 
+</ul> 
+<p><a name="user-content-camera-image-topic-test-step2"></a></p> 
+<h4> <a id="step-2-run-camera-on-odroid" class="anchor" href="#step-2-run-camera-on-odroid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Run camera on odroid</code> </h4> 
+<ul> 
+ <li> <p>Launch image capturing</p> 
   <ol> 
    <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
 </code></pre> <p>to access to angel.</p> </li> 
@@ -1004,9 +1012,8 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
 </ul> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Module test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h2> <a id="function-test" class="anchor" href="#function-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function test</h2> 
+<p>After you go over all the module tests, Angel is now capable of perform some function. This section is to give a basic instruction of test iconic functions. If you haven't passed the module tests, <strong>please go above and finish tests before continue.</strong></p> 
 <p align="center"> <b><a href="#tele-operation-test">Tele-operation test</a></b> | <b><a href="#auto-docking-test">Auto docking test</a></b> </p> 
-<p>This section is to give a basic instruction of test iconic functions.</p> 
-<p><strong>Please go through each test listed above before continue.</strong></p> 
 <h3> <a id="tele-operation" class="anchor" href="#tele-operation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tele-operation</h3> 
 <ol> 
  <li> <p>Use ssh command to access to odroid</p> <pre><code>ssh odroid@192.168.25.110
