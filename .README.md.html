@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>/home/shangwei/git/angel/.README.md.html</title>
+<title>/home/weberhsu/git/angel/.README.md.html</title>
 
 
 <style type="text/css">
@@ -642,7 +642,7 @@ function setDocumentScrollTop(ypos)
 <h1 align="center"> <a id="-----instructions-for-fundamental-testing-on-angel-" class="anchor" href="#-----instructions-for-fundamental-testing-on-angel-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> <a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a> Instructions for fundamental testing on angel </h1> 
 <p align="center"> <b><a href="#overview">Overview</a></b> | <b><a href="#table-of-contents">Table of contents</a></b> | <b><a href="#preparing-for-testing">Preparing for testing</a></b> | <b><a href="#system-architecture">System architecture</a></b> | <b><a href="#module-test">Module test</a></b> | <b><a href="#function-test">Function test</a></b> | <b><a href="#team">Team</a></b> | <b><a href="#license">License</a></b> </p> 
 <h2> <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2> 
-<p>This is a guiding repository that gives you basic instructions to test and drive our robot system, <strong>angel</strong> for this case. Required firmwares and programs are all included in this repository. <strong>Please go through this document very carefully.</strong> In addition, this repository also contains angel's design files, including system block diagram, schematic of electronic components and CAD files, etc. They are placed in the <strong>/hardware_design</strong> folder. </p> 
+<p>This is a guiding repository that gives you basic instructions to test and drive our robot system, <strong>angel</strong> for this case. Required firmwares and programs are all included in this repository. <strong>Please go through this document very carefully.</strong> In addition, this repository is also designated to store angel's design files, including system block diagram, schematic of electronic components and CAD files, etc. They are placed in the <strong>/hardware_design</strong> folder. </p> 
 <h2> <a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of contents</h2> 
 <ul> 
  <li><a href="#preparing-for-testing"><strong>Preparing for testing</strong></a></li> 
@@ -653,7 +653,7 @@ function setDocumentScrollTop(ypos)
     <ul> 
      <li><a href="#step1-check-hardware-setups-for-base-driving-control"><strong>Step 1 Check hardware setups for base driving control</strong></a></li> 
      <li><a href="#step-2-upload-firmware-to-vnh5019"><strong>Step 2 Upload firmware to vnh5019</strong></a></li> 
-     <li><a href="#step-3-upload-firmware-to-mega_base"><strong>Step 3 Upload firmware to mega_base</strong></a></li> 
+     <li><a href="#step-3-upload-firmware-to-mega2560"><strong>Step 3 Upload firmware to mega2560</strong></a></li> 
      <li><a href="#step-4-drive-angel-base"><strong>Step 4 Drive angel base</strong></a></li> 
     </ul> </li> 
    <li> <a href="#laser-scan-test"><strong>Laser scan test</strong></a> 
@@ -672,7 +672,11 @@ function setDocumentScrollTop(ypos)
      <li><a href="#check-the-sensor-setup"><strong>Step 1 Check the sensor setup</strong></a></li> 
      <li><a href="#read-each-sensor"><strong>Step 2 Read each sensor</strong></a></li> 
     </ul> </li> 
-   <li> <a href="#camera-image-topic-test"><strong>Camera image topic test</strong></a><br /> </li> 
+   <li> <a href="#camera-image-topic-test"><strong>Camera image topic test</strong></a> 
+    <ul> 
+     <li><a href="#step-1-check-camera-setup"><strong>Step 1 Check camera setup</strong></a></li> 
+     <li> <a href="#step-2-run-camera-on-odroid"><strong>Step 2 Run camera on odroid</strong></a><br /> </li> 
+    </ul> </li> 
   </ul> </li> 
  <li> <a href="#function-test"><strong>Function test</strong></a> 
   <ul> 
@@ -685,9 +689,9 @@ function setDocumentScrollTop(ypos)
 <ol> 
  <li>Prepare your odroid XU4 board with ubuntu 14.04 on it.</li> 
  <li>Find a monitor and a hdmi cable and connect to odroid.</li> 
- <li> <p>Check odroid IP address. Open a terminal and type the following command on odroid board.</p> <pre><code>ifconfig
+ <li> <p>Check odroid IP address. </p> <p>Power on odroid and open a terminal and type the following command on odroid board.</p> <pre><code>ifconfig
 </code></pre> <p>On angel-1.1, IP address should be <code>192.168.25.110</code> </p> </li> 
- <li> <p>Download this repository and compile it on odroid by going though the following steps.</p> <pre><code>ssh odroid@[Odroid IP address]
+ <li> <p>Download this repository and compile it on odroid by going though the following steps.</p> <p>On a terimal, please type the following command.</p> <pre><code>ssh odroid@[Odroid IP address]
 cd ~/catkin_ws/src
 git clone https://github.com/advancedroboticsaws/angel.git
 cd ~/catkin_ws
@@ -696,36 +700,26 @@ catkin_make
 </ol> 
 <h2> <a id="system-architecture" class="anchor" href="#system-architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System architecture</h2> 
 <p>This section gives you an overview on angel's design.</p> 
-<p><strong>Note: All files related to angel's hardware design are placed in the folder <code>/hardware design</code>.</strong> </p> 
+<p><strong>Note: All files related to angel's hardware design are placed in the folder <code>/hardware_design</code>.</strong> </p> 
 <ul> 
  <li>Overall block diagram</li> 
 </ul> 
 <p><a href="doc/Angel%20system%20diagram.png" target="_blank"><img src="doc/Angel%20system%20diagram.png" alt="System" style="max-width:100%;" /></a></p> 
 <ul> 
- <li>Schematic of base driver <code>vnh5019</code> </li> 
+ <li><p>Specifications -- not available yet</p></li> 
+ <li><p>Detailed wiring schematics -- not available yet </p></li> 
+ <li><p>Schematic of DC motor driver board <code>vnh5019</code></p></li> 
 </ul> 
 <p><a href="doc/vnh5019-1st.jpg" target="_blank"><img src="doc/vnh5019-1st.jpg" alt="vnh5019-1" style="max-width:100%;" /></a></p> 
 <p><a href="doc/vnh5019-2nd.jpg" target="_blank"><img src="doc/vnh5019-2nd.jpg" alt="vnh5019-2" style="max-width:100%;" /></a></p> 
 <h2> <a id="module-test" class="anchor" href="#module-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module test</h2> 
 <p>Here, we separate Angel into several modules. </p> 
-<p align="center"> <b><a href="#base-driving-test">Base driving test</a></b> | <b><a href="#laser-scan-test">Laser scan test</a></b> | <b><a href="#camera-joint-test">Camera joint test</a></b> | <b><a href="#security-sensing-test">Securit Sensing test</a></b> | <b><a href="#camera-image-topic-test">Camera image topic test</a></b> | </p> 
+<p align="center"> <b><a href="#base-driving-test">Base driving test</a></b> | <b><a href="#laser-scan-test">Laser scan test</a></b> | <b><a href="#camera-joint-test">Camera joint test</a></b> | <b><a href="#security-sensing-test">Securit Sensing test</a></b> | <b><a href="#camera-image-topic-test">Camera image topic test</a></b> </p> 
 <h3> <a id="base-driving-test" class="anchor" href="#base-driving-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Base driving test</h3> 
-<p>Brief description of this test</p> 
-<ul> 
- <li>Requirements 
-  <ul> 
-   <li>motor-control module</li> 
-   <li>mega2560</li> 
-   <li>Odroid XU4</li> 
-   <li>ROS on odroid </li> 
-  </ul> </li> 
- <li>Firmware upload instruction</li> 
- <li>Base driving test with ROS.</li> 
-</ul> 
 <p><a name="user-content-base-driving-test-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setups-for-base-driving-control" class="anchor" href="#step-1-check-hardware-setups-for-base-driving-control" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setups for base driving control</code> </h4> 
 <p>Check all the hardware setup !!</p> 
-<p>Here we regard motor-control module as a motor <strong>JGB37 3530B</strong> + base driver <strong>vnh5019</strong>. Also, both motor-control module must be connected to mega2560.</p> 
+<p>Here we regard motor-control module as a motor <strong>JGB37 3530B</strong> + base driver <strong>vnh5019</strong>. Also, both motor-control module for each wheel must be connected to mega2560.</p> 
 <p>Mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
  <li>[ ] Check your motor model. Make sure you have installed the right one.</li> 
@@ -734,10 +728,10 @@ catkin_make
  <li>[ ] Right wheel motor control module connects to mega2560 correctly. </li> 
 </ul> 
 <p><strong>Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.</strong></p> 
-<p>After you finish first step, you are about to make wheels spin. There are two control boards that should have firmwares uploaded, <code>mega2560 &amp; vnh5019</code>. Firmware uploading steps for both of them are slightly different. Instructions for each are separated as follows.</p> 
+<p>After you finish first step, you are about to make wheels spin. There are two control boards that should have firmwares uploaded, <strong>mega2560 &amp; vnh5019</strong>. Firmware uploading steps for both of them are slightly different. Instructions for each are separated as follows.</p> 
 <p><a name="user-content-base-driving-test-step2"></a></p> 
 <h4> <a id="step-2-upload-firmware-to-vnh5019" class="anchor" href="#step-2-upload-firmware-to-vnh5019" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Upload firmware to vnh5019</code> </h4> 
-<p>Firmware for wheel spining test is placed in the folder.</p> 
+<p>Firmware for each wheel's driver is inside the folder.</p> 
 <pre><code>/mcu_control/base_control/vnh5019_base/src
 </code></pre> 
 <ul> 
@@ -745,22 +739,22 @@ catkin_make
   <ol> 
    <li>Open <code>vnh5019_base.ino</code> with Arduino IDE on your PC.</li> 
    <li> <p>Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading.</p> <p><strong>Note: On angel, you should define <code>RIGHT_WHEEL</code> when you are going to upload firmware to the left wheel. And of course, define <code>LEFT_WHEEL</code> when you are going to deal with right wheel.</strong> </p> </li> 
-   <li> <p>Modify Arduino PWM Frequency in Arduino IDE. Copy</p> <pre><code>/mcu_control/wiring.c
-</code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
+   <li> <p>Modify Arduino PWM Frequency in Arduino IDE. </p> <p>Copy</p> <pre><code>/mcu_control/wiring.c
+</code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino.</p> <p>Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 </code></pre> </li> 
-   <li>Set your upload target to <strong>promini</strong> </li> 
+   <li>Set your upload target to <strong>promini</strong>.</li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
-   <li>Go for it! Click upload! If you get any error when uploading, 
+   <li> <p>Go for it! Click upload!</p> <p>If you get any error when uploading,</p> 
     <ul> 
      <li>Please look into the errors carefully.</li> 
      <li>Please check the port you choose.</li> 
-     <li>Please make sure you have put all the libraries into the folder. If you get the message about library conflicts, please find out those files and delete the old one.<br /> </li> 
+     <li>Please make sure you have put all the libraries into the folder. If you get the message about library conflict, please find out those files and delete the old one.</li> 
     </ul> </li> 
-   <li>Go though the steps above again <strong>for the other wheel</strong>.</li> 
+   <li><p>Go though the steps above again <strong>for the other wheel</strong>.</p></li> 
   </ol> </li> 
 </ul> 
 <p><a name="user-content-base-driving-test-step3"></a></p> 
-<h4> <a id="step-3-upload-firmware-to-mega_base" class="anchor" href="#step-3-upload-firmware-to-mega_base" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Upload firmware to mega_base</code> </h4> 
+<h4> <a id="step-3-upload-firmware-to-mega2560" class="anchor" href="#step-3-upload-firmware-to-mega2560" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3 <code>Upload firmware to mega2560</code> </h4> 
 <p>Firmware for mega2560 is inside the following folder.</p> 
 <pre><code>/mcu_control/base_control/mega_base_ultrasonic_angelbot/src
 </code></pre> 
@@ -768,11 +762,11 @@ catkin_make
  <li> <p>Upload firmware to mega2560</p> 
   <ol> 
    <li>Open <code>mega_base_ultrasonic_angelbot.ino</code> with Arduino IDE on your PC.</li> 
-   <li> <p>Libraries for the firmware is placed in </p> <pre><code>/mcu_control/mega_base_ultrasonic_angelbot/lib
+   <li> <p>Libraries for this firmware is placed in </p> <pre><code>/mcu_control/mega_base_ultrasonic_angelbot/lib
 </code></pre> <p>Copy all contents inside and paste them to <code>/%document%/arduino/libraries</code> folder on your PC.</p> </li> 
    <li> <p>Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 </code></pre> <p>If you don't understand this step, please refer to step 2 Upload firmware to vnh5019 above to find out. </p> </li> 
-   <li>Set your upload target to <strong>mega2560</strong> </li> 
+   <li>Set your upload target to <strong>mega2560</strong>.</li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
    <li>Go for it! Click upload! If you get any error when PC uploading, 
     <ul> 
@@ -785,7 +779,7 @@ catkin_make
 <p><a name="user-content-base-driving-test-step4"></a></p> 
 <h4> <a id="step-4-drive-angel-base" class="anchor" href="#step-4-drive-angel-base" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4 <code>Drive angel base</code> </h4> 
 <ol> 
- <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+ <li> <p>Open a terminal on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
 </code></pre> <p>to access to angel.</p> </li> 
  <li> <p>Start the roscore up. Type the following command.</p> <pre><code>roscore
 </code></pre> </li> 
@@ -802,7 +796,7 @@ publishing and latching message. Press ctrl-C to terminate
 </ol> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of base driving test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h3> <a id="laser-scan-test" class="anchor" href="#laser-scan-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Laser scan test</h3> 
-<p>The laser scanner we used is <strong>rplidar</strong>. To be able to use it, the complete hardware setup should contain rplidar + transmission board.</p> 
+<p>The laser scanner we use is <strong>rplidar</strong>. To be able to use it, the complete hardware setup should contain rplidar + transmission board.</p> 
 <p><a name="user-content-laser-scan-test-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setup-to-receive-data-from-laser-scanner" class="anchor" href="#step-1-check-hardware-setup-to-receive-data-from-laser-scanner" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setup to receive data from laser scanner</code> </h4> 
 <p>Mark the following checklist yourself when you finish each setup.</p> 
@@ -812,11 +806,11 @@ publishing and latching message. Press ctrl-C to terminate
 <p><strong>Note: If you have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams or datasheet and double check before going to next step.</strong></p> 
 <p><a name="user-content-laser-scan-test-step2"></a> </p> 
 <h4> <a id="step-2-launch-rplidar" class="anchor" href="#step-2-launch-rplidar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch rplidar</code> </h4> 
-<p>This test is to help you find out you if the rplidar you get is functional and your hardware setup is correct. Before going through the steps below, please mark the following checklist yourself when you finish each setup.</p> 
+<p>This test is to help you find out whether the rplidar you installed is functional and your hardware setup is correct. Before going through the steps below, please mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
  <li> <p>Launch laser scanner</p> 
   <ol> 
-   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+   <li> <p>Open a terminal on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
 </code></pre> <p>to access to angel.</p> </li> 
    <li> <p>The next step should be starting communication between odroid and rplidar through ROS. Open another termimal and type:</p> <pre><code>roslaunch angelbot rplidar.lanuch 
 </code></pre> <p>You will see something like this</p> <pre><code>started roslaunch server http://192.168.25.110:60968/
@@ -845,15 +839,15 @@ RPLidar health status : 0
 <h3> <a id="camera-joint-control-test" class="anchor" href="#camera-joint-control-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera Joint control test</h3> 
 <p><a name="user-content-camera-joint-control-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setup-to-control-camera-position" class="anchor" href="#step-1-check-hardware-setup-to-control-camera-position" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setup to control camera position</code> </h4> 
-<p>The recent version of Angel's camera joint consists of a motor-control module same as the one used to control wheels. (a motor <strong>JGB37 3530B</strong> + base driver <strong>vnh5019</strong>) This motor-control module must also be connected to mega2560.</p> 
-<p><strong>Cautions!!</strong> We do not have <code>limit switch</code> on the joint, which is supposed to prevent Angel's joint or housing damages from operators giving position commands that the joint cannot reach. </p> 
-<p>So please check the folling list yourself again and again.</p> 
+<p>The recent version of Angel's camera joint consists of a motor-control module same as the one used to control wheels. (a motor <strong>JGB37 3530B</strong> + base driver <strong>vnh5019</strong>). This motor-control module must also be connected to mega2560.</p> 
+<p><strong>Cautions!!</strong></p> 
+<p><strong>We do not have <code>limit switch</code> on the joint, which is supposed to prevent Angel's joint or housing damages from operators giving position commands that the joint cannot reach.<br /> So please check the following list carefully.</strong></p> 
 <p>Mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
  <li>[ ] Check your motor model. Make sure you have installed the right one.</li> 
  <li>[ ] Motor control module is well connected. It has correct wiring to its driver.</li> 
  <li>[ ] Motor control module connects to mega2560 correctly.</li> 
- <li>[ ] <strong>Please make sure Angel's camera is headed in Z direction, that is, looks up toward the sky.</strong> </li> 
+ <li>[ ] <strong>Please make sure Angel's camera is headed in Z direction, that is, toward the sky.</strong> </li> 
 </ul> 
 <p><strong>Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.</strong></p> 
 <p><a name="user-content-camera-joint-control-step2"></a></p> 
@@ -868,7 +862,7 @@ RPLidar health status : 0
    <li> <p>Modify Arduino PWM Frequency in Arduino IDE. Copy</p> <pre><code>/mcu_control/wiring.c
 </code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 </code></pre> </li> 
-   <li>Set your upload target to <strong>promini</strong> </li> 
+   <li>Set your upload target to <strong>promini</strong>.</li> 
    <li>Choose your <strong>port</strong> carefully.</li> 
    <li>Go for it! Click upload! If you get any error when PC uploading, 
     <ul> 
@@ -892,9 +886,12 @@ RPLidar health status : 0
 </code></pre> </li> 
    <li> <p>Open another terminal and access into odroid by entering ssh commands (step1) then type:</p> <pre><code>rostopic list
 </code></pre> <p>Check the topic list to make sure communication between mega2560 and your odroid is set.</p> </li> 
-   <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic pub /camera_joint_position .......
+   <li> <p>Type the following command to move the camera joint axis forward to 30 degree from the initial angle of 0 degree.</p> <pre><code>rostopic pub /camera_joint_position ... position: 30
 </code></pre> </li> 
-   <li>After you finish controlling camera_joint, <strong>please drive camera joint to the zero position by giving 0 degree command.</strong> The camera is supposed to look up toward the sky when you turn off Angel's power.</li> 
+   <li> <p>Type the following command to move the camera joint axis backward to -30 degree from the previous angle of 30 degree.</p> <pre><code>rostopic pub /camera_joint_position ... position: -30
+</code></pre> </li> 
+   <li> <p>After you finish controlling camera_joint, <strong>please drive camera joint axis to the initial angle of 0 by giving 0 degree command.</strong> The camera is supposed to look toward the sky when you turn off Angel's power.</p> <pre><code>rostopic pub /camera_joint_position ... position: 0
+</code></pre> </li> 
   </ol> </li> 
 </ul> 
 <h3> <a id="security-sensing-test" class="anchor" href="#security-sensing-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security Sensing test</h3> 
@@ -926,9 +923,20 @@ RPLidar health status : 0
 /MQ2CO
 /DustDetection
 </code></pre> </li> 
-   <li> <p>Test those sensor readings by echoing ros topics <code>one by one</code>. </p> <p>For example</p> <pre><code>rostopic echo /CurTemperature
-</code></pre> </li> 
-  </ol> </li> 
+   <li><p>Test these sensors by echoing ros topics <code>one by one</code>. </p></li> 
+  </ol> 
+  <ul> 
+   <li> <p>MQ2.</p> <p>Type the following command on a terminal.</p> <pre><code>rostopic echo /MQ2CO
+</code></pre> <p>You should see something like this.</p> <p><a href="doc/mq2co.png" target="_blank"><img src="doc/mq2co.png" alt="MQ2CO" style="max-width:100%;" /></a></p> <p>You can spray some gas material to see the value changing.</p> </li> 
+   <li> <p>DHT22</p> <p>Type the following command on a terminal.</p> <pre><code>rostopic echo /CurTemperature
+</code></pre> <pre><code>rostopic echo /CurHumidity
+</code></pre> <p>You should see something like this.</p> <p><a href="doc/curtemperature.png" target="_blank"><img src="doc/curtemperature.png" alt="DHT22-Temperature" style="max-width:100%;" /></a></p> <p><a href="doc/curhumidity.png" target="_blank"><img src="doc/curhumidity.png" alt="DHT22-Humidity" style="max-width:100%;" /></a></p> <p><strong>Check whether the values are reasonable.</strong></p> <p>You can blow on the senser to see the value changing.</p> </li> 
+   <li> <p>Flame sensor</p> <p>Type the following command on a terminal.</p> <pre><code>rostopic echo /FlameDetection
+</code></pre> <p>You should see something like this.</p> <p><a href="doc/flamedetection.png" target="_blank"><img src="doc/flamedetection.png" alt="flame detection" style="max-width:100%;" /></a></p> <p><strong>Use a lighter to test it.</strong></p> </li> 
+   <li><p>PM2.5 -- not availble yet</p></li> 
+   <li> <p>PIR</p> <p>Type the following command on a terminal.</p> <pre><code>rostopic echo /MotionDedection
+</code></pre> <p>You should see something like this.</p> <p><a href="doc/motiondetection.png" target="_blank"><img src="doc/motiondetection.png" alt="PIR" style="max-width:100%;" /></a></p> <p><strong>Simply wave you hand in front of the PIR sensor. The value on the screen would be <code>true</code> if something moves.</strong></p> </li> 
+  </ul> </li> 
 </ul> 
 <h3> <a id="camera-image-topic-test" class="anchor" href="#camera-image-topic-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Camera image topic test</h3> 
 <p><a name="user-content-camera-image-topic-test-step1"></a></p> 
@@ -1012,14 +1020,13 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
 </ul> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Module test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h2> <a id="function-test" class="anchor" href="#function-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function test</h2> 
-<p>After you go over all the module tests, Angel is now capable of perform some function. This section is to give a basic instruction of test iconic functions. If you haven't passed the module tests, <strong>please go above and finish tests before continue.</strong></p> 
+<p>After you go over all the module tests, Angel is now capable of perform some function. This section is to give a basic instruction of test iconic functions. If you haven't passed the module tests, <strong>please go back above and finish tests before continue.</strong></p> 
 <p align="center"> <b><a href="#tele-operation-test">Tele-operation test</a></b> | <b><a href="#auto-docking-test">Auto docking test</a></b> </p> 
 <h3> <a id="tele-operation" class="anchor" href="#tele-operation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tele-operation</h3> 
 <ol> 
  <li> <p>Use ssh command to access to odroid</p> <pre><code>ssh odroid@192.168.25.110
 </code></pre> </li> 
- <li> <p>Launching sequence to drive angel around and scanning.</p> <pre><code>roslaunch angelbot angel_standalone_ekf.launch
-roslaunch angelbot dwa_gmapping_ekf.launch
+ <li> <p>Launching sequence to drive angel around and scanning.</p> <pre><code>roslaunch angelbot angelbot_mvb_dwa_gmapping_ekf.launch
 </code></pre> </li> 
  <li> <p>Check topics</p> <pre><code>rostopic list
 </code></pre> <p>Make sure /angelbot/cmd_vel is on the list.</p> </li> 

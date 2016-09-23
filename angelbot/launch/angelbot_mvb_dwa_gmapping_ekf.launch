@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+ <!-- change this next line to include the launch file for your robot's hardware drivers: -->
+
+	<node pkg="rosserial_python" type="serial_node.py" name="serial_node">
+	    <param name="port" value="/dev/mega_base"/>
+	    <param name="baud" value="57600"/></node>
+
+  <!-- urdf xml robot description loaded on the Parameter Server-->
+	<param name="robot_description" command="$(find xacro)/xacro '$(find angelbot)/modeldescription/urdf/angelbot.xacro'" />
+	
+	<!-- Robot parameters -->
+	<param name="wheelSeparation" value="0.247"></param>
+	<param name="wheelRadius" value="0.0375"></param>
+	<param name="rate" value="10"></param>  
+	
+	<!-- Starting Joint state publisher node which will publish the joint values -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<!-- Starting robot state publisher -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+		<param name="publish_frequency" type="double" value="50.0"></param></node>
+		
+	<!-- Starting twist to motor and diff_tf nodes -->
+	<node pkg="angelbot" type="mybot_base_controller_v1_angelbot" name="mybot_base_controller_v1_angelbot" output="screen"/>
+ 	<node pkg="angelbot" type="mybot_odom_ekf_angelbot" name="mybot_odom_ekf_angelbot" output="screen"/>
+ 	 
+ 	 <!-- Starting robot_pose_ekf nodes -->
+	<include file="$(find angelbot)/launch/robot_pose_ekf.launch" />
+	
+	<!-- Launches sensor nodes -->
+	<include file="$(find angelbot)/launch/rplidar.launch" />
+	
+	<!-- Start gmapping nodes and its configurations -->
+	<include file="$(find angelbot)/launch/includes/gmapping_ekf_config.launch.xml"/>
+
+	<!-- Start move_base node and its configuration -->
+	<include file="$(find angelbot)/launch/includes/move_base_dwa_ekf.launch.xml"/>
+
+</launch>

@@ -26,7 +26,7 @@
 This is a guiding repository that gives you basic instructions to test and drive our robot system, **angel** for this case. 
 Required firmwares and programs are all included in this repository. 
 **Please go through this document very carefully.**
-In addition, this repository also contains angel's design files, including system block diagram, schematic of electronic components and CAD files, etc. 
+In addition, this repository is also designated to store angel's design files, including system block diagram, schematic of electronic components and CAD files, etc. 
 They are placed in the **/hardware_design** folder. 
  
 
@@ -37,7 +37,7 @@ They are placed in the **/hardware_design** folder.
   * [**Base driving test**](#base-driving-test)
   	* [**Step 1 Check hardware setups for base driving control**](#step1-check-hardware-setups-for-base-driving-control)
   	* [**Step 2 Upload firmware to vnh5019**](#step-2-upload-firmware-to-vnh5019)
-  	* [**Step 3 Upload firmware to mega_base**](#step-3-upload-firmware-to-mega_base)
+  	* [**Step 3 Upload firmware to mega2560**](#step-3-upload-firmware-to-mega2560)
   	* [**Step 4 Drive angel base**](#step-4-drive-angel-base)
   * [**Laser scan test**](#laser-scan-test)
   	* [**Step 1 Check hardware setup to receive data from laser scanner**](#step-1-check-hardware-setup-to-receive-data-from-laser-scanner)
@@ -49,7 +49,9 @@ They are placed in the **/hardware_design** folder.
   * [**Security Sening test. To be continue ...**](#security-sensing-test)
   	* [**Step 1 Check the sensor setup**](#check-the-sensor-setup)
   	* [**Step 2 Read each sensor**](#read-each-sensor)
-  * [**Camera image topic test**](#camera-image-topic-test)	  
+  * [**Camera image topic test**](#camera-image-topic-test)
+  	* [**Step 1 Check camera setup**](#step-1-check-camera-setup)
+  	* [**Step 2 Run camera on odroid**](#step-2-run-camera-on-odroid)	  
 * [**Function test**](#function-test)
   * [**Tele-operation**](#tele-operation)
   * [**Auto docking To be continue ...**](#auto-docking) 
@@ -60,13 +62,16 @@ They are placed in the **/hardware_design** folder.
 1. Prepare your odroid XU4 board with ubuntu 14.04 on it.
 2. Find a monitor and a hdmi cable and connect to odroid.
 3. Check odroid IP address. 
-	Open a terminal and type the following command on odroid board.
+	
+	Power on odroid and open a terminal and type the following command on odroid board.
 	
 	```
 	ifconfig
 	``` 
 	On angel-1.1, IP address should be `192.168.25.110` 
 4. Download this repository and compile it on odroid by going though the following steps.
+
+	On a terimal, please type the following command.
 	
 	```
 	ssh odroid@[Odroid IP address]
@@ -80,13 +85,17 @@ They are placed in the **/hardware_design** folder.
 
 This section gives you an overview on angel's design.
 
-**Note: All files related to angel's hardware design are placed in the folder `/hardware design`.** 
+**Note: All files related to angel's hardware design are placed in the folder `/hardware_design`.** 
 
 * Overall block diagram
 
 ![System](doc/Angel%20system%20diagram.png)
 
-* Schematic of base driver `vnh5019`
+* Specifications -- not available yet
+
+* Detailed wiring schematics -- not available yet 
+
+* Schematic of DC motor driver board `vnh5019`
 
 ![vnh5019-1](doc/vnh5019-1st.jpg)
 
@@ -106,20 +115,9 @@ Here, we separate Angel into several modules.
 <b><a href="#security-sensing-test">Securit Sensing test</a></b>
 |
 <b><a href="#camera-image-topic-test">Camera image topic test</a></b>
-|
 </p>
 
 ### Base driving test
-
-Brief description of this test
-
-* Requirements 
-  * motor-control module
-  * mega2560
-  * Odroid XU4
-  * ROS on odroid 
-* Firmware upload instruction
-* Base driving test with ROS.
 
 <a name="base-driving-test-step1"></a>
 
@@ -128,7 +126,7 @@ Brief description of this test
 Check all the hardware setup !!
 
 Here we regard motor-control module as a motor **JGB37 3530B** + base driver **vnh5019**.
-Also, both motor-control module must be connected to mega2560.
+Also, both motor-control module for each wheel must be connected to mega2560.
 
 Mark the following checklist yourself when you finish each setup.
 
@@ -140,7 +138,7 @@ Mark the following checklist yourself when you finish each setup.
 **Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.**
 
 After you finish first step, you are about to make wheels spin.
-There are two control boards that should have firmwares uploaded, `mega2560 & vnh5019`. 
+There are two control boards that should have firmwares uploaded, **mega2560 & vnh5019**. 
 Firmware uploading steps for both of them are slightly different. 
 Instructions for each are separated as follows.
 
@@ -148,7 +146,7 @@ Instructions for each are separated as follows.
 
 #### Step 2 `Upload firmware to vnh5019` 
 
-Firmware for wheel spining test is placed in the folder.
+Firmware for each wheel's driver is inside the folder.
 
 ```
 /mcu_control/base_control/vnh5019_base/src
@@ -161,30 +159,35 @@ Firmware for wheel spining test is placed in the folder.
 		**Note: On angel, you should define `RIGHT_WHEEL` when you are going to upload firmware to the left wheel.
 		        And of course, define `LEFT_WHEEL` when you are going to deal with right wheel.** 
 	3. Modify Arduino PWM Frequency in Arduino IDE. 
+		
 		Copy
 		
 		```
 		/mcu_control/wiring.c
 		```
-		 to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino
+		 to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino.
+		 
 		 Make sure the following code is on line 31 or 32 in wiring.c.   
 		 
 		 ```
 		 #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 		 ```
-	4. Set your upload target to **promini**
+	4. Set your upload target to **promini**.
 	5. Choose your **port** carefully.
 	6. Go for it! Click upload!
+		
 		If you get any error when uploading,
 		* Please look into the errors carefully.
 		* Please check the port you choose.
 		* Please make sure you have put all the libraries into the folder.
-			If you get the message about library conflicts, please find out those files and delete the old one.   
+			If you get the message about library conflict, please find out those files and delete the old one.
+			   
 	7. Go though the steps above again **for the other wheel**.
+	
 
 <a name="base-driving-test-step3"></a>
 
-#### Step 3 `Upload firmware to mega_base` 
+#### Step 3 `Upload firmware to mega2560` 
 
 Firmware for mega2560 is inside the following folder.
 
@@ -194,7 +197,7 @@ Firmware for mega2560 is inside the following folder.
 
 * Upload firmware to mega2560
 	1. Open `mega_base_ultrasonic_angelbot.ino` with Arduino IDE on your PC.
-	2. Libraries for the firmware is placed in	
+	2. Libraries for this firmware is placed in	
 	
 		```
 		/mcu_control/mega_base_ultrasonic_angelbot/lib
@@ -206,7 +209,7 @@ Firmware for mega2560 is inside the following folder.
 		 #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 		 ```
 		 If you don't understand this step, please refer to step 2 Upload firmware to vnh5019 above to find out. 
-	4. Set your upload target to **mega2560**
+	4. Set your upload target to **mega2560**.
 	5. Choose your **port** carefully.
 	6. Go for it! Click upload!
 		If you get any error when PC uploading,
@@ -219,7 +222,7 @@ Firmware for mega2560 is inside the following folder.
 
 #### Step 4 `Drive angel base`
 
-1. Open a terminal up on you PC and type
+1. Open a terminal on you PC and type
 
 	```
 	ssh odroid@192.168.25.110
@@ -265,7 +268,7 @@ Firmware for mega2560 is inside the following folder.
 
 ### Laser scan test
 
-The laser scanner we used is **rplidar**. 
+The laser scanner we use is **rplidar**. 
 To be able to use it, the complete hardware setup should contain rplidar + transmission board.
 
 <a name="laser-scan-test-step1"></a>
@@ -283,11 +286,11 @@ please review system diagrams or datasheet and double check before going to next
 
 #### Step 2 `Launch rplidar`
 
-This test is to help you find out you if the rplidar you get is functional and your hardware setup is correct.
+This test is to help you find out whether the rplidar you installed is functional and your hardware setup is correct.
 Before going through the steps below, please mark the following checklist yourself when you finish each setup.
 
 * Launch laser scanner
-	1. Open a terminal up on you PC and type
+	1. Open a terminal on you PC and type
 	
 		```
 		ssh odroid@192.168.25.110
@@ -347,20 +350,20 @@ Before going through the steps below, please mark the following checklist yourse
 #### Step 1 `Check hardware setup to control camera position`
 
 The recent version of Angel's camera joint consists of a motor-control module same as the one used to control wheels.
-(a motor **JGB37 3530B** + base driver **vnh5019**)
+(a motor **JGB37 3530B** + base driver **vnh5019**).
 This motor-control module must also be connected to mega2560.
 
 **Cautions!!**
-We do not have `limit switch` on the joint, which is supposed to prevent Angel's joint or housing damages from operators giving position commands that the joint cannot reach.   
 
-So please check the folling list yourself again and again.
+**We do not have `limit switch` on the joint, which is supposed to prevent Angel's joint or housing damages from operators giving position commands that the joint cannot reach.   
+So please check the following list carefully.**
 
 Mark the following checklist yourself when you finish each setup.
 
 - [ ] Check your motor model. Make sure you have installed the right one.
 - [ ] Motor control module is well connected. It has correct wiring to its driver.
 - [ ] Motor control module connects to mega2560 correctly.
-- [ ] **Please make sure Angel's camera is headed in Z direction, that is, looks up toward the sky.** 
+- [ ] **Please make sure Angel's camera is headed in Z direction, that is, toward the sky.** 
 
 **Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, 
 please review system diagrams and double check before going to next step.**
@@ -389,7 +392,7 @@ Firmware for joint position control is placed in the following folder.
 		 ```
 		 #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 		 ```
-	3. Set your upload target to **promini**
+	3. Set your upload target to **promini**.
 	4. Choose your **port** carefully.
 	5. Go for it! Click upload!
 		If you get any error when PC uploading,
@@ -429,13 +432,22 @@ To be continue ...
 		rostopic list
 		```   
 		Check the topic list to make sure communication between mega2560 and your odroid is set.
-	5. Type the following command to see if there is anything shows up.
+	5. Type the following command to move the camera joint axis forward to 30 degree from the initial angle of 0 degree.
 		
 		```
-		rostopic pub /camera_joint_position .......
+		rostopic pub /camera_joint_position ... position: 30
 		```
-	6. After you finish controlling camera_joint, **please drive camera joint to the zero position by giving 0 degree command.**
-		The camera is supposed to look up toward the sky when you turn off Angel's power.
+	6. 	Type the following command to move the camera joint axis backward to -30 degree from the previous angle of 30 degree.
+		
+		```
+		rostopic pub /camera_joint_position ... position: -30
+		```
+	7. After you finish controlling camera_joint, **please drive camera joint axis to the initial angle of 0 by giving 0 degree command.**
+		The camera is supposed to look toward the sky when you turn off Angel's power.
+		
+		```
+		rostopic pub /camera_joint_position ... position: 0
+		```
 			
 ### Security Sensing test
 
@@ -491,14 +503,71 @@ To be continue ...
 		/DustDetection
 		```
 		
-	5. Test those sensor readings by echoing ros topics `one by one`. 
+	5. Test these sensors by echoing ros topics `one by one`. 
 		
-		For example
+	* MQ2.
 		
+		Type the following command on a terminal.
+		
+		```
+		rostopic echo /MQ2CO
+		```
+		
+		You should see something like this.
+		
+		![MQ2CO](doc/mq2co.png)
+		
+		You can spray some gas material to see the value changing.
+		
+	* DHT22
+		
+		Type the following command on a terminal.
+				
 		```
 		rostopic echo /CurTemperature
 		```
-
+			
+		```		
+		rostopic echo /CurHumidity
+		```
+		You should see something like this.
+		
+		![DHT22-Temperature](doc/curtemperature.png)
+		
+		![DHT22-Humidity](doc/curhumidity.png)
+		
+		**Check whether the values are reasonable.**
+		
+		You can blow on the senser to see the value changing.
+		
+	* Flame sensor
+		
+		Type the following command on a terminal.
+		
+		```
+		rostopic echo /FlameDetection
+		```
+		You should see something like this.
+		
+		![flame detection](doc/flamedetection.png)
+		
+		**Use a lighter to test it.**
+		
+	* PM2.5 -- not availble yet
+		
+	* PIR
+		
+		Type the following command on a terminal.
+		
+		```
+		rostopic echo /MotionDedection
+		```
+		You should see something like this.
+		
+		![PIR](doc/motiondetection.png)
+		
+		**Simply wave you hand in front of the PIR sensor. The value on the screen would be `true` if something moves.**
+		
 ### Camera image topic test
 
 <a name="camera-image-topic-test-step1"></a>
@@ -615,7 +684,7 @@ Mark the following checklist yourself when you finish each setup.
 
 After you go over all the module tests, Angel is now capable of perform some function.
 This section is to give a basic instruction of test iconic functions.
-If you haven't passed the module tests, **please go above and finish tests before continue.**
+If you haven't passed the module tests, **please go back above and finish tests before continue.**
 
 <p align="center">
 <b><a href="#tele-operation-test">Tele-operation test</a></b>
@@ -635,8 +704,7 @@ If you haven't passed the module tests, **please go above and finish tests befor
 2. Launching sequence to drive angel around and scanning.
 	
 	```
-	roslaunch angelbot angel_standalone_ekf.launch
-	roslaunch angelbot dwa_gmapping_ekf.launch
+	roslaunch angelbot angelbot_mvb_dwa_gmapping_ekf.launch
 	```
 3. Check topics
 
