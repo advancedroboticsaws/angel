@@ -16,8 +16,8 @@
 //#define RUGBY 4
 #define ANGELBOT 5
 
-#define RIGHT_WHEEL 1
-#define LEFT_WHEEL 2
+#define RIGHT_WHEEL 2
+#define LEFT_WHEEL 1
 
 /**
  * Be very much aware!!  
@@ -25,8 +25,8 @@
  * And vice versa.
  * This is an issue to be solved either configing software or hardware.
  **/
-#define WHEEL_TYPE LEFT_WHEEL
-//#define WHEEL_TYPE RIGHT_WHEEL
+//#define WHEEL_TYPE LEFT_WHEEL
+#define WHEEL_TYPE RIGHT_WHEEL
 
 #define encoder0PinA  2 /*! encoder A phrase */
 #define encoder0PinB  3 /*! encoder B phrase */
@@ -138,8 +138,11 @@ void loop()
         if ((omega_target == 0) && (driver_mode == true))  { PWM_val = 0;  sum_error = 0;  digitalWrite(EN, HIGH); }
         //if (omega_target == 0)  { PWM_val = 0;  sum_error = 0;  }
         
-        if (PWM_val <= 0)   { analogWrite(motorIn1,abs(PWM_val));  digitalWrite(InA, LOW);  digitalWrite(InB, HIGH); }
-        if (PWM_val > 0)    { analogWrite(motorIn1,abs(PWM_val));  digitalWrite(InA, HIGH);   digitalWrite(InB, LOW);}
+        //if (PWM_val <= 0)   { analogWrite(motorIn1,abs(PWM_val));  digitalWrite(InA, LOW);  digitalWrite(InB, HIGH); }
+        //if (PWM_val > 0)    { analogWrite(motorIn1,abs(PWM_val));  digitalWrite(InA, HIGH);   digitalWrite(InB, LOW);}
+	      if (PWM_val < 0)         { analogWrite(motorIn1,abs(PWM_val));  digitalWrite(InA, LOW);  digitalWrite(InB, HIGH); }
+        else if (PWM_val > 0)    { analogWrite(motorIn1,abs(PWM_val));  digitalWrite(InA, HIGH);   digitalWrite(InB, LOW);}
+        else                     { digitalWrite(InA, LOW);   digitalWrite(InB, LOW);} //for brake
      }
      
   if((millis()-lastSend) >= FeedbackTime)    
@@ -206,7 +209,7 @@ void sendFeedback_wheel_angularVel()
 void getMotorData()  
 {                               
   static long EncoderposPre = 0;   
-  if (WHEEL_TYPE == RIGHT_WHEEL)  omega_actual = ((Encoderpos - EncoderposPre)*(1000/dT))*2*PI/(CPR*gear_ratio);  //ticks/s to rad/s
+  if (WHEEL_TYPE == LEFT_WHEEL)  omega_actual = ((Encoderpos - EncoderposPre)*(1000/dT))*2*PI/(CPR*gear_ratio);  //ticks/s to rad/s
   else                            omega_actual = -(((Encoderpos - EncoderposPre)*(1000/dT))*2*PI/(CPR*gear_ratio));  //ticks/s to rad/s
   EncoderposPre = Encoderpos;                 
 }
@@ -241,7 +244,7 @@ double updatePid(double targetValue,double currentValue)
   pidTerm = Kp * error + Ki * sum_error + Kd * d_error;   
                        
   last_error = error;  
-  if (WHEEL_TYPE == RIGHT_WHEEL)  calculated_pidTerm = pidTerm/(double(MaxSpeed)/double(MaxPWM));
+  if (WHEEL_TYPE == LEFT_WHEEL)  calculated_pidTerm = pidTerm/(double(MaxSpeed)/double(MaxPWM));
   else                            calculated_pidTerm = -pidTerm/(double(MaxSpeed)/double(MaxPWM));
   constrained_pidterm = constrain(calculated_pidTerm, -MaxPWM, MaxPWM);
   

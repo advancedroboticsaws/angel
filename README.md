@@ -154,10 +154,7 @@ Firmware for each wheel's driver is inside the folder.
 
 * Upload firmware to left/right wheel
 	1. Open `vnh5019_base.ino` with Arduino IDE on your PC.
-	2. Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading.
-		
-		**Note: On angel, you should define `RIGHT_WHEEL` when you are going to upload firmware to the left wheel.
-		        And of course, define `LEFT_WHEEL` when you are going to deal with right wheel.** 
+	2. Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. 
 	3. Modify Arduino PWM Frequency in Arduino IDE. 
 		
 		Copy
@@ -684,7 +681,7 @@ Mark the following checklist yourself when you finish each setup.
 
 After you go over all the module tests, Angel is now capable of perform some function.
 This section is to give a basic instruction of test iconic functions.
-If you haven't passed the module tests, **please go back above and finish tests before continue.**
+If you haven't passed the module tests, **please go back and finish tests before continue.**
 
 <p align="center">
 <b><a href="#tele-operation-test">Tele-operation test</a></b>
