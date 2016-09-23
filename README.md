@@ -59,7 +59,7 @@ They are placed in the **/hardware_design** folder.
 
 ## Preparing for testing
 
-1. Prepare your odroid XU4 board with ubuntu 14.04 on it.
+1. Prepare your odroid XU4 board with SD or EMC provided from Software team.
 2. Find a monitor and a hdmi cable and connect to odroid.
 3. Check odroid IP address. 
 	
@@ -154,7 +154,7 @@ Firmware for each wheel's driver is inside the folder.
 
 * Upload firmware to left/right wheel
 	1. Open `vnh5019_base.ino` with Arduino IDE on your PC.
-	2. Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. 
+	2. **Important! Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. **
 	3. Modify Arduino PWM Frequency in Arduino IDE. 
 		
 		Copy
@@ -176,8 +176,6 @@ Firmware for each wheel's driver is inside the folder.
 		If you get any error when uploading,
 		* Please look into the errors carefully.
 		* Please check the port you choose.
-		* Please make sure you have put all the libraries into the folder.
-			If you get the message about library conflict, please find out those files and delete the old one.
 			   
 	7. Go though the steps above again **for the other wheel**.
 	
