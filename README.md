@@ -41,7 +41,7 @@ They are placed in the **/hardware_design** folder.
   	* [**Step 4 Drive angel base**](#step-4-drive-angel-base)
   * [**Laser scan test**](#laser-scan-test)
   	* [**Step 1 Check hardware setup to receive data from laser scanner**](#step-1-check-hardware-setup-to-receive-data-from-laser-scanner)
-  	* [**Step 2 Launch rplidar**](#step-2-launch-rplidar)
+  	* [**Step 2 Launch rplidar driver**](#step-2-launch-rplidar-driver)
   * [**Camera Joint control test. To be continue ...**](#camera-joint-control-test)
   	* [**Step 1 Check hardware setup to control camera position**](#step-1-check-hardware-setup-to-control-camera-position)
   	* [**Step 2 Uploading firmware to camera joint driver vnh5019**](#step-2-upload-firmware-to-camera-joint-driver-vnh5019)
@@ -279,7 +279,7 @@ please review system diagrams or datasheet and double check before going to next
 
 <a name="laser-scan-test-step2"></a> 
 
-#### Step 2 `Launch rplidar`
+#### Step 2 `Launch rplidar driver`
 
 This test is to help you find out whether the rplidar you installed is functional and your hardware setup is correct.
 Before going through the steps below, please mark the following checklist yourself when you finish each setup.
@@ -675,7 +675,7 @@ Mark the following checklist yourself when you finish each setup.
 <a href="#">BACK TO TOP</a>
 </p>
 
-## Function test 
+## Functional test 
 
 After you go over all the module tests, Angel is now capable of perform some function.
 This section is to give a basic instruction of test iconic functions.
@@ -714,7 +714,9 @@ If you haven't passed the module tests, **please go back and finish tests before
 
 ### Auto docking
 
-Make sure there are IR sensors on angel.
+To be continue...
+
+Make sure there are auto docking module on angel.
 
 1. Please redo Tele-operation step 1 ~ 2.
 2. Use your cell phone to drive angel to about `2.5 meter` in front of the docking station.

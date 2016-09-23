@@ -659,7 +659,7 @@ function setDocumentScrollTop(ypos)
    <li> <a href="#laser-scan-test"><strong>Laser scan test</strong></a> 
     <ul> 
      <li><a href="#step-1-check-hardware-setup-to-receive-data-from-laser-scanner"><strong>Step 1 Check hardware setup to receive data from laser scanner</strong></a></li> 
-     <li><a href="#step-2-launch-rplidar"><strong>Step 2 Launch rplidar</strong></a></li> 
+     <li><a href="#step-2-launch-rplidar-driver"><strong>Step 2 Launch rplidar driver</strong></a></li> 
     </ul> </li> 
    <li> <a href="#camera-joint-control-test"><strong>Camera Joint control test. To be continue ...</strong></a> 
     <ul> 
@@ -687,7 +687,7 @@ function setDocumentScrollTop(ypos)
 </ul> 
 <h2> <a id="preparing-for-testing" class="anchor" href="#preparing-for-testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preparing for testing</h2> 
 <ol> 
- <li>Prepare your odroid XU4 board with ubuntu 14.04 on it.</li> 
+ <li>Prepare your odroid XU4 board with SD or EMC provided from Software team.</li> 
  <li>Find a monitor and a hdmi cable and connect to odroid.</li> 
  <li> <p>Check odroid IP address. </p> <p>Power on odroid and open a terminal and type the following command on odroid board.</p> <pre><code>ifconfig
 </code></pre> <p>On angel-1.1, IP address should be <code>192.168.25.110</code> </p> </li> 
@@ -738,7 +738,7 @@ catkin_make
  <li> <p>Upload firmware to left/right wheel</p> 
   <ol> 
    <li>Open <code>vnh5019_base.ino</code> with Arduino IDE on your PC.</li> 
-   <li>Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. </li> 
+   <li>*<em>Important! Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. *</em> </li> 
    <li> <p>Modify Arduino PWM Frequency in Arduino IDE. </p> <p>Copy</p> <pre><code>/mcu_control/wiring.c
 </code></pre> <p>to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino.</p> <p>Make sure the following code is on line 31 or 32 in wiring.c. </p> <pre><code> #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 </code></pre> </li> 
@@ -748,7 +748,6 @@ catkin_make
     <ul> 
      <li>Please look into the errors carefully.</li> 
      <li>Please check the port you choose.</li> 
-     <li>Please make sure you have put all the libraries into the folder. If you get the message about library conflict, please find out those files and delete the old one.</li> 
     </ul> </li> 
    <li><p>Go though the steps above again <strong>for the other wheel</strong>.</p></li> 
   </ol> </li> 
@@ -805,7 +804,7 @@ publishing and latching message. Press ctrl-C to terminate
 </ul> 
 <p><strong>Note: If you have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams or datasheet and double check before going to next step.</strong></p> 
 <p><a name="user-content-laser-scan-test-step2"></a> </p> 
-<h4> <a id="step-2-launch-rplidar" class="anchor" href="#step-2-launch-rplidar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch rplidar</code> </h4> 
+<h4> <a id="step-2-launch-rplidar-driver" class="anchor" href="#step-2-launch-rplidar-driver" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch rplidar driver</code> </h4> 
 <p>This test is to help you find out whether the rplidar you installed is functional and your hardware setup is correct. Before going through the steps below, please mark the following checklist yourself when you finish each setup.</p> 
 <ul> 
  <li> <p>Launch laser scanner</p> 
@@ -1019,7 +1018,7 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
   </ol> </li> 
 </ul> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Module test</b> | <a href="#">BACK TO TOP</a> </p> 
-<h2> <a id="function-test" class="anchor" href="#function-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function test</h2> 
+<h2> <a id="functional-test" class="anchor" href="#functional-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functional test</h2> 
 <p>After you go over all the module tests, Angel is now capable of perform some function. This section is to give a basic instruction of test iconic functions. If you haven't passed the module tests, <strong>please go back and finish tests before continue.</strong></p> 
 <p align="center"> <b><a href="#tele-operation-test">Tele-operation test</a></b> | <b><a href="#auto-docking-test">Auto docking test</a></b> </p> 
 <h3> <a id="tele-operation" class="anchor" href="#tele-operation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tele-operation</h3> 
@@ -1036,7 +1035,8 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
  <li>Check if there is a map shows up.</li> 
 </ol> 
 <h3> <a id="auto-docking" class="anchor" href="#auto-docking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Auto docking</h3> 
-<p>Make sure there are IR sensors on angel.</p> 
+<p>To be continue...</p> 
+<p>Make sure there are auto docking module on angel.</p> 
 <ol> 
  <li>Please redo Tele-operation step 1 ~ 2.</li> 
  <li>Use your cell phone to drive angel to about <code>2.5 meter</code> in front of the docking station.</li> 
