@@ -54,7 +54,9 @@ They are placed in the **/hardware_design** folder.
   	* [**Step 2 Run camera on odroid**](#step-2-run-camera-on-odroid)	  
 * [**Function test**](#function-test)
   * [**Tele-operation**](#tele-operation)
-  * [**Auto docking To be continue ...**](#auto-docking) 
+  * [**Auto docking. To be determine ...**](#auto-docking)
+  	* [**Step 1 Check docking modules setup**](#step-1-check-docking-modules-setup)
+  	* [**Step 2 Launch auto docking sequence**)(#step-2-launch-auto-docking-sequence)
 * [**Appendix**](#appendix)
 
 ## Preparing for testing
@@ -331,6 +333,8 @@ Before going through the steps below, please mark the following checklist yourse
 		You will see something similar on your terminal:
 		
 		![laser scan sample](doc/laser_scan_sample.png)
+		
+		Type `ctrl + c` to exit.
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of laser scan test</b>
@@ -532,6 +536,7 @@ To be continue ...
 		![DHT22-Humidity](doc/curhumidity.png)
 		
 		**Check whether the values are reasonable.**
+		(Unit: temperature: celceius; humidity: %)
 		
 		You can blow on the senser to see the value changing.
 		
@@ -687,8 +692,6 @@ If you haven't passed the module tests, **please go back and finish tests before
 <b><a href="#auto-docking-test">Auto docking test</a></b>
 </p>
 
-
-
 ### Tele-operation
 
 1. Use ssh command to access to odroid
@@ -709,16 +712,32 @@ If you haven't passed the module tests, **please go back and finish tests before
 	Make sure /angelbot/cmd_vel is on the list.
 4. Pick up your cell phone, go to play store download and install **teleop-indigo** app.
 5. Open the app and type `http://192.168.25.110:11311` to access to angel.
-6. Drive angel around by taping your finger on the screen.
+6. Put angel in a open area with large spaces and begin the following test
+	Tap on the screen and:
+	* Forward direction: Drive angel to move forward 2 meters.
+	* Backward dirction: Drive angel to move backward back to origin.
+	* Rotation (left): Drive angel to turn left and rotate 3 rounds.
+	* Rotation (right): Drive angel to turn right and rotate 3 rounds. 
 7. Check if there is a map shows up.
 
 ### Auto docking
 
-To be continue...
+To be determine.
 
-Make sure there are auto docking module on angel.
+<a name="auto-docking-test-step1"></a>
 
-1. Please redo Tele-operation step 1 ~ 2.
+#### Step 1 `Check docking modules setup`
+
+Mark the following checklist yourself when you finish each setup.
+
+- [ ] Make sure there are auto docking module on angel. 
+- [ ] Docking station is well-built.  
+
+<a name="auto-docking-test-step2"></a>
+
+#### Step 2 `Launch auto docking sequence`
+
+1. Please redo Function: Tele-operation step 1 ~ 2.
 2. Use your cell phone to drive angel to about `2.5 meter` in front of the docking station.
 3. Launching `charging mode` to enable auto docking function. 
 	Open another terminal and ssh into angel and type the following command.
@@ -726,7 +745,7 @@ Make sure there are auto docking module on angel.
 	``` 
 	rosservice call /DockingEnable true
 	```	
-4. See if angel is approaching the ducking station and finally touches charger.
+4. See if angel is approaching the ducking station and finally touches the charging station.
 5. If you carry out step 4 successfully, please type the following command to end up charging mode.
 
 	``` 

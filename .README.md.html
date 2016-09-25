@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>/home/weberhsu/git/angel/.README.md.html</title>
+<title>/home/shangwei/git/angel/.README.md.html</title>
 
 
 <style type="text/css">
@@ -681,7 +681,11 @@ function setDocumentScrollTop(ypos)
  <li> <a href="#function-test"><strong>Function test</strong></a> 
   <ul> 
    <li><a href="#tele-operation"><strong>Tele-operation</strong></a></li> 
-   <li> <a href="#auto-docking"><strong>Auto docking To be continue ...</strong></a> </li> 
+   <li> <a href="#auto-docking"><strong>Auto docking. To be determine ...</strong></a> 
+    <ul> 
+     <li><a href="#step-1-check-docking-modules-setup"><strong>Step 1 Check docking modules setup</strong></a></li> 
+     <li>[<strong>Step 2 Launch auto docking sequence</strong>)(#step-2-launch-auto-docking-sequence)</li> 
+    </ul> </li> 
   </ul> </li> 
  <li><a href="#appendix"><strong>Appendix</strong></a></li> 
 </ul> 
@@ -831,7 +835,7 @@ RPLidar health status : 0
    <li> <p>Open another terminal and type:</p> <pre><code>rostopic list
 </code></pre> <p>Check if there is a topic name <strong>/scan</strong>. </p> </li> 
    <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic echo /scan
-</code></pre> <p>You will see something similar on your terminal:</p> <p><a href="doc/laser_scan_sample.png" target="_blank"><img src="doc/laser_scan_sample.png" alt="laser scan sample" style="max-width:100%;" /></a></p> </li> 
+</code></pre> <p>You will see something similar on your terminal:</p> <p><a href="doc/laser_scan_sample.png" target="_blank"><img src="doc/laser_scan_sample.png" alt="laser scan sample" style="max-width:100%;" /></a></p> <p>Type <code>ctrl + c</code> to exit.</p> </li> 
   </ol> </li> 
 </ul> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of laser scan test</b> | <a href="#">BACK TO TOP</a> </p> 
@@ -929,7 +933,7 @@ RPLidar health status : 0
 </code></pre> <p>You should see something like this.</p> <p><a href="doc/mq2co.png" target="_blank"><img src="doc/mq2co.png" alt="MQ2CO" style="max-width:100%;" /></a></p> <p>You can spray some gas material to see the value changing.</p> </li> 
    <li> <p>DHT22</p> <p>Type the following command on a terminal.</p> <pre><code>rostopic echo /CurTemperature
 </code></pre> <pre><code>rostopic echo /CurHumidity
-</code></pre> <p>You should see something like this.</p> <p><a href="doc/curtemperature.png" target="_blank"><img src="doc/curtemperature.png" alt="DHT22-Temperature" style="max-width:100%;" /></a></p> <p><a href="doc/curhumidity.png" target="_blank"><img src="doc/curhumidity.png" alt="DHT22-Humidity" style="max-width:100%;" /></a></p> <p><strong>Check whether the values are reasonable.</strong></p> <p>You can blow on the senser to see the value changing.</p> </li> 
+</code></pre> <p>You should see something like this.</p> <p><a href="doc/curtemperature.png" target="_blank"><img src="doc/curtemperature.png" alt="DHT22-Temperature" style="max-width:100%;" /></a></p> <p><a href="doc/curhumidity.png" target="_blank"><img src="doc/curhumidity.png" alt="DHT22-Humidity" style="max-width:100%;" /></a></p> <p><strong>Check whether the values are reasonable.</strong> (Unit: temperature: celceius; humidity: %)</p> <p>You can blow on the senser to see the value changing.</p> </li> 
    <li> <p>Flame sensor</p> <p>Type the following command on a terminal.</p> <pre><code>rostopic echo /FlameDetection
 </code></pre> <p>You should see something like this.</p> <p><a href="doc/flamedetection.png" target="_blank"><img src="doc/flamedetection.png" alt="flame detection" style="max-width:100%;" /></a></p> <p><strong>Use a lighter to test it.</strong></p> </li> 
    <li><p>PM2.5 -- not availble yet</p></li> 
@@ -1031,18 +1035,32 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
 </code></pre> <p>Make sure /angelbot/cmd_vel is on the list.</p> </li> 
  <li>Pick up your cell phone, go to play store download and install <strong>teleop-indigo</strong> app.</li> 
  <li>Open the app and type <code>http://192.168.25.110:11311</code> to access to angel.</li> 
- <li>Drive angel around by taping your finger on the screen.</li> 
+ <li>Put angel in a open area with large spaces and begin the following test Tap on the screen and: 
+  <ul> 
+   <li>Forward direction: Drive angel to move forward 2 meters.</li> 
+   <li>Backward dirction: Drive angel to move backward back to origin.</li> 
+   <li>Rotation (left): Drive angel to turn left and rotate 3 rounds.</li> 
+   <li>Rotation (right): Drive angel to turn right and rotate 3 rounds. </li> 
+  </ul> </li> 
  <li>Check if there is a map shows up.</li> 
 </ol> 
 <h3> <a id="auto-docking" class="anchor" href="#auto-docking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Auto docking</h3> 
-<p>To be continue...</p> 
-<p>Make sure there are auto docking module on angel.</p> 
+<p>To be determine.</p> 
+<p><a name="user-content-auto-docking-test-step1"></a></p> 
+<h4> <a id="step-1-check-docking-modules-setup" class="anchor" href="#step-1-check-docking-modules-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check docking modules setup</code> </h4> 
+<p>Mark the following checklist yourself when you finish each setup.</p> 
+<ul> 
+ <li>[ ] Make sure there are auto docking module on angel. </li> 
+ <li>[ ] Docking station is well-built.<br /> </li> 
+</ul> 
+<p><a name="user-content-auto-docking-test-step2"></a></p> 
+<h4> <a id="step-2-launch-auto-docking-sequence" class="anchor" href="#step-2-launch-auto-docking-sequence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch auto docking sequence</code> </h4> 
 <ol> 
- <li>Please redo Tele-operation step 1 ~ 2.</li> 
+ <li>Please redo Function: Tele-operation step 1 ~ 2.</li> 
  <li>Use your cell phone to drive angel to about <code>2.5 meter</code> in front of the docking station.</li> 
  <li> <p>Launching <code>charging mode</code> to enable auto docking function. Open another terminal and ssh into angel and type the following command.</p> <pre><code>rosservice call /DockingEnable true
 </code></pre> </li> 
- <li>See if angel is approaching the ducking station and finally touches charger.</li> 
+ <li>See if angel is approaching the ducking station and finally touches the charging station.</li> 
  <li> <p>If you carry out step 4 successfully, please type the following command to end up charging mode.</p> <pre><code>rosservice call /DockingEnable false
 </code></pre> </li> 
 </ol> 
