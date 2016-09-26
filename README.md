@@ -54,7 +54,7 @@ They are placed in the **/hardware_design** folder.
   	* [**Step 2 Run camera on odroid**](#step-2-run-camera-on-odroid)	  
 * [**Function test**](#function-test)
   * [**Tele-operation**](#tele-operation)
-  	* [**Step 1 Check requirements of tele-operation**](#step-1-check-requirements-of-tele-operation))
+  	* [**Step 1 Check requirements of tele-operation**](#step-1-check-requirements-of-tele-operation)
   	* [**Step 2 Tele-operating Angel**](#step-2-tele-operating-angel)
   * [**Auto docking. To be determine ...**](#auto-docking)
   	* [**Step 1 Check docking modules setup**](#step-1-check-docking-modules-setup)
