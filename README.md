@@ -143,9 +143,9 @@ Mark the following checklist yourself when you finish each setup.
 - [ ] Left wheel motor control module connects to mega2560 correctly.  
 - [ ] Right wheel motor control module connects to mega2560 correctly. 
 
-**Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.**
+**Note: If you have any doubt, or not sure the hardware wirings, please review system diagrams and double check before going to the next step.**
 
-After you finish first step, you are about to make wheels spin.
+Having finished the first step, you are about to make wheels spin.
 There are two control boards that should have firmwares uploaded, **mega2560 & 3in1 board**. 
 
 <a name="base-driving-test-step2"></a>
