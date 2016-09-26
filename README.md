@@ -66,20 +66,20 @@ They are placed in the **/hardware_design** folder.
 1. Prepare a cell phone installed "teleop" app provided from Software team.
 	https://github.com/wennycooper/teleop_apk/raw/master/android_tutorial_teleop-debug.apk
 
-2. Prepare your odroid XU4 board with SD or EMC provided from Software team.
-3. Find a monitor and a hdmi cable and connect to odroid.
-4. Turn on the odroid XU4 board and wait for ubuntu finishing starting.
+2. Prepare the SD/EMMC card provided from Software team and install on the odroid board.
+3. Find a monitor and a HDMI cable and connect to odroid board.
+4. Power on the odroid XU4 board and wait for ubuntu finishing starting.
 5. Check odroid IP address. 
 	
-	Power on odroid and open a terminal and type the following command on odroid board.
+	Open a terminal and type the following command on odroid board.
 	
 	```
 	ifconfig
 	``` 
-	On angel-1.1, IP address should be `192.168.25.110` 
-6. Download this repository and compile it on odroid by going though the following steps.
+	In our example, the IP address is `192.168.25.110` 
+6. Download this repository and compile it on odroid by going through the following steps.
 
-	On a terimal, please type the following command.
+	On a terimal, please type the following commands.
 	
 	```
 	ssh odroid@[Odroid IP address]
