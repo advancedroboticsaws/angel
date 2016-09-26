@@ -235,14 +235,14 @@ Firmware for mega2560 is inside the following folder.
 	``` 
 	roslaunch angelbot angelbot_sanitytest.launch
 	```
-	check if no error pops up.
+	check and make sure there is no error message pops up.
 3. Open another terminal and access into odroid by entering ssh commands (step1) then type:
 	
 	```
 	rostopic list
 	```   
 	
-	Check if the following topics are on the list.
+	Check and make sure the following two topics are on the list.
 	
 	```
 	/cmd_wheel_angularVel
@@ -255,8 +255,8 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 6.283 speed2: 0.0 driverstate: false" 
 			```
-		
-			- [ ] Check if left wheel is rotating in the direction **same as the base's heading**.
+			Enter `ctrl + c` to exit.
+			- [ ] Check if left wheel is rotating in the forward direction **same as the base's heading**.
 			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
 			
 			Type the following to make it stop.
@@ -264,14 +264,14 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
 			```
-			After you finish checking, enter `ctrl + c` to exit.
+			Enter `ctrl + c` to exit.
 		* backward direction
 					
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: -6.283 speed2: 0.0 driverstate: false" 
 			```
-		
-			- [ ] Check if left wheel is rotating in the direction **opposite to the base's heading**.
+			Enter `ctrl + c` to exit.
+			- [ ] Check if left wheel is rotating in the backward direction **opposite to the base's heading**.
 			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
 			
 			Type the following to make it stop.
@@ -279,15 +279,15 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
 			```
-			After you finish checking, enter `ctrl + c` to exit.
+			Enter `ctrl + c` to exit.
 	* right wheel
 		* forward direction
 		
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 6.283 driverstate: false" 
 			```
-		
-			- [ ] Check if left wheel is rotating in the direction **same as the base's heading**.
+			Enter `ctrl + c` to exit.
+			- [ ] Check if left wheel is rotating in the forward direction **same as the base's heading**.
 			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
 			
 			Type the following to make it stop.
@@ -295,14 +295,14 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
 			```
-			After you finish checking, enter `ctrl + c` to exit.
+			Enter `ctrl + c` to exit.
 		* backward direction
 		
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: -6.283 driverstate: false" 
 			```
-		
-			- [ ] Check if left wheel is rotating in the direction **opposite to the base's heading**.
+			Enter `ctrl + c` to exit.
+			- [ ] Check if left wheel is rotating in the backward direction **opposite to the base's heading**.
 			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
 			
 			Type the following to make it stop.
@@ -310,9 +310,9 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false"
 			``` 
-			After you finish checking, enter `ctrl + c` to exit.
+			Enter `ctrl + c` to exit.
 	
-5. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
+5. If you finished all the steps, type `ctrl + c` on all the termianl you opened to exit.
 	
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of base driving test</b>
@@ -323,7 +323,7 @@ Firmware for mega2560 is inside the following folder.
 ### Laser scanning test
 
 The laser scanner we use is **rplidar**. 
-To be able to use it, the complete hardware setup should contain rplidar + transmission board.
+To use it, the complete hardware setup should contain rplidar + transmission board.
 
 <a name="laser-scan-test-step1"></a>
 
@@ -333,14 +333,14 @@ Mark the following checklist yourself when you finish each setup.
 
 - [ ] Check your data transmission board. Make sure you installed the right one.
 
-**Note: If you have any doubt, not sure what you remember when you set up all the hardwares and wirings,
+**Note: If you have any doubt, or not sure the hardware wirings,
 please review system diagrams or datasheet and double check before going to next step.**
 
 <a name="laser-scan-test-step2"></a> 
 
 #### Step 2 `Launch rplidar driver`
 
-This test is to help you find out whether the rplidar you installed is functional and your hardware setup is correct.
+This is to help you find out whether the rplidar you installed is functional and your hardware setup is correct.
 Before going through the steps below, please mark the following checklist yourself when you finish each setup.
 
 * Launch laser scanner
@@ -357,7 +357,7 @@ Before going through the steps below, please mark the following checklist yourse
 		roslaunch angelbot rplidar.lanuch 
 		```
 		
-		You will see something like this
+		You will see something like this:
 		
 		```
 		started roslaunch server http://192.168.25.110:60968/
@@ -422,7 +422,7 @@ Mark the following checklist yourself when you finish each setup.
 - [ ] Motor control module connects to mega2560 correctly.
 - [ ] **Please make sure Angel's camera is headed in Z direction, that is, toward the sky.** 
 
-**Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, 
+**Note: If you have any doubt, or not sure the hardware wirings, 
 please review system diagrams and double check before going to next step.**
 
 <a name="camera-joint-control-step2"></a>
