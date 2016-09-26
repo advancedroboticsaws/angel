@@ -54,6 +54,8 @@ They are placed in the **/hardware_design** folder.
   	* [**Step 2 Run camera on odroid**](#step-2-run-camera-on-odroid)	  
 * [**Function test**](#function-test)
   * [**Tele-operation**](#tele-operation)
+  	* [**Step 1 Check requirements of tele-operation**](#step-1-check-requirements-of-tele-operation))
+  	* [**Step 2 Tele-operating Angel**](#step-2-tele-operating-angel)
   * [**Auto docking. To be determine ...**](#auto-docking)
   	* [**Step 1 Check docking modules setup**](#step-1-check-docking-modules-setup)
   	* [**Step 2 Launch auto docking sequence**](#step-2-launch-auto-docking-sequence)
@@ -61,10 +63,11 @@ They are placed in the **/hardware_design** folder.
 
 ## Preparing for testing
 
-1. Prepare your odroid XU4 board with SD or EMC provided from Software team.
-2. Find a monitor and a hdmi cable and connect to odroid.
-3. Turn on the odroid XU4 board and wait for ubuntu finishing starting.
-4. Check odroid IP address. 
+1. Prepare a cell phone installed "teleop" app provided from Software team.
+2. Prepare your odroid XU4 board with SD or EMC provided from Software team.
+3. Find a monitor and a hdmi cable and connect to odroid.
+4. Turn on the odroid XU4 board and wait for ubuntu finishing starting.
+5. Check odroid IP address. 
 	
 	Power on odroid and open a terminal and type the following command on odroid board.
 	
@@ -72,7 +75,7 @@ They are placed in the **/hardware_design** folder.
 	ifconfig
 	``` 
 	On angel-1.1, IP address should be `192.168.25.110` 
-5. Download this repository and compile it on odroid by going though the following steps.
+6. Download this repository and compile it on odroid by going though the following steps.
 
 	On a terimal, please type the following command.
 	
@@ -224,20 +227,14 @@ Firmware for mega2560 is inside the following folder.
 	ssh odroid@192.168.25.110
 	```
 	to access to angel.
-2. Start the roscore up.
+2. Launch base driver.
 	Type the following command.
 		
 	``` 
-	roscore
+	roslaunch angelbot angelbot_sanitytest.launch
 	```
-3. The next step should be starting communication between odroid and mega2560 through ROS.
-
-	Open another termimal and use ssh command to access into odroid then type:
-	
-	```
-	rosrun rosserial_python serial_node.py _port:=/dev/mega_base _baud:=115200
-	```
-4. Open another terminal and access into odroid by entering ssh commands (step1) then type:
+	check if no error pops up.
+3. Open another terminal and access into odroid by entering ssh commands (step1) then type:
 	
 	```
 	rostopic list
@@ -249,7 +246,7 @@ Firmware for mega2560 is inside the following folder.
 	/cmd_wheel_angularVel
 	/feedback_wheel_angularVel	
 	```
-5. Start driving wheels ony by one. 
+4. Start driving wheels ony by one. 
 	* left wheel
 		* forward direction
 		
@@ -265,6 +262,7 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
 			```
+			After you finish checking, enter `ctrl + c` to exit.
 		* backward direction
 					
 			```
@@ -279,6 +277,7 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
 			```
+			After you finish checking, enter `ctrl + c` to exit.
 	* right wheel
 		* forward direction
 		
@@ -294,6 +293,7 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
 			```
+			After you finish checking, enter `ctrl + c` to exit.
 		* backward direction
 		
 			```
@@ -306,9 +306,11 @@ Firmware for mega2560 is inside the following folder.
 			Type the following to make it stop.
 				
 			```
-			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false"
+			``` 
+			After you finish checking, enter `ctrl + c` to exit.
 	
-6. If you finish all the steps, on the terminal type `ctrl + c` to exit.
+5. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
 	
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of base driving test</b>
@@ -388,6 +390,7 @@ Before going through the steps below, please mark the following checklist yourse
 		![laser scan sample](doc/laser_scan_sample.png)
 		
 		Type `ctrl + c` to exit when you finish checking.
+	5. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of laser scan test</b>
@@ -458,7 +461,7 @@ Firmware for joint position control is placed in the following folder.
 
 #### Step 3 `Control camera joint`
 
-To be continue ...
+To be determine !
 
 * Launch camera position control
 	1. Open a terminal up on you PC and type
@@ -467,40 +470,41 @@ To be continue ...
 		ssh odroid@192.168.25.110
 		```
 		to access to angel.
-	2. Start the roscore up.
+	2. Launch base driver. (Camera is connected to mega_base.)
 		Type the following command.
 			
 		``` 
-		roscore
+		roslaunch angelbot angelbot_sanitytest.launch
 		```
-	3. The next step should be starting communication between odroid and mega2560 through ROS.
-		Open another termimal and do step1 to access into odroid then type:
-		
-		```
-		rosrun rosserial_python serial_node.py _port:=/dev/mega_base _baud:=115200
-		```
-	4. Open another terminal and access into odroid by entering ssh commands (step1) then type:
+		check if no error pops up.
+	3. Open another terminal and access into odroid by entering ssh commands (step1) then type:
 		
 		```
 		rostopic list
 		```   
-		Check the topic list to make sure communication between mega2560 and your odroid is set.
-	5. Type the following command to move the camera joint axis forward to 30 degree from the initial angle of 0 degree.
+		
+		Check if the following topic is on the list.
+		
+		```
+		/camera_joint_position	
+		```
+	4. Type the following command to move the camera joint axis forward to 30 degree from the initial angle of 0 degree.
 		
 		```
 		rostopic pub /camera_joint_position ... position: 30
 		```
-	6. 	Type the following command to move the camera joint axis backward to -30 degree from the previous angle of 30 degree.
+	5. 	Type the following command to move the camera joint axis backward to -30 degree from the previous angle of 30 degree.
 		
 		```
 		rostopic pub /camera_joint_position ... position: -30
 		```
-	7. After you finish controlling camera_joint, **please drive camera joint axis to the initial angle of 0 by giving 0 degree command.**
+	6. After you finish controlling camera_joint, **please drive camera joint axis to the initial angle of 0 by giving 0 degree command.**
 		The camera is supposed to look toward the sky when you turn off Angel's power.
 		
 		```
 		rostopic pub /camera_joint_position ... position: 0
 		```
+	7. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
 			
 ### Security Sensing test
 
@@ -526,19 +530,14 @@ To be continue ...
 		ssh odroid@192.168.25.110
 		```
 		to access to angel.
-	2. Start the roscore up.
+	2. Launch base driver. (Sensors are connected to mega_base.)
 		Type the following command.
 			
 		``` 
-		roscore
+		roslaunch angelbot angelbot_sanitytest.launch
 		```
-	3. The next step should be starting communication between odroid and mega2560 through ROS.
-		Open another termimal and do step1 to access into odroid then type:
-		
-		```
-		rosrun rosserial_python serial_node.py _port:=/dev/mega_base _baud:=115200
-		```
-	4. Open another terminal and access into odroid by entering  ssh commands (step1) then type:
+		check if no error pops up.
+	3. Open another terminal and access into odroid by entering ssh commands (step1) then type:
 		
 		```
 		rostopic list
@@ -556,7 +555,7 @@ To be continue ...
 		/DustDetection
 		```
 		
-	5. Test these sensors by echoing ros topics `one by one`. 
+	5. Test these sensors by echoing each ros topics `one by one`. 
 		
 	* MQ2.
 		
@@ -585,15 +584,14 @@ To be continue ...
 		```
 		You should see something like this. (Unit: temperature: celsius; humidity: %)
 		
+		**Check whether the values are reasonable.**
+		
 		![DHT22-Temperature](doc/curtemperature.png)
 		
 		![DHT22-Humidity](doc/curhumidity.png)
 		
-		**Check whether the values are reasonable.**
-
-		
 		You can blow on the senser to see the value changing.
-		
+				
 	* Flame sensor
 		
 		Type the following command on a terminal.
@@ -620,7 +618,8 @@ To be continue ...
 		
 		![PIR](doc/motiondetection.png)
 		
-		**Simply wave you hand in front of the PIR sensor. The value on the screen would be `true` if something moves.**
+		**Simply wave your hand in front of the PIR sensor. The value on the screen would be `true` if something moves.**
+	6. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
 		
 ### Camera image topic test
 
@@ -726,7 +725,7 @@ Mark the following checklist yourself when you finish each setup.
 		You will see something similar on your terminal:
 		
 		![camera image sample](doc/camera_image_topic.png)
-
+	5. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of Module test</b>
@@ -748,6 +747,17 @@ If you haven't passed the module tests, **please go back and finish tests before
 
 ### Tele-operation
 
+<a name="tele-operation-test-step1"></a>
+
+#### Step 1 `Check requirements of teleoperation`
+
+- [ ] Check if you pass all the module tests. 
+- [ ] Make sure you have "teleop" app on you cell phone.  
+
+<a name="tele-operation-test-step2"></a>
+
+#### Step 2 `Tele-operating Angel`
+
 1. Use ssh command to access to odroid
 
 	```
@@ -756,23 +766,23 @@ If you haven't passed the module tests, **please go back and finish tests before
 2. Launching sequence to drive angel around and scanning.
 	
 	```
-	roslaunch angelbot angelbot_mvb_dwa_gmapping_ekf.launch
+	roslaunch angelbot angelbot_functionaltest.launch
 	```
 3. Check topics
 
 	``` 
 	rostopic list
 	```
-	Make sure /angelbot/cmd_vel is on the list.
-4. Pick up your cell phone, go to play store download and install **teleop-indigo** app.
-5. Open the app and type `http://192.168.25.110:11311` to access to angel.
+	Make sure /andbot/cmd_vel is on the list.
+4. Bring up your cell phone. Open teleop app and type `http://192.168.25.110:11311` to access to angel.
 6. Put angel in a open area with large spaces and begin the following test
 	Tap on the screen and:
 	* Forward direction: Drive angel to move forward 2 meters.
 	* Backward dirction: Drive angel to move backward back to origin.
-	* Rotation (left): Drive angel to turn left and rotate 3 rounds.
-	* Rotation (right): Drive angel to turn right and rotate 3 rounds. 
+	* Rotation (left): Drive angel to rotate 3 rounds in the counter-clockwise direction.
+	* Rotation (right): Drive angel to rotate 3 rounds in teh clockwise direction. 
 7. Check if there is a map shows up.
+8. If you finish all the steps, close you app on the phone and type `ctrl + c` on all the termianl you opened to exit.
 
 ### Auto docking
 
@@ -804,7 +814,8 @@ Mark the following checklist yourself when you finish each setup.
 
 	``` 
 	rosservice call /DockingEnable false
-	```  
+	``` 
+6. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit. 
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of Function test</b>
@@ -814,7 +825,8 @@ Mark the following checklist yourself when you finish each setup.
 
 ## Appendix
 
-udev rules on odroid
+
+* udev rules on odroid. **[(reference)](https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev)**
 
 ```
 KERNEL=="ttyUSB*", ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", ATTRS{devpath}=="1.1", SYMLINK+="imu"
