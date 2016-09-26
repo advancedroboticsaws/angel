@@ -36,15 +36,15 @@ They are placed in the **/hardware_design** folder.
 * [**Module test**] (#module-test) 
   * [**Base driving test**](#base-driving-test)
   	* [**Step 1 Check hardware setups for base driving control**](#step1-check-hardware-setups-for-base-driving-control)
-  	* [**Step 2 Upload firmware to vnh5019**](#step-2-upload-firmware-to-vnh5019)
+  	* [**Step 2 Upload firmware to 3in1 board**](#step-2-upload-firmware-to-3in1-board)
   	* [**Step 3 Upload firmware to mega2560**](#step-3-upload-firmware-to-mega2560)
   	* [**Step 4 Drive angel base**](#step-4-drive-angel-base)
-  * [**Laser scan test**](#laser-scan-test)
+  * [**Laser scanning test**](#laser-scanning-test)
   	* [**Step 1 Check hardware setup to receive data from laser scanner**](#step-1-check-hardware-setup-to-receive-data-from-laser-scanner)
   	* [**Step 2 Launch rplidar driver**](#step-2-launch-rplidar-driver)
   * [**Camera Joint control test. To be continue ...**](#camera-joint-control-test)
   	* [**Step 1 Check hardware setup to control camera position**](#step-1-check-hardware-setup-to-control-camera-position)
-  	* [**Step 2 Uploading firmware to camera joint driver vnh5019**](#step-2-upload-firmware-to-camera-joint-driver-vnh5019)
+  	* [**Step 2 Uploading firmware to camera joint driver 3in1 board**](#step-2-upload-firmware-to-camera-joint-driver-3in1 board)
   	* [**Step 3 Control camera joint**](#step-3-control-camera-joint)
   * [**Security Sening test. To be continue ...**](#security-sensing-test)
   	* [**Step 1 Check the sensor setup**](#check-the-sensor-setup)
@@ -56,14 +56,15 @@ They are placed in the **/hardware_design** folder.
   * [**Tele-operation**](#tele-operation)
   * [**Auto docking. To be determine ...**](#auto-docking)
   	* [**Step 1 Check docking modules setup**](#step-1-check-docking-modules-setup)
-  	* [**Step 2 Launch auto docking sequence**)(#step-2-launch-auto-docking-sequence)
+  	* [**Step 2 Launch auto docking sequence**](#step-2-launch-auto-docking-sequence)
 * [**Appendix**](#appendix)
 
 ## Preparing for testing
 
 1. Prepare your odroid XU4 board with SD or EMC provided from Software team.
 2. Find a monitor and a hdmi cable and connect to odroid.
-3. Check odroid IP address. 
+3. Turn on the odroid XU4 board and wait for ubuntu finishing starting.
+4. Check odroid IP address. 
 	
 	Power on odroid and open a terminal and type the following command on odroid board.
 	
@@ -71,7 +72,7 @@ They are placed in the **/hardware_design** folder.
 	ifconfig
 	``` 
 	On angel-1.1, IP address should be `192.168.25.110` 
-4. Download this repository and compile it on odroid by going though the following steps.
+5. Download this repository and compile it on odroid by going though the following steps.
 
 	On a terimal, please type the following command.
 	
@@ -97,11 +98,11 @@ This section gives you an overview on angel's design.
 
 * Detailed wiring schematics -- not available yet 
 
-* Schematic of DC motor driver board `vnh5019`
+* Schematic of DC motor driver board `3in1 board`
 
-![vnh5019-1](doc/vnh5019-1st.jpg)
+![3in1 board-1](doc/3in1%20board-1st.jpg)
 
-![vnh5019-2](doc/vnh5019-2nd.jpg)
+![3in1 board-2](doc/3in1%20board-2nd.jpg)
   
 ## Module test
 
@@ -127,7 +128,7 @@ Here, we separate Angel into several modules.
 
 Check all the hardware setup !!
 
-Here we regard motor-control module as a motor **JGB37 3530B** + base driver **vnh5019**.
+Here we regard motor-control module as a motor **JGB37 3530B** + base driver **3in1 board**.
 Also, both motor-control module for each wheel must be connected to mega2560.
 
 Mark the following checklist yourself when you finish each setup.
@@ -140,13 +141,11 @@ Mark the following checklist yourself when you finish each setup.
 **Note: If you are have any doubt, not sure what you remember when you set up all the hardwares and wirings, please review system diagrams and double check before going to next step.**
 
 After you finish first step, you are about to make wheels spin.
-There are two control boards that should have firmwares uploaded, **mega2560 & vnh5019**. 
-Firmware uploading steps for both of them are slightly different. 
-Instructions for each are separated as follows.
+There are two control boards that should have firmwares uploaded, **mega2560 & 3in1 board**. 
 
 <a name="base-driving-test-step2"></a>
 
-#### Step 2 `Upload firmware to vnh5019` 
+#### Step 2 `Upload firmware to 3in1 board` 
 
 Firmware for each wheel's driver is inside the folder.
 
@@ -156,7 +155,7 @@ Firmware for each wheel's driver is inside the folder.
 
 * Upload firmware to left/right wheel
 	1. Open `vnh5019_base.ino` with Arduino IDE on your PC.
-	2. **Important! Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading. **
+	2. **Important! Please go to line 8 and 9. Uncomment one of these two lines according to which wheel you are about to do the uploading.**
 	3. Modify Arduino PWM Frequency in Arduino IDE. 
 		
 		Copy
@@ -179,7 +178,7 @@ Firmware for each wheel's driver is inside the folder.
 		* Please look into the errors carefully.
 		* Please check the port you choose.
 			   
-	7. Go though the steps above again **for the other wheel**.
+	7. Go through the steps above again **for the other wheel**.
 	
 
 <a name="base-driving-test-step3"></a>
@@ -205,14 +204,14 @@ Firmware for mega2560 is inside the following folder.
 		 ```
 		 #define MICROSECONDS_PER_TIMER0_OVERFLOW (clockCyclesToMicroseconds(8 * 256))
 		 ```
-		 If you don't understand this step, please refer to step 2 Upload firmware to vnh5019 above to find out. 
+		 If you don't understand this step, please refer to step 2 Upload firmware to 3in1 board above to find out. 
 	4. Set your upload target to **mega2560**.
 	5. Choose your **port** carefully.
 	6. Go for it! Click upload!
 		If you get any error when PC uploading,
 		* Please look into the errors carefully.
 		* Please check the port you choose.
-		* Please make sure you have put all the libraries into the folder.
+		* Please make sure you have put all the libraries into the Arduino's library folder.
 			If you get the message about library conflicts, please find out those files and delete the old one.   
 	
 <a name="base-driving-test-step4"></a>
@@ -232,6 +231,7 @@ Firmware for mega2560 is inside the following folder.
 	roscore
 	```
 3. The next step should be starting communication between odroid and mega2560 through ROS.
+
 	Open another termimal and use ssh command to access into odroid then type:
 	
 	```
@@ -242,20 +242,73 @@ Firmware for mega2560 is inside the following folder.
 	```
 	rostopic list
 	```   
-	Check the topic list to make sure communication between mega2560 and your odroid is set.
-5. Send a command to drive each wheel. Type the following command
+	
+	Check if the following topics are on the list.
 	
 	```
-	rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 1.0 speed2: 1.0 driverstate: false" 
+	/cmd_wheel_angularVel
+	/feedback_wheel_angularVel	
 	```
-	If you have no error, you may see something like this on the terimal
+5. Start driving wheels ony by one. 
+	* left wheel
+		* forward direction
+		
+			```
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 6.283 speed2: 0.0 driverstate: false" 
+			```
+		
+			- [ ] Check if left wheel is rotating in the direction **same as the base's heading**.
+			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
+			
+			Type the following to make it stop.
+				
+			```
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
+			```
+		* backward direction
+					
+			```
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: -6.283 speed2: 0.0 driverstate: false" 
+			```
+		
+			- [ ] Check if left wheel is rotating in the direction **opposite to the base's heading**.
+			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
+			
+			Type the following to make it stop.
+				
+			```
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
+			```
+	* right wheel
+		* forward direction
+		
+			```
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 6.283 driverstate: false" 
+			```
+		
+			- [ ] Check if left wheel is rotating in the direction **same as the base's heading**.
+			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
+			
+			Type the following to make it stop.
+				
+			```
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
+			```
+		* backward direction
+		
+			```
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: -6.283 driverstate: false" 
+			```
+		
+			- [ ] Check if left wheel is rotating in the direction **opposite to the base's heading**.
+			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
+			
+			Type the following to make it stop.
+				
+			```
+			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 0.0 driverstate: false" 
 	
-	```
-	odroid@odroid:~$ rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 1.0 speed2: 1.0 driverstate: false"
-	publishing and latching message. Press ctrl-C to terminate 
-	```   
-6. Make sure both wheel are spinning in the correct direction with a reasonable speed.
-7. If you finish all the steps, send a 0 speed command and terminate command mode by typing ctrl-c.
+6. If you finish all the steps, on the terminal type `ctrl + c` to exit.
 	
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of base driving test</b>
@@ -263,7 +316,7 @@ Firmware for mega2560 is inside the following folder.
 <a href="#">BACK TO TOP</a>
 </p>
 
-### Laser scan test
+### Laser scanning test
 
 The laser scanner we use is **rplidar**. 
 To be able to use it, the complete hardware setup should contain rplidar + transmission board.
@@ -324,7 +377,7 @@ Before going through the steps below, please mark the following checklist yourse
 		```
 		rostopic list
 		```   
-		Check if there is a topic name **/scan**. 
+		Check if the topic **/scan** shows up. 
 	4. Type the following command to see if there is anything shows up.
 		
 		```
@@ -334,7 +387,7 @@ Before going through the steps below, please mark the following checklist yourse
 		
 		![laser scan sample](doc/laser_scan_sample.png)
 		
-		Type `ctrl + c` to exit.
+		Type `ctrl + c` to exit when you finish checking.
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of laser scan test</b>
@@ -349,7 +402,7 @@ Before going through the steps below, please mark the following checklist yourse
 #### Step 1 `Check hardware setup to control camera position`
 
 The recent version of Angel's camera joint consists of a motor-control module same as the one used to control wheels.
-(a motor **JGB37 3530B** + base driver **vnh5019**).
+(a motor **JGB37 3530B** + **3in1 board**).
 This motor-control module must also be connected to mega2560.
 
 **Cautions!!**
@@ -369,7 +422,7 @@ please review system diagrams and double check before going to next step.**
 
 <a name="camera-joint-control-step2"></a>
 
-#### Step 2 `Uploading firmware to camera joint driver vnh5019`
+#### Step 2 `Uploading firmware to camera joint driver 3in1 board`
 
 Firmware for joint position control is placed in the following folder.
 
@@ -385,7 +438,8 @@ Firmware for joint position control is placed in the following folder.
 		```
 		/mcu_control/wiring.c
 		```
-		 to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino
+		 to ~/arduino-1.6.5/hardware/arduino/avr/cores/arduino.
+		 
 		 Make sure the following code is on line 31 or 32 in wiring.c.   
 		 
 		 ```
@@ -529,14 +583,14 @@ To be continue ...
 		```		
 		rostopic echo /CurHumidity
 		```
-		You should see something like this.
+		You should see something like this. (Unit: temperature: celsius; humidity: %)
 		
 		![DHT22-Temperature](doc/curtemperature.png)
 		
 		![DHT22-Humidity](doc/curhumidity.png)
 		
 		**Check whether the values are reasonable.**
-		(Unit: temperature: celceius; humidity: %)
+
 		
 		You can blow on the senser to see the value changing.
 		
