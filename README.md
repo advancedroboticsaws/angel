@@ -749,7 +749,7 @@ If you haven't passed the module tests, **please go back and finish tests before
 
 <a name="tele-operation-test-step1"></a>
 
-#### Step 1 `Check requirements of teleoperation`
+#### Step 1 `Check requirements of tele-operation`
 
 - [ ] Check if you pass all the module tests. 
 - [ ] Make sure you have "teleop" app on you cell phone.  
