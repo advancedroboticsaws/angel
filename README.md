@@ -35,19 +35,19 @@ They are placed in the **/hardware_design** folder.
 * [**System architecture**](#system-architecture)
 * [**Module test**] (#module-test) 
   * [**Base driving test**](#base-driving-test)
-  	* [**Step 1 Check hardware setups for base driving control**](#step1-check-hardware-setups-for-base-driving-control)
+  	* [**Step 1 Check hardware setups for base driving**](#step1-check-hardware-setups-for-base-driving)
   	* [**Step 2 Upload firmware to 3in1 board**](#step-2-upload-firmware-to-3in1-board)
   	* [**Step 3 Upload firmware to mega2560**](#step-3-upload-firmware-to-mega2560)
   	* [**Step 4 Drive angel base**](#step-4-drive-angel-base)
   * [**Laser scanning test**](#laser-scanning-test)
-  	* [**Step 1 Check hardware setup to receive data from laser scanner**](#step-1-check-hardware-setup-to-receive-data-from-laser-scanner)
+  	* [**Step 1 Check hardware setup for laser scanning**](#step-1-check-hardware-setup-for-laser-scanning)
   	* [**Step 2 Launch rplidar driver**](#step-2-launch-rplidar-driver)
   * [**Camera Joint control test. To be continue ...**](#camera-joint-control-test)
-  	* [**Step 1 Check hardware setup to control camera position**](#step-1-check-hardware-setup-to-control-camera-position)
+  	* [**Step 1 Check hardware setup to control camera's heading**](#step-1-check-hardware-setup-to-control-camera's-heading)
   	* [**Step 2 Uploading firmware to camera joint driver 3in1 board**](#step-2-upload-firmware-to-camera-joint-driver-3in1 board)
-  	* [**Step 3 Control camera joint**](#step-3-control-camera-joint)
-  * [**Security Sening test. To be continue ...**](#security-sensing-test)
-  	* [**Step 1 Check the sensor setup**](#check-the-sensor-setup)
+  	* [**Step 3 Control camera's heading**](#step-3-control-camera's-heading)
+  * [**Security Sensing test. To be continue ...**](#security-sensing-test)
+  	* [**Step 1 Check sensor setups**](#check-sensor-setups)
   	* [**Step 2 Read each sensor**](#read-each-sensor)
   * [**Camera image topic test**](#camera-image-topic-test)
   	* [**Step 1 Check camera setup**](#step-1-check-camera-setup)
@@ -129,21 +129,21 @@ Here, we separate Angel into several modules.
 
 <a name="base-driving-test-step1"></a>
 
-#### Step 1 `Check hardware setups for base driving control`
+#### Step 1 `Check hardware setups for base driving`
 
 Check all the hardware setup !!
 
-Here we regard motor-control module as a motor **JGB37 3530B** + base driver **3in1 board**.
-Also, both motor-control module for each wheel must be connected to mega2560.
+Here we regard motor control module as a motor **JGB37 3530B** + driver **3in1 board**.
+Also, both motor control module for each wheel must be connected to mega2560.
 
-Mark the following checklist yourself when you finish each setup.
+Mark the following checklist yourself when you have finished each setup.
 
 - [ ] Check your motor model. Make sure you have installed the right one.
-- [ ] Motor control modules are well connected. Each of them has correct wiring to their base driver.
-- [ ] Left wheel motor control module connects to mega2560 correctly.  
-- [ ] Right wheel motor control module connects to mega2560 correctly. 
+- [ ] Motor control modules are well prepared. Each motor connects to their driver correctly.
+- [ ] Motor control module for **left wheel** connects to mega2560 correctly.  
+- [ ] Motor control module for **right wheel** connects to mega2560 correctly. 
 
-**Note: If you have any doubt, or not sure the hardware wirings, please review system diagrams and double check before going to the next step.**
+**Note: If you have any doubt or not sure the hardware wirings, please review system diagrams and double check before going to the next step.**
 
 Having finished the first step, you are about to make wheels spin.
 There are two control boards that should have firmwares uploaded, **mega2560 & 3in1 board**. 
@@ -203,7 +203,7 @@ Firmware for mega2560 is inside the following folder.
 		```
 		/mcu_control/mega_base_ultrasonic_angelbot/lib
 		``` 
-	   Copy all contents inside and paste them to `/%document%/arduino/libraries` folder on your PC.
+	   Copy all the contents inside and paste them to `/%document%/arduino/libraries` folder on your PC.
 	3. Make sure the following code is on line 31 or 32 in wiring.c.   
 		 
 		 ```
@@ -312,7 +312,7 @@ Firmware for mega2560 is inside the following folder.
 			``` 
 			Enter `ctrl + c` to exit.
 	
-5. If you finished all the steps, type `ctrl + c` on all the termianl you opened to exit.
+5. If you have finished all the steps, type `ctrl + c` on all the terminal you have opened to exit.
 	
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of base driving test</b>
@@ -322,18 +322,18 @@ Firmware for mega2560 is inside the following folder.
 
 ### Laser scanning test
 
-The laser scanner we use is **rplidar**. 
-To use it, the complete hardware setup should contain rplidar + transmission board.
-
 <a name="laser-scan-test-step1"></a>
 
-#### Step 1 `Check hardware setup to receive data from laser scanner`
+#### Step 1 `Check hardware setups for laser scanning`
 
-Mark the following checklist yourself when you finish each setup.
+The laser scanner we use is **rplidar**. 
+To use it, the complete hardware setup should contain **rplidar + data transmission board**.
+
+Before going through the steps below, please mark the following checklist yourself when you have finished each setup.
 
 - [ ] Check your data transmission board. Make sure you installed the right one.
 
-**Note: If you have any doubt, or not sure the hardware wirings,
+**Note: If you have any doubt or not sure the hardware wirings,
 please review system diagrams or datasheet and double check before going to next step.**
 
 <a name="laser-scan-test-step2"></a> 
@@ -341,7 +341,6 @@ please review system diagrams or datasheet and double check before going to next
 #### Step 2 `Launch rplidar driver`
 
 This is to help you find out whether the rplidar you installed is functional and your hardware setup is correct.
-Before going through the steps below, please mark the following checklist yourself when you finish each setup.
 
 * Launch laser scanner
 	1. Open a terminal on you PC and type
@@ -391,8 +390,8 @@ Before going through the steps below, please mark the following checklist yourse
 		
 		![laser scan sample](doc/laser_scan_sample.png)
 		
-		Type `ctrl + c` to exit when you finish checking.
-	5. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
+		Type `ctrl + c` to exit when you have finished checking.
+	5. If you have finished all the steps, type `ctrl + c` on all the terminal you have opened to exit.
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of laser scan test</b>
@@ -404,25 +403,25 @@ Before going through the steps below, please mark the following checklist yourse
 
 <a name="camera-joint-control-step1"></a>
 
-#### Step 1 `Check hardware setup to control camera position`
+#### Step 1 `Check hardware setup to control camera's heading`
 
-The recent version of Angel's camera joint consists of a motor-control module same as the one used to control wheels.
+The recent version of Angel's camera joint consists of a motor control module same as the one used to control wheels.
 (a motor **JGB37 3530B** + **3in1 board**).
-This motor-control module must also be connected to mega2560.
+This motor control module must also be connected to mega2560.
 
 **Cautions!!**
 
 **We do not have `limit switch` on the joint, which is supposed to prevent Angel's joint or housing damages from operators giving position commands that the joint cannot reach.   
 So please check the following list carefully.**
 
-Mark the following checklist yourself when you finish each setup.
+Mark the following checklist yourself when you have finished each setup.
 
 - [ ] Check your motor model. Make sure you have installed the right one.
-- [ ] Motor control module is well connected. It has correct wiring to its driver.
+- [ ] Motor control module is well prepared. The motor connects to driver correctly.
 - [ ] Motor control module connects to mega2560 correctly.
 - [ ] **Please make sure Angel's camera is headed in Z direction, that is, toward the sky.** 
 
-**Note: If you have any doubt, or not sure the hardware wirings, 
+**Note: If you have any doubt or not sure the hardware wirings, 
 please review system diagrams and double check before going to next step.**
 
 <a name="camera-joint-control-step2"></a>
@@ -461,11 +460,11 @@ Firmware for joint position control is placed in the following folder.
 	
 <a name="camera-joint-control-step3"></a>
 
-#### Step 3 `Control camera joint`
+#### Step 3 `Control camera's heading`
 
 To be determine !
 
-* Launch camera position control
+* Launch camera heading control
 	1. Open a terminal up on you PC and type
 	
 		```
@@ -500,24 +499,24 @@ To be determine !
 		```
 		rostopic pub /camera_joint_position ... position: -30
 		```
-	6. After you finish controlling camera_joint, **please drive camera joint axis to the initial angle of 0 by giving 0 degree command.**
+	6. After you have finished controlling camera_joint, **please drive camera joint axis to the initial angle of 0 by giving 0 degree command.**
 		The camera is supposed to look toward the sky when you turn off Angel's power.
 		
 		```
 		rostopic pub /camera_joint_position ... position: 0
 		```
-	7. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
+	7. If you have finished all the steps, type `ctrl + c` on all the termianl you opened to exit.
 			
 ### Security Sensing test
 
 <a name="security-sensing-test-step1"></a>
 
-#### Step 1 `Check the sensor setup`
+#### Step 1 `Check sensor setups`
 
-Mark the following checklist yourself when you finish each setup.
+Mark the following checklist yourself when you have finished each setup.
 
 - [ ] Check your sensor model. Make sure you have installed the right one.
-- [ ] Make sure you wired each sensor to the correct pin on mega2560.  
+- [ ] Make sure you have wired each sensor to the correct pin on mega2560.  
 
 <a name="security-sensing-test-step2"></a>
 
@@ -621,7 +620,7 @@ To be continue ...
 		![PIR](doc/motiondetection.png)
 		
 		**Simply wave your hand in front of the PIR sensor. The value on the screen would be `true` if something moves.**
-	6. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
+	6. If you have finished all the steps, type `ctrl + c` on all the termianl you opened to exit.
 		
 ### Camera image topic test
 
@@ -629,7 +628,7 @@ To be continue ...
 
 #### Step 1 `Check camera setup`
 
-Mark the following checklist yourself when you finish each setup.
+Mark the following checklist yourself when you have finished each setup.
 
 - [ ] Check your camera model. Make sure you have installed the right one.
 - [ ] Camera shoud be connected to the hub.  
@@ -645,7 +644,7 @@ Mark the following checklist yourself when you finish each setup.
 		ssh odroid@192.168.25.110
 		```
 		to access to angel.
-	2. The next step should be starting communication between odroid and rplidar through ROS.
+	2. The next step should be starting communication between odroid and the camera through ROS.
 		Open a terminal and type the following command.
 		
 		``` 
@@ -727,7 +726,7 @@ Mark the following checklist yourself when you finish each setup.
 		You will see something similar on your terminal:
 		
 		![camera image sample](doc/camera_image_topic.png)
-	5. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit.
+	5. If you have finished all the steps, type `ctrl + c` on all the termianl you opened to exit.
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of Module test</b>
@@ -784,7 +783,7 @@ If you haven't passed the module tests, **please go back and finish tests before
 	* Rotation (left): Drive angel to rotate 3 rounds in the counter-clockwise direction.
 	* Rotation (right): Drive angel to rotate 3 rounds in teh clockwise direction. 
 7. Check if there is a map shows up.
-8. If you finish all the steps, close you app on the phone and type `ctrl + c` on all the termianl you opened to exit.
+8. If you have finished all the steps, close you app on the phone and type `ctrl + c` on all the termianl you opened to exit.
 
 ### Auto docking
 
@@ -794,7 +793,7 @@ To be determine.
 
 #### Step 1 `Check docking modules setup`
 
-Mark the following checklist yourself when you finish each setup.
+Mark the following checklist yourself when you have finished each setup.
 
 - [ ] Make sure there are auto docking module on angel. 
 - [ ] Docking station is well-built.  
@@ -817,7 +816,7 @@ Mark the following checklist yourself when you finish each setup.
 	``` 
 	rosservice call /DockingEnable false
 	``` 
-6. If you finish all the steps, type `ctrl + c` on all the termianl you opened to exit. 
+6. If you have finished all the steps, type `ctrl + c` on all the termianl you opened to exit. 
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of Function test</b>
