@@ -64,6 +64,8 @@ They are placed in the **/hardware_design** folder.
 ## Preparing for testing
 
 1. Prepare a cell phone installed "teleop" app provided from Software team.
+	https://github.com/wennycooper/teleop_apk/raw/master/android_tutorial_teleop-debug.apk
+
 2. Prepare your odroid XU4 board with SD or EMC provided from Software team.
 3. Find a monitor and a hdmi cable and connect to odroid.
 4. Turn on the odroid XU4 board and wait for ubuntu finishing starting.
