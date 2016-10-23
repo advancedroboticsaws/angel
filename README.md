@@ -29,7 +29,6 @@ Required firmwares and programs are all included in this repository.
 In addition, this repository is also designated to store angel's design files, including system block diagram, schematic of electronic components and CAD files, etc. 
 They are placed in the **/hardware_design** folder. 
  
-
 ## Table of contents
 * [**Preparing for testing**](#preparing-for-testing)
 * [**System architecture**](#system-architecture)
@@ -47,8 +46,8 @@ They are placed in the **/hardware_design** folder.
   	* [**Step 2 Uploading firmware to camera joint driver 3in1 board**](#step-2-upload-firmware-to-camera-joint-driver-3in1 board)
   	* [**Step 3 Control camera's heading**](#step-3-control-camera's-heading)
   * [**Security Sensing test. To be continue ...**](#security-sensing-test)
-  	* [**Step 1 Check sensor setups**](#check-sensor-setups)
-  	* [**Step 2 Read each sensor**](#read-each-sensor)
+  	* [**Step 1 Check sensor setup**](#step-1-check-sensor-setup)
+  	* [**Step 2 Read each sensor**](#step-2-read-each-sensor)
   * [**Camera image topic test**](#camera-image-topic-test)
   	* [**Step 1 Check camera setup**](#step-1-check-camera-setup)
   	* [**Step 2 Run camera on odroid**](#step-2-run-camera-on-odroid)	  
@@ -57,7 +56,7 @@ They are placed in the **/hardware_design** folder.
   	* [**Step 1 Check requirements of tele-operation**](#step-1-check-requirements-of-tele-operation)
   	* [**Step 2 Tele-operating Angel**](#step-2-tele-operating-angel)
   * [**Auto docking. To be determine ...**](#auto-docking)
-  	* [**Step 1 Check docking modules setup**](#step-1-check-docking-modules-setup)
+  	* [**Step 1 Check docking module setup**](#step-1-check-docking-module-setup)
   	* [**Step 2 Launch auto docking sequence**](#step-2-launch-auto-docking-sequence)
 * [**Appendix**](#appendix)
 
@@ -79,7 +78,7 @@ They are placed in the **/hardware_design** folder.
 	In our example, the IP address is `192.168.25.110` 
 6. Download this repository and compile it on odroid by going through the following steps.
 
-	On a terimal, please type the following commands.
+	On a terminal, please type the following commands.
 	
 	```
 	ssh odroid@[Odroid IP address]
@@ -87,7 +86,11 @@ They are placed in the **/hardware_design** folder.
 	git clone https://github.com/advancedroboticsaws/angel.git
 	cd ~/catkin_ws
 	catkin_make 
-	```  
+	```
+7. **Very important!** Please go to the following page and make sure you have connected each component to the specified port on the hub.
+	
+	https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev 
+
 
 ## System architecture
 
@@ -120,7 +123,7 @@ Here, we separate Angel into several modules.
 |
 <b><a href="#camera-joint-test">Camera joint test</a></b>
 |
-<b><a href="#security-sensing-test">Securit Sensing test</a></b>
+<b><a href="#security-sensing-test">Security Sensing test</a></b>
 |
 <b><a href="#camera-image-topic-test">Camera image topic test</a></b>
 </p>
@@ -511,7 +514,7 @@ To be determine !
 
 <a name="security-sensing-test-step1"></a>
 
-#### Step 1 `Check sensor setups`
+#### Step 1 `Check sensor setup`
 
 Mark the following checklist yourself when you have finished each setup.
 
@@ -791,7 +794,7 @@ To be determine.
 
 <a name="auto-docking-test-step1"></a>
 
-#### Step 1 `Check docking modules setup`
+#### Step 1 `Check docking module setup`
 
 Mark the following checklist yourself when you have finished each setup.
 

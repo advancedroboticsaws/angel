@@ -669,8 +669,8 @@ function setDocumentScrollTop(ypos)
     </ul> </li> 
    <li> <a href="#security-sensing-test"><strong>Security Sensing test. To be continue ...</strong></a> 
     <ul> 
-     <li><a href="#check-sensor-setups"><strong>Step 1 Check sensor setups</strong></a></li> 
-     <li><a href="#read-each-sensor"><strong>Step 2 Read each sensor</strong></a></li> 
+     <li><a href="#step-1-check-sensor-setup"><strong>Step 1 Check sensor setup</strong></a></li> 
+     <li><a href="#step-2-read-each-sensor"><strong>Step 2 Read each sensor</strong></a></li> 
     </ul> </li> 
    <li> <a href="#camera-image-topic-test"><strong>Camera image topic test</strong></a> 
     <ul> 
@@ -687,7 +687,7 @@ function setDocumentScrollTop(ypos)
     </ul> </li> 
    <li> <a href="#auto-docking"><strong>Auto docking. To be determine ...</strong></a> 
     <ul> 
-     <li><a href="#step-1-check-docking-modules-setup"><strong>Step 1 Check docking modules setup</strong></a></li> 
+     <li><a href="#step-1-check-docking-module-setup"><strong>Step 1 Check docking module setup</strong></a></li> 
      <li><a href="#step-2-launch-auto-docking-sequence"><strong>Step 2 Launch auto docking sequence</strong></a></li> 
     </ul> </li> 
   </ul> </li> 
@@ -701,12 +701,13 @@ function setDocumentScrollTop(ypos)
  <li>Power on the odroid XU4 board and wait for ubuntu finishing starting.</li> 
  <li> <p>Check odroid IP address. </p> <p>Open a terminal and type the following command on odroid board.</p> <pre><code>ifconfig
 </code></pre> <p>In our example, the IP address is <code>192.168.25.110</code> </p> </li> 
- <li> <p>Download this repository and compile it on odroid by going through the following steps.</p> <p>On a terimal, please type the following commands.</p> <pre><code>ssh odroid@[Odroid IP address]
+ <li> <p>Download this repository and compile it on odroid by going through the following steps.</p> <p>On a terminal, please type the following commands.</p> <pre><code>ssh odroid@[Odroid IP address]
 cd ~/catkin_ws/src
 git clone https://github.com/advancedroboticsaws/angel.git
 cd ~/catkin_ws
 catkin_make 
 </code></pre> </li> 
+ <li> <p><strong>Very important!</strong> Please go to the following page and make sure you have connected each component to the specified port on the hub.</p> <p><a href="https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev">https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev</a> </p> </li> 
 </ol> 
 <h2> <a id="system-architecture" class="anchor" href="#system-architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System architecture</h2> 
 <p>This section gives you an overview on angel's design.</p> 
@@ -724,7 +725,7 @@ catkin_make
 <p><a href="doc/3in1%20board-2nd.jpg" target="_blank"><img src="doc/3in1%20board-2nd.jpg" alt="3in1 board-2" style="max-width:100%;" /></a></p> 
 <h2> <a id="module-test" class="anchor" href="#module-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module test</h2> 
 <p>Here, we separate Angel into several modules. </p> 
-<p align="center"> <b><a href="#base-driving-test">Base driving test</a></b> | <b><a href="#laser-scan-test">Laser scan test</a></b> | <b><a href="#camera-joint-test">Camera joint test</a></b> | <b><a href="#security-sensing-test">Securit Sensing test</a></b> | <b><a href="#camera-image-topic-test">Camera image topic test</a></b> </p> 
+<p align="center"> <b><a href="#base-driving-test">Base driving test</a></b> | <b><a href="#laser-scan-test">Laser scan test</a></b> | <b><a href="#camera-joint-test">Camera joint test</a></b> | <b><a href="#security-sensing-test">Security Sensing test</a></b> | <b><a href="#camera-image-topic-test">Camera image topic test</a></b> </p> 
 <h3> <a id="base-driving-test" class="anchor" href="#base-driving-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Base driving test</h3> 
 <p><a name="user-content-base-driving-test-step1"></a></p> 
 <h4> <a id="step-1-check-hardware-setups-for-base-driving" class="anchor" href="#step-1-check-hardware-setups-for-base-driving" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check hardware setups for base driving</code> </h4> 
@@ -938,7 +939,7 @@ RPLidar health status : 0
 </ul> 
 <h3> <a id="security-sensing-test" class="anchor" href="#security-sensing-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security Sensing test</h3> 
 <p><a name="user-content-security-sensing-test-step1"></a></p> 
-<h4> <a id="step-1-check-sensor-setups" class="anchor" href="#step-1-check-sensor-setups" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check sensor setups</code> </h4> 
+<h4> <a id="step-1-check-sensor-setup" class="anchor" href="#step-1-check-sensor-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check sensor setup</code> </h4> 
 <p>Mark the following checklist yourself when you have finished each setup.</p> 
 <ul> 
  <li>[ ] Check your sensor model. Make sure you have installed the right one.</li> 
@@ -1094,7 +1095,7 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
 <h3> <a id="auto-docking" class="anchor" href="#auto-docking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Auto docking</h3> 
 <p>To be determine.</p> 
 <p><a name="user-content-auto-docking-test-step1"></a></p> 
-<h4> <a id="step-1-check-docking-modules-setup" class="anchor" href="#step-1-check-docking-modules-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check docking modules setup</code> </h4> 
+<h4> <a id="step-1-check-docking-module-setup" class="anchor" href="#step-1-check-docking-module-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 <code>Check docking module setup</code> </h4> 
 <p>Mark the following checklist yourself when you have finished each setup.</p> 
 <ul> 
  <li>[ ] Make sure there are auto docking module on angel. </li> 
