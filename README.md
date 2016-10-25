@@ -26,7 +26,7 @@
 This is a guiding repository that gives you basic instructions to test and drive our robot system, **angel** for this case. 
 Required firmwares and programs are all included in this repository. 
 **Please go through this document very carefully.**
-In addition, this repository is also designated to store angel's design files, including system block diagram, schematic of electronic components and CAD files, etc. 
+In addition, this repository is also designated to store angel's design files, including system block diagram, schematics of electronic components and CAD files, etc. 
 They are placed in the **/hardware_design** folder. 
  
 ## Table of contents
@@ -87,7 +87,7 @@ They are placed in the **/hardware_design** folder.
 	cd ~/catkin_ws
 	catkin_make 
 	```
-7. **Very important!** Please go to the following page and make sure you have connected each component to the specified port on the hub.
+7. **Very important!** Please go to the following page and make sure you have connected components to the specified port on the hub.
 	
 	https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev 
 
@@ -95,7 +95,7 @@ They are placed in the **/hardware_design** folder.
 ## System architecture
 
 This section gives you an overview on angel's design.
-
+s
 **Note: All files related to angel's hardware design are placed in the folder `/hardware_design`.** 
 
 * Overall block diagram
@@ -226,10 +226,12 @@ Firmware for mega2560 is inside the following folder.
 
 #### Step 4 `Drive angel base`
 
+**Hook up angel on any surface without wheels touching anything.**
+
 1. Open a terminal on you PC and type
 
 	```
-	ssh odroid@192.168.25.110
+	ssh odroid@[odroid IP]
 	```
 	to access to angel.
 2. Launch base driver.
@@ -251,16 +253,25 @@ Firmware for mega2560 is inside the following folder.
 	/cmd_wheel_angularVel
 	/feedback_wheel_angularVel	
 	```
-4. Start driving wheels ony by one. 
+4. Start driving wheels one by one.  
 	* left wheel
 		* forward direction
 		
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 6.283 speed2: 0.0 driverstate: false" 
 			```
+			
+			On another terminal
+					
+			```
+			rostopic echo /feedback_wheel_angularVel  
+			```
+			
 			Enter `ctrl + c` to exit.
 			- [ ] Check if left wheel is rotating in the forward direction **same as the base's heading**.
 			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
+			- [ ] Check the topic /feedback_wheel_angularVel shows the same result. 
+					If the speed feedback is not the same as the command, please check the wirings of encoder.
 			
 			Type the following to make it stop.
 				
@@ -273,9 +284,17 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: -6.283 speed2: 0.0 driverstate: false" 
 			```
+			On another terminal
+					
+			```
+			rostopic echo /feedback_wheel_angularVel  
+			```
+			
 			Enter `ctrl + c` to exit.
 			- [ ] Check if left wheel is rotating in the backward direction **opposite to the base's heading**.
 			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
+			- [ ] Check the topic /feedback_wheel_angularVel shows the same result.
+					f the speed feedback is not the same as the command, please check the wirings of encoder.
 			
 			Type the following to make it stop.
 				
@@ -289,9 +308,16 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: 6.283 driverstate: false" 
 			```
+			On another terminal
+					
+			```
+			rostopic echo /feedback_wheel_angularVel  
+			```
 			Enter `ctrl + c` to exit.
 			- [ ] Check if left wheel is rotating in the forward direction **same as the base's heading**.
 			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
+			- [ ] Check the topic /feedback_wheel_angularVel shows the same result.
+					f the speed feedback is not the same as the command, please check the wirings of encoder.
 			
 			Type the following to make it stop.
 				
@@ -304,9 +330,16 @@ Firmware for mega2560 is inside the following folder.
 			```
 			rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd "speed1: 0.0 speed2: -6.283 driverstate: false" 
 			```
+			On another terminal
+					
+			```
+			rostopic echo /feedback_wheel_angularVel  
+			```
 			Enter `ctrl + c` to exit.
 			- [ ] Check if left wheel is rotating in the backward direction **opposite to the base's heading**.
 			- [ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.
+			- [ ] Check the topic /feedback_wheel_angularVel shows the same result.
+					If the speed feedback is not the same as the command, please check the wirings of encoder.
 			
 			Type the following to make it stop.
 				
@@ -344,12 +377,13 @@ please review system diagrams or datasheet and double check before going to next
 #### Step 2 `Launch rplidar driver`
 
 This is to help you find out whether the rplidar you installed is functional and your hardware setup is correct.
+Still, to make sure it is completely functional, please refer to **teleoperation** below in the functional test section.
 
 * Launch laser scanner
 	1. Open a terminal on you PC and type
 	
 		```
-		ssh odroid@192.168.25.110
+		ssh odroid@[Odroid IP]
 		```
 		to access to angel.
 	2. The next step should be starting communication between odroid and rplidar through ROS.
@@ -384,7 +418,7 @@ This is to help you find out whether the rplidar you installed is functional and
 		rostopic list
 		```   
 		Check if the topic **/scan** shows up. 
-	4. Type the following command to see if there is anything shows up.
+	4. Type the following command to see if anything shows up.
 		
 		```
 		rostopic echo /scan
@@ -471,7 +505,7 @@ To be determine !
 	1. Open a terminal up on you PC and type
 	
 		```
-		ssh odroid@192.168.25.110
+		ssh odroid@[Odroid IP]
 		```
 		to access to angel.
 	2. Launch base driver. (Camera is connected to mega_base.)
@@ -508,7 +542,7 @@ To be determine !
 		```
 		rostopic pub /camera_joint_position ... position: 0
 		```
-	7. If you have finished all the steps, type `ctrl + c` on all the termianl you opened to exit.
+	7. If you have finished all the steps, type `ctrl + c` on all the terminal you opened to exit.
 			
 ### Security Sensing test
 
@@ -531,7 +565,7 @@ To be continue ...
 	1. Open a terminal up on you PC and type
 	
 		```
-		ssh odroid@192.168.25.110
+		ssh odroid@[Odroid IP]
 		```
 		to access to angel.
 	2. Launch base driver. (Sensors are connected to mega_base.)
@@ -644,7 +678,7 @@ Mark the following checklist yourself when you have finished each setup.
 	1. Open a terminal up on you PC and type
 	
 		```
-		ssh odroid@192.168.25.110
+		ssh odroid@[Odroid IP]
 		```
 		to access to angel.
 	2. The next step should be starting communication between odroid and the camera through ROS.
@@ -729,7 +763,7 @@ Mark the following checklist yourself when you have finished each setup.
 		You will see something similar on your terminal:
 		
 		![camera image sample](doc/camera_image_topic.png)
-	5. If you have finished all the steps, type `ctrl + c` on all the termianl you opened to exit.
+	5. If you have finished all the steps, type `ctrl + c` on all the terminal you opened to exit.
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of Module test</b>
@@ -765,7 +799,7 @@ If you haven't passed the module tests, **please go back and finish tests before
 1. Use ssh command to access to odroid
 
 	```
-	ssh odroid@192.168.25.110
+	ssh odroid@[Odroid IP]
 	```
 2. Launching sequence to drive angel around and scanning.
 	
@@ -778,15 +812,17 @@ If you haven't passed the module tests, **please go back and finish tests before
 	rostopic list
 	```
 	Make sure /andbot/cmd_vel is on the list.
-4. Bring up your cell phone. Open teleop app and type `http://192.168.25.110:11311` to access to angel.
+4. Bring up your cell phone. Open teleop app and type `http://[Odroid IP]:11311` to access to angel.
 6. Put angel in a open area with large spaces and begin the following test
 	Tap on the screen and:
 	* Forward direction: Drive angel to move forward 2 meters.
 	* Backward dirction: Drive angel to move backward back to origin.
 	* Rotation (left): Drive angel to rotate 3 rounds in the counter-clockwise direction.
-	* Rotation (right): Drive angel to rotate 3 rounds in teh clockwise direction. 
-7. Check if there is a map shows up.
-8. If you have finished all the steps, close you app on the phone and type `ctrl + c` on all the termianl you opened to exit.
+	* Rotation (right): Drive angel to rotate 3 rounds in the clockwise direction. 
+7. Check if there is a map shows up. This is to make sure the laser scanner works.
+	If the expected map does not show up, laser scanner might be broken.
+			
+8. If you have finished all the steps, close you app on the phone and type `ctrl + c` on all the terminal you opened to exit.
 
 ### Auto docking
 
@@ -806,7 +842,7 @@ Mark the following checklist yourself when you have finished each setup.
 #### Step 2 `Launch auto docking sequence`
 
 1. Please redo Function: Tele-operation step 1 ~ 2.
-2. Use your cell phone to drive angel to about `2.5 meter` in front of the docking station.
+2. Use your cell phone to drive angel to about `2.5 meter` in front of the docking station and set its heading opposite to it.
 3. Launching `charging mode` to enable auto docking function. 
 	Open another terminal and ssh into angel and type the following command.
 	
@@ -819,7 +855,7 @@ Mark the following checklist yourself when you have finished each setup.
 	``` 
 	rosservice call /DockingEnable false
 	``` 
-6. If you have finished all the steps, type `ctrl + c` on all the termianl you opened to exit. 
+6. If you have finished all the steps, type `ctrl + c` on all the terminal you opened to exit. 
 
 <p align="right">
 <b><img src="doc/AR.png" alt="AR">End of Function test</b>

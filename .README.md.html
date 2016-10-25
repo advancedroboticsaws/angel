@@ -642,7 +642,7 @@ function setDocumentScrollTop(ypos)
 <h1 align="center"> <a id="-----instructions-for-fundamental-testing-on-angel-" class="anchor" href="#-----instructions-for-fundamental-testing-on-angel-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> <a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a> Instructions for fundamental testing on angel </h1> 
 <p align="center"> <b><a href="#overview">Overview</a></b> | <b><a href="#table-of-contents">Table of contents</a></b> | <b><a href="#preparing-for-testing">Preparing for testing</a></b> | <b><a href="#system-architecture">System architecture</a></b> | <b><a href="#module-test">Module test</a></b> | <b><a href="#function-test">Function test</a></b> | <b><a href="#team">Team</a></b> | <b><a href="#license">License</a></b> </p> 
 <h2> <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2> 
-<p>This is a guiding repository that gives you basic instructions to test and drive our robot system, <strong>angel</strong> for this case. Required firmwares and programs are all included in this repository. <strong>Please go through this document very carefully.</strong> In addition, this repository is also designated to store angel's design files, including system block diagram, schematic of electronic components and CAD files, etc. They are placed in the <strong>/hardware_design</strong> folder. </p> 
+<p>This is a guiding repository that gives you basic instructions to test and drive our robot system, <strong>angel</strong> for this case. Required firmwares and programs are all included in this repository. <strong>Please go through this document very carefully.</strong> In addition, this repository is also designated to store angel's design files, including system block diagram, schematics of electronic components and CAD files, etc. They are placed in the <strong>/hardware_design</strong> folder. </p> 
 <h2> <a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of contents</h2> 
 <ul> 
  <li><a href="#preparing-for-testing"><strong>Preparing for testing</strong></a></li> 
@@ -707,11 +707,10 @@ git clone https://github.com/advancedroboticsaws/angel.git
 cd ~/catkin_ws
 catkin_make 
 </code></pre> </li> 
- <li> <p><strong>Very important!</strong> Please go to the following page and make sure you have connected each component to the specified port on the hub.</p> <p><a href="https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev">https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev</a> </p> </li> 
+ <li> <p><strong>Very important!</strong> Please go to the following page and make sure you have connected components to the specified port on the hub.</p> <p><a href="https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev">https://github.com/Muchun-Yen/Assign-symbolic-links-for-auto-mounting-USB-devices-by-udev</a> </p> </li> 
 </ol> 
 <h2> <a id="system-architecture" class="anchor" href="#system-architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System architecture</h2> 
-<p>This section gives you an overview on angel's design.</p> 
-<p><strong>Note: All files related to angel's hardware design are placed in the folder <code>/hardware_design</code>.</strong> </p> 
+<p>This section gives you an overview on angel's design. s <strong>Note: All files related to angel's hardware design are placed in the folder <code>/hardware_design</code>.</strong> </p> 
 <ul> 
  <li>Overall block diagram</li> 
 </ul> 
@@ -788,8 +787,9 @@ catkin_make
 </ul> 
 <p><a name="user-content-base-driving-test-step4"></a></p> 
 <h4> <a id="step-4-drive-angel-base" class="anchor" href="#step-4-drive-angel-base" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4 <code>Drive angel base</code> </h4> 
+<p><strong>Hook up angel on any surface without wheels touching anything.</strong></p> 
 <ol> 
- <li> <p>Open a terminal on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+ <li> <p>Open a terminal on you PC and type</p> <pre><code>ssh odroid@[odroid IP]
 </code></pre> <p>to access to angel.</p> </li> 
  <li> <p>Launch base driver. Type the following command.</p> <pre><code>roslaunch angelbot angelbot_sanitytest.launch
 </code></pre> <p>check and make sure there is no error message pops up.</p> </li> 
@@ -797,39 +797,47 @@ catkin_make
 </code></pre> <p>Check and make sure the following two topics are on the list.</p> <pre><code>/cmd_wheel_angularVel
 /feedback_wheel_angularVel  
 </code></pre> </li> 
- <li> <p>Start driving wheels ony by one. </p> 
+ <li> <p>Start driving wheels one by one. </p> 
   <ul> 
    <li> <p>left wheel</p> 
     <ul> 
      <li> <p>forward direction</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 6.283 speed2: 0.0 driverstate: false&quot; 
+</code></pre> <p>On another terminal</p> <pre><code>rostopic echo /feedback_wheel_angularVel  
 </code></pre> <p>Enter <code>ctrl + c</code> to exit.</p> 
       <ul> 
        <li>[ ] Check if left wheel is rotating in the forward direction <strong>same as the base's heading</strong>.</li> 
        <li>[ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.</li> 
+       <li>[ ] Check the topic /feedback_wheel_angularVel shows the same result. If the speed feedback is not the same as the command, please check the wirings of encoder.</li> 
       </ul> <p>Type the following to make it stop.</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 0.0 speed2: 0.0 driverstate: false&quot; 
 </code></pre> <p>Enter <code>ctrl + c</code> to exit.</p> </li> 
      <li> <p>backward direction</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: -6.283 speed2: 0.0 driverstate: false&quot; 
+</code></pre> <p>On another terminal</p> <pre><code>rostopic echo /feedback_wheel_angularVel  
 </code></pre> <p>Enter <code>ctrl + c</code> to exit.</p> 
       <ul> 
        <li>[ ] Check if left wheel is rotating in the backward direction <strong>opposite to the base's heading</strong>.</li> 
        <li>[ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.</li> 
+       <li>[ ] Check the topic /feedback_wheel_angularVel shows the same result. f the speed feedback is not the same as the command, please check the wirings of encoder.</li> 
       </ul> <p>Type the following to make it stop.</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 0.0 speed2: 0.0 driverstate: false&quot; 
 </code></pre> <p>Enter <code>ctrl + c</code> to exit.</p> </li> 
     </ul> </li> 
    <li> <p>right wheel</p> 
     <ul> 
      <li> <p>forward direction</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 0.0 speed2: 6.283 driverstate: false&quot; 
+</code></pre> <p>On another terminal</p> <pre><code>rostopic echo /feedback_wheel_angularVel  
 </code></pre> <p>Enter <code>ctrl + c</code> to exit.</p> 
       <ul> 
        <li>[ ] Check if left wheel is rotating in the forward direction <strong>same as the base's heading</strong>.</li> 
        <li>[ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.</li> 
+       <li>[ ] Check the topic /feedback_wheel_angularVel shows the same result. f the speed feedback is not the same as the command, please check the wirings of encoder.</li> 
       </ul> <p>Type the following to make it stop.</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 0.0 speed2: 0.0 driverstate: false&quot; 
 </code></pre> <p>Enter <code>ctrl + c</code> to exit.</p> </li> 
      <li> <p>backward direction</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 0.0 speed2: -6.283 driverstate: false&quot; 
+</code></pre> <p>On another terminal</p> <pre><code>rostopic echo /feedback_wheel_angularVel  
 </code></pre> <p>Enter <code>ctrl + c</code> to exit.</p> 
       <ul> 
        <li>[ ] Check if left wheel is rotating in the backward direction <strong>opposite to the base's heading</strong>.</li> 
        <li>[ ] Check if left wheel is rotating at a speed of 6.283/s, which also means 1 rev/s.</li> 
+       <li>[ ] Check the topic /feedback_wheel_angularVel shows the same result. If the speed feedback is not the same as the command, please check the wirings of encoder.</li> 
       </ul> <p>Type the following to make it stop.</p> <pre><code>rostopic pub /cmd_wheel_angularVel angelbot/WheelCmd &quot;speed1: 0.0 speed2: 0.0 driverstate: false&quot;
 </code></pre> <p>Enter <code>ctrl + c</code> to exit.</p> </li> 
     </ul> </li> 
@@ -848,11 +856,11 @@ catkin_make
 <p><strong>Note: If you have any doubt or not sure the hardware wirings, please review system diagrams or datasheet and double check before going to next step.</strong></p> 
 <p><a name="user-content-laser-scan-test-step2"></a> </p> 
 <h4> <a id="step-2-launch-rplidar-driver" class="anchor" href="#step-2-launch-rplidar-driver" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch rplidar driver</code> </h4> 
-<p>This is to help you find out whether the rplidar you installed is functional and your hardware setup is correct.</p> 
+<p>This is to help you find out whether the rplidar you installed is functional and your hardware setup is correct. Still, to make sure it is completely functional, please refer to <strong>teleoperation</strong> below in the functional test section.</p> 
 <ul> 
  <li> <p>Launch laser scanner</p> 
   <ol> 
-   <li> <p>Open a terminal on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+   <li> <p>Open a terminal on you PC and type</p> <pre><code>ssh odroid@[Odroid IP]
 </code></pre> <p>to access to angel.</p> </li> 
    <li> <p>The next step should be starting communication between odroid and rplidar through ROS. Open another termimal and type:</p> <pre><code>roslaunch angelbot rplidar.lanuch 
 </code></pre> <p>You will see something like this:</p> <pre><code>started roslaunch server http://192.168.25.110:60968/
@@ -873,7 +881,7 @@ RPLidar health status : 0
 </code></pre> </li> 
    <li> <p>Open another terminal and type:</p> <pre><code>rostopic list
 </code></pre> <p>Check if the topic <strong>/scan</strong> shows up. </p> </li> 
-   <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic echo /scan
+   <li> <p>Type the following command to see if anything shows up.</p> <pre><code>rostopic echo /scan
 </code></pre> <p>You will see something similar on your terminal:</p> <p><a href="doc/laser_scan_sample.png" target="_blank"><img src="doc/laser_scan_sample.png" alt="laser scan sample" style="max-width:100%;" /></a></p> <p>Type <code>ctrl + c</code> to exit when you have finished checking.</p> </li> 
    <li>If you have finished all the steps, type <code>ctrl + c</code> on all the terminal you have opened to exit.</li> 
   </ol> </li> 
@@ -921,7 +929,7 @@ RPLidar health status : 0
 <ul> 
  <li> <p>Launch camera heading control</p> 
   <ol> 
-   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@[Odroid IP]
 </code></pre> <p>to access to angel.</p> </li> 
    <li> <p>Launch base driver. (Camera is connected to mega_base.) Type the following command.</p> <pre><code>roslaunch angelbot angelbot_sanitytest.launch
 </code></pre> <p>check if no error pops up.</p> </li> 
@@ -934,7 +942,7 @@ RPLidar health status : 0
 </code></pre> </li> 
    <li> <p>After you have finished controlling camera_joint, <strong>please drive camera joint axis to the initial angle of 0 by giving 0 degree command.</strong> The camera is supposed to look toward the sky when you turn off Angel's power.</p> <pre><code>rostopic pub /camera_joint_position ... position: 0
 </code></pre> </li> 
-   <li>If you have finished all the steps, type <code>ctrl + c</code> on all the termianl you opened to exit.</li> 
+   <li>If you have finished all the steps, type <code>ctrl + c</code> on all the terminal you opened to exit.</li> 
   </ol> </li> 
 </ul> 
 <h3> <a id="security-sensing-test" class="anchor" href="#security-sensing-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security Sensing test</h3> 
@@ -951,7 +959,7 @@ RPLidar health status : 0
 <ul> 
  <li> <p>Launch sensor reading</p> 
   <ol> 
-   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@[Odroid IP]
 </code></pre> <p>to access to angel.</p> </li> 
    <li> <p>Launch base driver. (Sensors are connected to mega_base.) Type the following command.</p> <pre><code>roslaunch angelbot angelbot_sanitytest.launch
 </code></pre> <p>check if no error pops up.</p> </li> 
@@ -993,7 +1001,7 @@ RPLidar health status : 0
 <ul> 
  <li> <p>Launch image capturing</p> 
   <ol> 
-   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@192.168.25.110
+   <li> <p>Open a terminal up on you PC and type</p> <pre><code>ssh odroid@[Odroid IP]
 </code></pre> <p>to access to angel.</p> </li> 
    <li> <p>The next step should be starting communication between odroid and the camera through ROS. Open a terminal and type the following command.</p> <pre><code>roslaunch angelbot usb_camera.launch
 </code></pre> <p>If everything goes right, you will see something like this</p> <pre><code>started roslaunch server http://192.168.25.110:37226/
@@ -1058,7 +1066,7 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
 </code></pre> <p>Check if there is a topic name <code>/camera/image_raw</code>. </p> </li> 
    <li> <p>Type the following command to see if there is anything shows up.</p> <pre><code>rostopic echo /camera/image_raw
 </code></pre> <p>You will see something similar on your terminal:</p> <p><a href="doc/camera_image_topic.png" target="_blank"><img src="doc/camera_image_topic.png" alt="camera image sample" style="max-width:100%;" /></a></p> </li> 
-   <li>If you have finished all the steps, type <code>ctrl + c</code> on all the termianl you opened to exit.</li> 
+   <li>If you have finished all the steps, type <code>ctrl + c</code> on all the terminal you opened to exit.</li> 
   </ol> </li> 
 </ul> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Module test</b> | <a href="#">BACK TO TOP</a> </p> 
@@ -1075,22 +1083,22 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
 <p><a name="user-content-tele-operation-test-step2"></a></p> 
 <h4> <a id="step-2-tele-operating-angel" class="anchor" href="#step-2-tele-operating-angel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Tele-operating Angel</code> </h4> 
 <ol> 
- <li> <p>Use ssh command to access to odroid</p> <pre><code>ssh odroid@192.168.25.110
+ <li> <p>Use ssh command to access to odroid</p> <pre><code>ssh odroid@[Odroid IP]
 </code></pre> </li> 
  <li> <p>Launching sequence to drive angel around and scanning.</p> <pre><code>roslaunch angelbot angelbot_functionaltest.launch
 </code></pre> </li> 
  <li> <p>Check topics</p> <pre><code>rostopic list
 </code></pre> <p>Make sure /andbot/cmd_vel is on the list.</p> </li> 
- <li>Bring up your cell phone. Open teleop app and type <code>http://192.168.25.110:11311</code> to access to angel.</li> 
+ <li>Bring up your cell phone. Open teleop app and type <code>http://[Odroid IP]:11311</code> to access to angel.</li> 
  <li>Put angel in a open area with large spaces and begin the following test Tap on the screen and: 
   <ul> 
    <li>Forward direction: Drive angel to move forward 2 meters.</li> 
    <li>Backward dirction: Drive angel to move backward back to origin.</li> 
    <li>Rotation (left): Drive angel to rotate 3 rounds in the counter-clockwise direction.</li> 
-   <li>Rotation (right): Drive angel to rotate 3 rounds in teh clockwise direction. </li> 
+   <li>Rotation (right): Drive angel to rotate 3 rounds in the clockwise direction. </li> 
   </ul> </li> 
- <li>Check if there is a map shows up.</li> 
- <li>If you have finished all the steps, close you app on the phone and type <code>ctrl + c</code> on all the termianl you opened to exit.</li> 
+ <li><p>Check if there is a map shows up. This is to make sure the laser scanner works. If the expected map does not show up, laser scanner might be broken.</p></li> 
+ <li><p>If you have finished all the steps, close you app on the phone and type <code>ctrl + c</code> on all the terminal you opened to exit.</p></li> 
 </ol> 
 <h3> <a id="auto-docking" class="anchor" href="#auto-docking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Auto docking</h3> 
 <p>To be determine.</p> 
@@ -1105,13 +1113,13 @@ pixfmt 1 = 'YUYV' desc = 'YUV 4:2:2 (YUYV)'
 <h4> <a id="step-2-launch-auto-docking-sequence" class="anchor" href="#step-2-launch-auto-docking-sequence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2 <code>Launch auto docking sequence</code> </h4> 
 <ol> 
  <li>Please redo Function: Tele-operation step 1 ~ 2.</li> 
- <li>Use your cell phone to drive angel to about <code>2.5 meter</code> in front of the docking station.</li> 
+ <li>Use your cell phone to drive angel to about <code>2.5 meter</code> in front of the docking station and set its heading opposite to it.</li> 
  <li> <p>Launching <code>charging mode</code> to enable auto docking function. Open another terminal and ssh into angel and type the following command.</p> <pre><code>rosservice call /DockingEnable true
 </code></pre> </li> 
  <li>See if angel is approaching the ducking station and finally touches the charging station.</li> 
  <li> <p>If you carry out step 4 successfully, please type the following command to end up charging mode.</p> <pre><code>rosservice call /DockingEnable false
 </code></pre> </li> 
- <li>If you have finished all the steps, type <code>ctrl + c</code> on all the termianl you opened to exit. </li> 
+ <li>If you have finished all the steps, type <code>ctrl + c</code> on all the terminal you opened to exit. </li> 
 </ol> 
 <p align="right"> <b><a href="doc/AR.png" target="_blank"><img src="doc/AR.png" alt="AR" style="max-width:100%;" /></a>End of Function test</b> | <a href="#">BACK TO TOP</a> </p> 
 <h2> <a id="appendix" class="anchor" href="#appendix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Appendix</h2> 
