@@ -874,23 +874,6 @@ KERNEL=="ttyACM*", ATTRS{idProduct}=="0042", ATTRS{idVendor}=="2341", ATTRS{devp
 KERNEL=="ttyUSB*", ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", ATTRS{devpath}=="1.2.1.2", SYMLINK+="rplidar"
 ```
 
-    
-## Team 
-
-[Weber Hsu](https://github.com/Weber-Hsu)
-|
-[CL Chu](https://github.com/clchuadrobot)
-|
-[William Chen](https://github.com/piliwilliam0306)
-|
-[Zach Wang](https://github.com/ChingHengWang)
-|
-[Eric Ko](https://github.com/EricWilliamKo)
-|
-[Muchun Yen](https://github.com/Muchun-Yen)
-|
-[Kevin Kuei](https://github.com/wennycooper)
-
 ## License
 Copyright © 2016 Advanced Robotics Corporation
 
